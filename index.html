@@ -1,0 +1,930 @@
+<title>2026 Guillotine Draft Board</title>
+<style>
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #10150F;
+      --surface: #171D15;
+      --surface-2: #1D2419;
+      --ink: #E7ECE4;
+      --ink-muted: #93A091;
+      --line: #2B342A;
+      --gold: #D9A23F;
+      --gold-soft: #3A2E17;
+      --brick: #D97268;
+      --pos-qb: #8393D0;
+      --pos-rb: #5FBE8E;
+      --pos-wr: #E08A56;
+      --pos-te: #B08FD1;
+      --pos-k: #9C9C93;
+      --paid: #5FBE8E;
+      --unpaid: #D97268;
+      --shadow: 0 1px 0 rgba(0,0,0,0.4);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #10150F;
+    --surface: #171D15;
+    --surface-2: #1D2419;
+    --ink: #E7ECE4;
+    --ink-muted: #93A091;
+    --line: #2B342A;
+    --gold: #D9A23F;
+    --gold-soft: #3A2E17;
+    --brick: #D97268;
+    --pos-qb: #8393D0;
+    --pos-rb: #5FBE8E;
+    --pos-wr: #E08A56;
+    --pos-te: #B08FD1;
+    --pos-k: #9C9C93;
+    --paid: #5FBE8E;
+    --unpaid: #D97268;
+    --shadow: 0 1px 0 rgba(0,0,0,0.4);
+  }
+  :root {
+    --paper: #F3F5F0;
+    --surface: #FFFFFF;
+    --surface-2: #ECEFE8;
+    --ink: #1A231C;
+    --ink-muted: #5E6C60;
+    --line: #DCE2D8;
+    --gold: #B8801F;
+    --gold-soft: #EADFC5;
+    --brick: #A63B32;
+    --pos-qb: #4C5FA0;
+    --pos-rb: #2E7A54;
+    --pos-wr: #B0592E;
+    --pos-te: #7A5C99;
+    --pos-k: #6B6B63;
+    --paid: #2E7A54;
+    --unpaid: #A63B32;
+    --shadow: 0 1px 0 rgba(20,30,20,0.06);
+    --font-display: ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
+    --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: ui-monospace, "SF Mono", "Cascadia Code", Menlo, Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.45;
+  }
+  ::selection { background: var(--gold-soft); }
+
+  a { color: inherit; }
+
+  .wrap {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px 64px;
+  }
+
+  /* ---------- Header / masthead ---------- */
+  .masthead {
+    padding: 22px 20px 14px;
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .masthead h1 {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+    margin: 0;
+  }
+  .masthead .meta {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+    text-align: right;
+  }
+
+  /* ---------- On the clock banner ---------- */
+  .clock {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--surface);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    box-shadow: var(--shadow);
+  }
+  .clock-inner {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    flex-wrap: wrap;
+  }
+  .clock-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+  }
+  .clock-team {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .clock-sub {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .clock-deck {
+    margin-left: auto;
+    text-align: right;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+  .clock-deck b { color: var(--ink); font-weight: 700; }
+  .clock.done .clock-team { color: var(--brick); }
+
+  /* ---------- Full draft order rail ---------- */
+  .draftorder {
+    margin: 18px 0 6px;
+  }
+  .draftorder h2, .section-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    margin: 0 0 10px;
+    font-weight: 700;
+  }
+  .do-legend {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    text-transform: none;
+    letter-spacing: normal;
+    font-weight: 400;
+    margin-left: 4px;
+  }
+  .pay-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    vertical-align: middle;
+    flex: 0 0 auto;
+  }
+  .pay-dot.paid { background: var(--paid); }
+  .pay-dot.unpaid { background: var(--unpaid); }
+  .do-row {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    padding-bottom: 6px;
+    scroll-behavior: smooth;
+  }
+  .do-chip {
+    flex: 0 0 auto;
+    min-width: 108px;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    padding: 7px 10px;
+  }
+  .do-chip .do-pick {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .do-chip .do-team {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .do-chip .do-player {
+    font-size: 11px;
+    color: var(--ink-muted);
+    margin-top: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .do-chip.past { opacity: 0.72; }
+  .do-chip.current {
+    background: var(--gold-soft);
+    border-color: var(--gold);
+  }
+  .do-chip.current .do-pick { color: var(--gold); font-weight: 700; }
+  .do-chip.future .do-team { color: var(--ink-muted); }
+  .empty-note {
+    color: var(--ink-muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* ---------- Draft grid (central board) ---------- */
+  .draftgrid-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px;
+  }
+  .draftgrid-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .draftgrid-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+  }
+  .draftgrid-hint {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .draftgrid-wrap {
+    overflow: auto;
+    max-height: 68vh;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+  }
+  table.draftgrid {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: 100%;
+    min-width: 980px;
+  }
+  table.draftgrid th, table.draftgrid td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    text-align: left;
+    vertical-align: top;
+  }
+  table.draftgrid thead th {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    background: var(--surface-2);
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  table.draftgrid thead th.dg-corner {
+    left: 0;
+    z-index: 4;
+  }
+  table.draftgrid thead th.dg-current { color: var(--gold); }
+  table.draftgrid td.dg-round-cell, table.draftgrid th.dg-corner {
+    position: sticky;
+    left: 0;
+    z-index: 2;
+    background: var(--surface-2);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    width: 54px;
+  }
+  td.dg-cell {
+    font-size: 12.5px;
+    min-width: 140px;
+  }
+  td.dg-cell.filled .dg-nm { font-weight: 600; }
+  td.dg-cell.empty { color: var(--ink-muted); }
+  td.dg-cell.oncell {
+    background: var(--gold-soft);
+    box-shadow: inset 0 0 0 1px var(--gold);
+  }
+  td.dg-cell .dg-tm {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ink-muted);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* ---------- Tabs (mobile only) ---------- */
+  .tabs {
+    display: none;
+    gap: 6px;
+    margin: 20px 0 12px;
+  }
+  .tabs button {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 9px 14px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    color: var(--ink-muted);
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .tabs button.active {
+    color: var(--paper);
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+
+  /* ---------- Main layout ---------- */
+  .main {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 28px;
+    margin-top: 22px;
+    align-items: start;
+  }
+
+  /* ---------- Big board ---------- */
+  .board {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px;
+    position: sticky;
+    top: 84px;
+  }
+  .board-top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .board-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.03em;
+  }
+  .board-source {
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .board-source a { color: var(--ink-muted); text-decoration: underline; }
+  .search {
+    width: 100%;
+    padding: 8px 10px;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 13px;
+  }
+  .search:focus { outline: 2px solid var(--gold); outline-offset: 1px; }
+  .postabs {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+  }
+  .postabs button {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 5px 9px;
+    border-radius: 3px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+    color: var(--ink-muted);
+    cursor: pointer;
+  }
+  .postabs button.active {
+    background: var(--gold-soft);
+    border-color: var(--gold);
+    color: var(--ink);
+  }
+  .board-list {
+    max-height: 62vh;
+    overflow-y: auto;
+    border-top: 1px solid var(--line);
+  }
+  .prow {
+    display: grid;
+    grid-template-columns: 30px 1fr auto;
+    gap: 8px;
+    align-items: center;
+    padding: 7px 2px;
+    border-bottom: 1px solid var(--line);
+    font-size: 13px;
+  }
+  .prow .rk {
+    font-family: var(--font-mono);
+    color: var(--ink-muted);
+    font-size: 12px;
+    font-variant-numeric: tabular-nums;
+  }
+  .prow .nm { font-weight: 600; }
+  .prow .tm {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+  }
+  .pos-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 5px;
+    border-radius: 2px;
+    color: #fff;
+    letter-spacing: 0.02em;
+  }
+  .pos-QB { background: var(--pos-qb); }
+  .pos-RB { background: var(--pos-rb); }
+  .pos-WR { background: var(--pos-wr); }
+  .pos-TE { background: var(--pos-te); }
+  .pos-K  { background: var(--pos-k); }
+
+  /* ---------- Rosters ---------- */
+  .rosters-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 4px;
+  }
+  .req-note {
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .team {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .team.onclock {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold);
+  }
+  .team-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .team-name {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.01em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .team.onclock .team-name::before {
+    content: "";
+    width: 7px; height: 7px;
+    background: var(--gold);
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .team-count {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    font-variant-numeric: tabular-nums;
+  }
+  .team-picks { padding: 4px 0; }
+  .prow2 {
+    display: grid;
+    grid-template-columns: 60px 1fr auto;
+    gap: 8px;
+    align-items: center;
+    padding: 5px 12px;
+    font-size: 12.5px;
+    border-bottom: 1px solid var(--line);
+  }
+  .prow2:last-child { border-bottom: none; }
+  .prow2.slot-bench { background: color-mix(in srgb, var(--surface-2) 45%, transparent); }
+  .prow2 .slot-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: var(--ink-muted);
+  }
+  .prow2.filled .slot-label { color: var(--gold); }
+  .prow2.filled .nm2 { font-weight: 600; }
+  .prow2 .nm2 { color: var(--ink); }
+  .prow2.empty .nm2 { color: var(--ink-muted); font-style: italic; }
+  .prow2 .tm2 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--ink-muted);
+    white-space: nowrap;
+  }
+
+  footer {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 12px;
+    color: var(--ink-muted);
+  }
+
+  .rosters-section { margin-top: 28px; }
+
+  @media (max-width: 900px) {
+    .main { grid-template-columns: 1fr; }
+    .board { position: static; }
+    .tabs { display: flex; }
+    .panel { display: none; }
+    .panel.active { display: block; }
+    .grid { grid-template-columns: 1fr; }
+    .draftgrid-wrap { max-height: 56vh; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { scroll-behavior: auto !important; }
+  }
+</style>
+
+<div class="masthead">
+  <h1>Guillotine League &middot; 2026 Slow Draft</h1>
+  <div class="meta">12 teams &middot; snake &middot; 13 rounds &middot; 156 picks</div>
+</div>
+
+<div class="clock" id="clockBar">
+  <div class="clock-inner">
+    <div>
+      <div class="clock-label" id="clockLabel">On the clock</div>
+      <div class="clock-team" id="clockTeam">&mdash;</div>
+      <div class="clock-sub" id="clockSub">&mdash;</div>
+    </div>
+    <div class="clock-deck" id="clockDeck"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="draftorder">
+    <h2>Full draft order <span class="do-legend"><span class="pay-dot paid"></span>Paid &nbsp; <span class="pay-dot unpaid"></span>Not yet</span></h2>
+    <div class="do-row" id="orderRow"></div>
+  </div>
+
+  <div class="tabs">
+    <button class="active" data-panel="grid">Draft board</button>
+    <button data-panel="rosters">Rosters</button>
+    <button data-panel="board">Available players</button>
+  </div>
+
+  <div class="main">
+    <div class="board panel" data-panel="board">
+      <div class="board-top">
+        <div>
+          <div class="board-title">Superflex big board</div>
+          <div class="board-source">Consensus top 200, via <a href="https://www.si.com/fantasy/2026-fantasy-football-top-200-player-rankings-superflex-leagues" target="_blank" rel="noopener">Sports Illustrated</a> &middot; drafted players removed automatically</div>
+        </div>
+        <input class="search" id="searchBox" type="text" placeholder="Search a player&hellip;" autocomplete="off" />
+        <div class="postabs" id="posTabs">
+          <button class="active" data-pos="ALL">All</button>
+          <button data-pos="QB">QB</button>
+          <button data-pos="RB">RB</button>
+          <button data-pos="WR">WR</button>
+          <button data-pos="TE">TE</button>
+          <button data-pos="K">K</button>
+        </div>
+      </div>
+      <div class="board-list" id="boardList"></div>
+    </div>
+
+    <div class="draftgrid-panel panel active" data-panel="grid">
+      <div class="draftgrid-head">
+        <div class="draftgrid-title">Who picked whom</div>
+        <div class="draftgrid-hint">Columns are draft-order teams &middot; rows are rounds &middot; scrolls both ways</div>
+      </div>
+      <div class="draftgrid-wrap">
+        <table class="draftgrid" id="draftGridTable"></table>
+      </div>
+    </div>
+  </div>
+
+  <div class="rosters-section panel" data-panel="rosters">
+    <div class="rosters-head">
+      <div class="section-label" style="margin:0;">Team by team</div>
+      <div class="req-note">Picks slot in automatically: position spot &rarr; FLEX &rarr; SUPERFLEX &rarr; bench</div>
+    </div>
+    <div class="grid" id="teamGrid"></div>
+  </div>
+
+  <footer>
+    Picks are logged here as they&rsquo;re texted in.
+  </footer>
+</div>
+
+<script>
+// ---- League configuration ----
+const TEAMS = ["Max","Skinner","Matt","Shoes","Millar","Hamal","Colin","Bullock","Pete","TJ","Goodie","Jayel"];
+
+// Who's paid their league dues so far — edit this list as payments come in.
+const PAID_TEAMS = new Set(["TJ", "Pete", "Goodie", "Hamal"]);
+
+// Roster shape, in display order. Each pick auto-slots into the first open
+// spot it's eligible for, scanning top to bottom (position -> FLEX -> SUPERFLEX -> bench).
+const ROSTER_SLOTS = [
+  { label: "QB", eligible: ["QB"] },
+  { label: "RB", eligible: ["RB"] },
+  { label: "RB", eligible: ["RB"] },
+  { label: "WR", eligible: ["WR"] },
+  { label: "WR", eligible: ["WR"] },
+  { label: "TE", eligible: ["TE"] },
+  { label: "FLEX", eligible: ["RB", "WR", "TE"] },
+  { label: "SUPERFLEX", eligible: ["QB", "RB", "WR", "TE"] },
+  { label: "BENCH", eligible: ["QB", "RB", "WR", "TE", "K"] },
+  { label: "BENCH", eligible: ["QB", "RB", "WR", "TE", "K"] },
+  { label: "BENCH", eligible: ["QB", "RB", "WR", "TE", "K"] },
+  { label: "BENCH", eligible: ["QB", "RB", "WR", "TE", "K"] },
+  { label: "BENCH", eligible: ["QB", "RB", "WR", "TE", "K"] },
+];
+const ROSTER_SIZE = ROSTER_SLOTS.length;
+
+// ---- Draft log: append picks here in the order they happen, most-recent-last ----
+// Use the exact player name as it appears in PLAYERS below.
+const PICKS = [
+  "Josh Allen",
+  "Jahmyr Gibbs",
+  "Bijan Robinson",
+  "Christian McCaffrey",
+  "Jonathan Taylor",
+  "Puka Nacua",
+  "Lamar Jackson",
+  "Drake Maye",
+  "Joe Burrow",
+  "Ja'Marr Chase",
+  "Jalen Hurts",
+  "Jaxson Dart",
+  "Jaxon Smith-Njigba",
+  "Caleb Williams",
+];
+
+// ---- Superflex big board: [rank, name, pos, nflTeam] ----
+const PLAYERS = [
+[1,"Josh Allen","QB","BUF"],[2,"Lamar Jackson","QB","BAL"],[3,"Drake Maye","QB","NE"],[4,"Jalen Hurts","QB","PHI"],[5,"Joe Burrow","QB","CIN"],
+[6,"Bijan Robinson","RB","ATL"],[7,"Caleb Williams","QB","CHI"],[8,"Jahmyr Gibbs","RB","DET"],[9,"Puka Nacua","WR","LAR"],[10,"Jayden Daniels","QB","WAS"],
+[11,"Ja'Marr Chase","WR","CIN"],[12,"Jaxon Smith-Njigba","WR","SEA"],[13,"Patrick Mahomes","QB","KC"],[14,"Jaxson Dart","QB","NYG"],[15,"Dak Prescott","QB","DAL"],
+[16,"Bo Nix","QB","DEN"],[17,"Christian McCaffrey","RB","SF"],[18,"Jonathan Taylor","RB","IND"],[19,"Amon-Ra St. Brown","WR","DET"],[20,"Justin Herbert","QB","LAC"],
+[21,"De'Von Achane","RB","MIA"],[22,"CeeDee Lamb","WR","DAL"],[23,"James Cook","RB","BUF"],[24,"Trevor Lawrence","QB","JAC"],[25,"Matthew Stafford","QB","LAR"],
+[26,"Brock Purdy","QB","SF"],[27,"Justin Jefferson","WR","MIN"],[28,"Ashton Jeanty","RB","LV"],[29,"Drake London","WR","ATL"],[30,"Jeremiyah Love","RB","ARI"],
+[31,"Chase Brown","RB","CIN"],[32,"Nico Collins","WR","HOU"],[33,"Omarion Hampton","RB","LAC"],[34,"Kenneth Walker III","RB","KC"],[35,"Saquon Barkley","RB","PHI"],
+[36,"Trey McBride","TE","ARI"],[37,"Kyler Murray","QB","MIN"],[38,"Derrick Henry","RB","BAL"],[39,"Brock Bowers","TE","LV"],[40,"Jared Goff","QB","DET"],
+[41,"Baker Mayfield","QB","TB"],[42,"George Pickens","WR","DAL"],[43,"A.J. Brown","WR","NE"],[44,"Tyler Shough","QB","NO"],[45,"Josh Jacobs","RB","GB"],
+[46,"Chris Olave","WR","NO"],[47,"Kyren Williams","RB","LAR"],[48,"Jordan Love","QB","GB"],[49,"Javonte Williams","RB","DAL"],[50,"Travis Etienne Jr.","RB","NO"],
+[51,"Emeka Egbuka","WR","TB"],[52,"Tetairoa McMillan","WR","CAR"],[53,"Malik Willis","QB","MIA"],[54,"Breece Hall","RB","NYJ"],[55,"Daniel Jones","QB","IND"],
+[56,"Devonta Smith","WR","PHI"],[57,"Garrett Wilson","WR","NYJ"],[58,"Tee Higgins","WR","CIN"],[59,"Bucky Irving","RB","TB"],[60,"Zay Flowers","WR","BAL"],
+[61,"Rashee Rice","WR","KC"],[62,"Malik Nabers","WR","NYG"],[63,"Sam Darnold","QB","SEA"],[64,"Quinshon Judkins","RB","CLE"],[65,"Davante Adams","WR","LAR"],
+[66,"Terry McLaurin","WR","WAS"],[67,"Jadarian Price","RB","SEA"],[68,"Cam Skattebo","RB","NYG"],[69,"Colston Loveland","TE","CHI"],[70,"Jacoby Brissett","QB","ARI"],
+[71,"Ladd McConkey","WR","LAC"],[72,"Bryce Young","QB","CAR"],[73,"Luther Burden III","WR","CHI"],[74,"Cam Ward","QB","TEN"],[75,"TreVeyon Henderson","RB","NE"],
+[76,"Carnell Tate","WR","TEN"],[77,"Jaylen Waddle","WR","DEN"],[78,"C.J. Stroud","QB","HOU"],[79,"Jameson Williams","WR","DET"],[80,"Tyler Warren","TE","IND"],
+[81,"Christian Watson","WR","GB"],[82,"Chuba Hubbard","RB","CAR"],[83,"Bhayshul Tuten","RB","JAC"],[84,"D'Andre Swift","RB","CHI"],[85,"D.J. Moore","WR","BUF"],
+[86,"Harold Fannin Jr.","TE","CLE"],[87,"Rome Odunze","WR","CHI"],[88,"Mike Evans","WR","SF"],[89,"Kyle Pitts Sr.","TE","ATL"],[90,"Alec Pierce","WR","IND"],
+[91,"Fernando Mendoza","QB","LV"],[92,"Marvin Harrison Jr.","WR","ARI"],[93,"Tucker Kraft","TE","GB"],[94,"David Montgomery","RB","HOU"],[95,"DK Metcalf","WR","PIT"],
+[96,"Jaylen Warren","RB","PIT"],[97,"Tony Pollard","RB","TEN"],[98,"Makai Lemon","WR","PHI"],[99,"Sam LaPorta","TE","DET"],[100,"Courtland Sutton","WR","DEN"],
+[101,"Michael Wilson","WR","ARI"],[102,"Jordyn Tyson","WR","NO"],[103,"Rhamondre Stevenson","RB","NE"],[104,"RJ Harvey","RB","DEN"],[105,"Brian Thomas Jr.","WR","JAC"],
+[106,"Rachaad White","RB","WAS"],[107,"Travis Kelce","TE","KC"],[108,"J.K. Dobbins","RB","DEN"],[109,"Chris Godwin Jr.","WR","TB"],[110,"Mark Andrews","TE","BAL"],
+[111,"Parker Washington","WR","JAC"],[112,"Xavier Worthy","WR","KC"],[113,"Ricky Pearsall","WR","SF"],[114,"Jake Ferguson","TE","DAL"],[115,"Wan'Dale Robinson","WR","TEN"],
+[116,"Jakobi Meyers","WR","JAC"],[117,"Jordan Addison","WR","MIN"],[118,"Aaron Jones Sr.","RB","MIN"],[119,"Rico Dowdle","RB","PIT"],[120,"Kyle Monangai","RB","CHI"],
+[121,"KC Concepcion","WR","CLE"],[122,"Matthew Golden","WR","GB"],[123,"Deshaun Watson","QB","CLE"],[124,"Michael Pittman Jr.","WR","PIT"],[125,"Quentin Johnston","WR","LAC"],
+[126,"Josh Downs","WR","IND"],[127,"Aaron Rodgers","QB","PIT"],[128,"Isaiah Likely","TE","NYG"],[129,"Oronde Gadsden","TE","LAC"],[130,"Blake Corum","RB","LAR"],
+[131,"Kenenth Gainwell","RB","TB"],[132,"Jordan Mason","RB","MIN"],[133,"Jacory Croskey-Merritt","RB","WAS"],[134,"Dalton Kincaid","TE","BUF"],[135,"Tyrone Tracy Jr.","RB","NYG"],
+[136,"Romeo Doubs","WR","NE"],[137,"Stefon Diggs","WR","FA"],[138,"Jayden Reed","WR","GB"],[139,"Khalil Shakir","WR","BUF"],[140,"Dallas Goedert","TE","PHI"],
+[141,"Jayden Higgins","WR","HOU"],[142,"George Kittle","TE","SF"],[143,"Tyler Allgeier","RB","ARI"],[144,"Chris Rodriguez Jr.","RB","JAC"],[145,"Brandon Aubrey","K","DAL"],
+[146,"Hunter Henry","TE","NE"],[147,"Deebo Samuel Sr.","WR","FA"],[148,"Jonah Coleman","RB","DEN"],[149,"Geno Smith","QB","NYJ"],[150,"Jonathan Brooks","RB","CAR"],
+[151,"Nicholas Singleton","RB","TEN"],[152,"Zach Charbonnet","RB","SEA"],[153,"Juwan Johnson","TE","NO"],[154,"Kenyon Sadiq","TE","NYJ"],[155,"Jalen McMillan","WR","TB"],
+[156,"Kimani Vidal","RB","LAC"],[157,"Tyjae Spears","RB","TEN"],[158,"Kaytron Allen","RB","WAS"],[159,"Keaton Mitchell","RB","LAC"],[160,"Woody Marks","RB","HOU"],
+[161,"Isiah Pacheco","RB","DET"],[162,"Tua Tagovailoa","QB","ATL"],[163,"Dylan Sampson","RB","CLE"],[164,"Mike Washington Jr.","RB","LV"],[165,"Jalen Coker","WR","CAR"],
+[166,"Jerry Jeudy","WR","CLE"],[167,"Omar Cooper Jr.","WR","NYJ"],[168,"Shedeur Sanders","QB","CLE"],[169,"Michael Penix Jr.","QB","ATL"],[170,"Jauan Jennings","WR","MIN"],
+[171,"Brian Robinson Jr.","RB","ATL"],[172,"Braelon Allen","RB","NYJ"],[173,"Tank Bigsby","RB","PHI"],[174,"Emmett Johnson","RB","KC"],[175,"Emanuel Wilson","RB","SEA"],
+[176,"Kirk Cousins","QB","LV"],[177,"Brandon Aiyuk","WR","SF"],[178,"Jaylen Wright","RB","MIA"],[179,"Travis Hunter","WR","JAC"],[180,"Tre Tucker","WR","LV"],
+[181,"J.J. McCarthy","QB","MIN"],[182,"Jordan James","RB","SF"],[183,"Alvin Kamara","RB","NO"],[184,"Dalton Schultz","TE","HOU"],[185,"T.J. Hockenson","TE","MIN"],
+[186,"Malik Washington","WR","MIA"],[187,"Brenton Strange","TE","JAC"],[188,"Rashid Shaheed","WR","SEA"],[189,"Denzel Boston","WR","CLE"],[190,"James Conner","RB","ARI"],
+[191,"Anthony Richardson","QB","IND"],[192,"Sean Tucker","RB","TB"],[193,"Jaydon Blue","RB","DAL"],[194,"Jalen Nailor","WR","LV"],[195,"Antonio Williams","WR","WAS"],
+[196,"Adonai Mitchell","WR","NYJ"],[197,"Chig Okonkwo","TE","WAS"],[198,"Joe Flacco","QB","CIN"],[199,"Ka'imi Fairbairn","K","HOU"],[200,"Pat Freiermuth","TE","PIT"],
+[201,"Cooper Kupp","WR","SEA"],
+];
+
+// ---- Derived state ----
+const PLAYER_BY_NAME = {};
+PLAYERS.forEach(p => PLAYER_BY_NAME[p[1]] = p);
+
+function teamForPick(i) { // i = 0-based overall pick index
+  const round = Math.floor(i / TEAMS.length);
+  const posInRound = i % TEAMS.length;
+  return round % 2 === 0 ? TEAMS[posInRound] : TEAMS[TEAMS.length - 1 - posInRound];
+}
+
+const draftedNames = new Set(PICKS);
+const picksByTeam = {};
+TEAMS.forEach(t => picksByTeam[t] = []);
+PICKS.forEach((name, i) => {
+  const team = teamForPick(i);
+  picksByTeam[team].push({ overall: i + 1, round: Math.floor(i / TEAMS.length) + 1, name });
+});
+
+const totalPicks = TEAMS.length * ROSTER_SIZE;
+const nextIndex = PICKS.length;
+const draftDone = nextIndex >= totalPicks;
+
+// ---- Render: on the clock ----
+const clockBar = document.getElementById("clockBar");
+const clockTeam = document.getElementById("clockTeam");
+const clockSub = document.getElementById("clockSub");
+const clockLabel = document.getElementById("clockLabel");
+const clockDeck = document.getElementById("clockDeck");
+
+if (draftDone) {
+  clockBar.classList.add("done");
+  clockLabel.textContent = "Draft complete";
+  clockTeam.textContent = "That's a wrap";
+  clockSub.textContent = totalPicks + " picks in the books";
+  clockDeck.textContent = "";
+} else {
+  const round = Math.floor(nextIndex / TEAMS.length) + 1;
+  const pickInRound = (nextIndex % TEAMS.length) + 1;
+  const team = teamForPick(nextIndex);
+  clockLabel.textContent = "On the clock";
+  clockTeam.textContent = team;
+  clockSub.textContent = "Round " + round + " · Pick " + pickInRound + " · Overall " + (nextIndex + 1) + " of " + totalPicks;
+  const upcoming = [];
+  for (let k = 1; k <= 3 && nextIndex + k < totalPicks; k++) {
+    upcoming.push(teamForPick(nextIndex + k));
+  }
+  clockDeck.innerHTML = upcoming.length ? "On deck: <b>" + upcoming.join("</b> &middot; <b>") + "</b>" : "";
+}
+
+// ---- Render: full draft order rail ----
+const orderRow = document.getElementById("orderRow");
+const orderSeq = [];
+for (let i = 0; i < totalPicks; i++) {
+  const round = Math.floor(i / TEAMS.length) + 1;
+  const pickInRound = (i % TEAMS.length) + 1;
+  orderSeq.push({
+    overall: i + 1,
+    round,
+    pickInRound,
+    team: teamForPick(i),
+    name: i < PICKS.length ? PICKS[i] : null,
+  });
+}
+orderRow.innerHTML = orderSeq.map(pk => {
+  const state = pk.overall - 1 < nextIndex ? "past" : (pk.overall - 1 === nextIndex ? "current" : "future");
+  const playerLine = pk.name ? '<div class="do-player">' + pk.name + '</div>' : "";
+  const payDot = '<span class="pay-dot ' + (PAID_TEAMS.has(pk.team) ? "paid" : "unpaid") + '"></span>';
+  return '<div class="do-chip ' + state + '" data-overall="' + pk.overall + '">' +
+    '<div class="do-pick">R' + pk.round + '.' + pk.pickInRound + ' &middot; #' + pk.overall + '</div>' +
+    '<div class="do-team">' + payDot + pk.team + '</div>' + playerLine + '</div>';
+}).join("");
+
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const currentChip = orderRow.querySelector(".do-chip.current") || orderRow.querySelector(".do-chip.past:last-child");
+if (currentChip) {
+  currentChip.scrollIntoView({ inline: "center", block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+}
+
+// ---- Render: draft grid (central "who picked whom" board) ----
+const draftGridTable = document.getElementById("draftGridTable");
+const curTeamForGrid = draftDone ? null : teamForPick(nextIndex);
+const curRoundForGrid = draftDone ? null : Math.floor(nextIndex / TEAMS.length) + 1;
+
+let theadHtml = '<thead><tr><th class="dg-corner">Rd</th>' +
+  TEAMS.map(t => '<th class="' + (t === curTeamForGrid ? "dg-current" : "") + '">' + t + '</th>').join("") +
+  '</tr></thead>';
+
+let bodyRows = "";
+for (let round = 1; round <= ROSTER_SIZE; round++) {
+  bodyRows += '<tr><td class="dg-round-cell">Rd ' + round + '</td>';
+  TEAMS.forEach(team => {
+    const pick = picksByTeam[team].find(p => p.round === round);
+    const isOnCell = !draftDone && team === curTeamForGrid && round === curRoundForGrid;
+    if (pick) {
+      const p = PLAYER_BY_NAME[pick.name];
+      const posBadge = p ? '<span class="pos-badge pos-' + p[2] + '">' + p[2] + '</span>' : "";
+      const tm = p ? p[3] : "";
+      bodyRows += '<td class="dg-cell filled' + (isOnCell ? " oncell" : "") + '"><span class="dg-nm">' + posBadge + ' ' + pick.name + '</span><span class="dg-tm">' + tm + '</span></td>';
+    } else {
+      bodyRows += '<td class="dg-cell empty' + (isOnCell ? " oncell" : "") + '">&mdash;</td>';
+    }
+  });
+  bodyRows += '</tr>';
+}
+draftGridTable.innerHTML = theadHtml + '<tbody>' + bodyRows + '</tbody>';
+
+// ---- Slot a team's picks into its roster shape ----
+// Each pick fills the first open slot (in ROSTER_SLOTS order) it's eligible for:
+// its own position, then FLEX, then SUPERFLEX, then bench.
+function assignSlots(picks) {
+  const slots = ROSTER_SLOTS.map(s => ({ label: s.label, eligible: s.eligible, pick: null }));
+  picks.forEach(pick => {
+    const p = PLAYER_BY_NAME[pick.name];
+    const pos = p ? p[2] : null;
+    const target = slots.find(s => !s.pick && pos && s.eligible.includes(pos)) || slots.find(s => !s.pick);
+    if (target) target.pick = pick;
+  });
+  return slots;
+}
+
+// ---- Render: team rosters ----
+const teamGrid = document.getElementById("teamGrid");
+teamGrid.innerHTML = TEAMS.map(team => {
+  const picks = picksByTeam[team];
+  const isOnClock = !draftDone && teamForPick(nextIndex) === team;
+  const slots = assignSlots(picks);
+  const rows = slots.map(slot => {
+    const slotClass = slot.label === "BENCH" ? " slot-bench" : "";
+    if (slot.pick) {
+      const p = PLAYER_BY_NAME[slot.pick.name];
+      const posBadge = p ? '<span class="pos-badge pos-' + p[2] + '">' + p[2] + '</span>' : "";
+      const tm = p ? p[3] : "";
+      return '<div class="prow2 filled' + slotClass + '"><span class="slot-label">' + slot.label + '</span>' +
+        '<span class="nm2">' + posBadge + ' ' + slot.pick.name + '</span><span class="tm2">' + tm + ' &middot; R' + slot.pick.round + '</span></div>';
+    }
+    return '<div class="prow2 empty' + slotClass + '"><span class="slot-label">' + slot.label + '</span><span class="nm2">Empty</span><span class="tm2"></span></div>';
+  }).join("");
+  return '<div class="team' + (isOnClock ? ' onclock' : '') + '">' +
+    '<div class="team-head"><div class="team-name">' + team + '</div>' +
+    '<div class="team-count">' + picks.length + '/' + ROSTER_SIZE + '</div></div>' +
+    '<div class="team-picks">' + rows + '</div></div>';
+}).join("");
+
+// ---- Render + filter: big board ----
+const boardList = document.getElementById("boardList");
+const searchBox = document.getElementById("searchBox");
+const posTabs = document.getElementById("posTabs");
+let activePos = "ALL";
+
+function renderBoard() {
+  const q = searchBox.value.trim().toLowerCase();
+  const available = PLAYERS.filter(p => !draftedNames.has(p[1]));
+  const filtered = available.filter(p => {
+    const posMatch = activePos === "ALL" || p[2] === activePos;
+    const qMatch = !q || p[1].toLowerCase().includes(q);
+    return posMatch && qMatch;
+  });
+  if (filtered.length === 0) {
+    boardList.innerHTML = '<div class="empty-note" style="padding:12px 2px;">No players match.</div>';
+    return;
+  }
+  boardList.innerHTML = filtered.map(p =>
+    '<div class="prow"><span class="rk">' + p[0] + '</span>' +
+    '<span class="nm">' + p[1] + '</span>' +
+    '<span style="display:flex;align-items:center;gap:6px;"><span class="pos-badge pos-' + p[2] + '">' + p[2] + '</span><span class="tm">' + p[3] + '</span></span></div>'
+  ).join("");
+}
+searchBox.addEventListener("input", renderBoard);
+posTabs.addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  posTabs.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  activePos = btn.dataset.pos;
+  renderBoard();
+});
+renderBoard();
+
+// ---- Mobile tabs ----
+document.querySelector(".tabs").addEventListener("click", e => {
+  const btn = e.target.closest("button");
+  if (!btn) return;
+  document.querySelectorAll(".tabs button").forEach(b => b.classList.remove("active"));
+  btn.classList.add("active");
+  document.querySelectorAll(".panel").forEach(p => p.classList.toggle("active", p.dataset.panel === btn.dataset.panel));
+});
+</script>
