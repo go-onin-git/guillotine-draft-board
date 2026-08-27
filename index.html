@@ -18,6 +18,10 @@
       --pos-k: #9C9C93;
       --paid: #5FBE8E;
       --unpaid: #D97268;
+      --risk-good: #0ca30c;
+      --risk-warning: #fab219;
+      --risk-serious: #ec835a;
+      --risk-critical: #d03b3b;
       --shadow: 0 1px 0 rgba(0,0,0,0.4);
     }
   }
@@ -38,6 +42,10 @@
     --pos-k: #9C9C93;
     --paid: #5FBE8E;
     --unpaid: #D97268;
+    --risk-good: #0ca30c;
+    --risk-warning: #fab219;
+    --risk-serious: #ec835a;
+    --risk-critical: #d03b3b;
     --shadow: 0 1px 0 rgba(0,0,0,0.4);
   }
   :root {
@@ -57,6 +65,10 @@
     --pos-k: #6B6B63;
     --paid: #2E7A54;
     --unpaid: #A63B32;
+    --risk-good: #0ca30c;
+    --risk-warning: #fab219;
+    --risk-serious: #ec835a;
+    --risk-critical: #d03b3b;
     --shadow: 0 1px 0 rgba(20,30,20,0.06);
     --font-display: ui-sans-serif, "Helvetica Neue", Arial, sans-serif;
     --font-body: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
@@ -563,6 +575,146 @@
 
   .rosters-section { margin-top: 28px; }
 
+  /* ---------- Week 1 elimination watch ---------- */
+  .elimwatch { margin: 4px 0 6px; }
+  .elimwatch-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .elimwatch-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+  }
+  .elimwatch-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+  }
+  .elimwatch-legend {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .risk-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+  }
+  .risk-dot.critical { background: var(--risk-critical); }
+  .risk-dot.serious  { background: var(--risk-serious); }
+  .risk-dot.warning  { background: var(--risk-warning); }
+  .risk-dot.good     { background: var(--risk-good); }
+  .elimwatch-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .elim-row {
+    display: grid;
+    grid-template-columns: 24px 96px 1fr 58px;
+    gap: 10px;
+    align-items: center;
+    padding: 6px 2px;
+    border-bottom: 1px solid var(--line);
+  }
+  .elim-row:last-child { border-bottom: none; }
+  .elim-rank {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .elim-team {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .elim-track {
+    position: relative;
+    height: 14px;
+    background: var(--paper);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .elim-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    border-radius: 3px;
+    min-width: 4px;
+  }
+  .elim-fill.critical { background: var(--risk-critical); }
+  .elim-fill.serious  { background: var(--risk-serious); }
+  .elim-fill.warning  { background: var(--risk-warning); }
+  .elim-fill.good     { background: var(--risk-good); }
+  .elim-val {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  @media (max-width: 640px) {
+    .elim-row { grid-template-columns: 20px 68px 1fr 46px; }
+  }
+
+  /* ---------- Draft summaries (roasts) ---------- */
+  .summaries { margin: 30px 0 6px; }
+  .summaries-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+    margin-top: 12px;
+  }
+  .summary-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .summary-head {
+    padding: 9px 14px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 13px;
+    letter-spacing: 0.01em;
+  }
+  .summary-body {
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  @media (max-width: 700px) {
+    .summaries-grid { grid-template-columns: 1fr; }
+  }
+
   @media (max-width: 900px) {
     .main { grid-template-columns: 1fr; }
     .board { position: static; }
@@ -595,6 +747,27 @@
 </div>
 
 <div class="wrap">
+
+  <div class="elimwatch">
+    <div class="elimwatch-head">
+      <div>
+        <div class="elimwatch-title">Week 1 elimination watch</div>
+        <div class="elimwatch-sub">Modeled chance of posting the league&rsquo;s lowest score in Week 1, based on optimal starting lineup projections</div>
+      </div>
+      <div class="elimwatch-legend">
+        <span><span class="risk-dot critical"></span>Critical</span>
+        <span><span class="risk-dot serious"></span>Serious</span>
+        <span><span class="risk-dot warning"></span>Warning</span>
+        <span><span class="risk-dot good"></span>Safer</span>
+      </div>
+    </div>
+    <div class="elimwatch-panel" id="elimPanel"></div>
+  </div>
+
+  <div class="summaries">
+    <div class="section-label" style="margin:0;">Draft summaries</div>
+    <div class="summaries-grid" id="summariesGrid"></div>
+  </div>
 
   <div class="draftorder">
     <h2>Full draft order <span class="do-legend"><span class="pay-dot paid"></span>Paid &nbsp; <span class="pay-dot unpaid"></span>Not yet</span></h2>
@@ -657,6 +830,38 @@ const TEAMS = ["Max","Skinner","Matt","Shoes","Millar","Hamal","Colin","Bullock"
 
 // Who's paid their league dues so far — edit this list as payments come in.
 const PAID_TEAMS = new Set(["TJ", "Pete", "Goodie", "Hamal", "Colin", "Shoes", "Max"]);
+
+// Week 1 elimination-risk model, ranked worst to best.
+const ELIMINATION_DATA = [
+  { team: "Bullock", points: 98.5,  chance: 15 },
+  { team: "Max",     points: 99.0,  chance: 14 },
+  { team: "Matt",    points: 99.2,  chance: 13 },
+  { team: "Jayel",   points: 99.8,  chance: 12 },
+  { team: "Skinner", points: 100.8, chance: 11 },
+  { team: "Goodie",  points: 102.2, chance: 9 },
+  { team: "Colin",   points: 102.0, chance: 7 },
+  { team: "Hamal",   points: 104.4, chance: 5.5 },
+  { team: "Millar",  points: 104.1, chance: 4.5 },
+  { team: "Pete",    points: 105.2, chance: 3.5 },
+  { team: "TJ",      points: 108.7, chance: 3 },
+  { team: "Shoes",   points: 108.0, chance: 2.5 },
+];
+
+// Commissioner's draft-day summaries, one per team.
+const DRAFT_SUMMARIES = {
+  Max: "Max took Josh Allen first overall and has been trying to coast downhill ever since. His RB room is Jeanty’s medical chart, TreVeyon Henderson’s projected workload and two men named Brian and Chris hoping nobody important notices them. Josh Allen may survive Week 1, but he might have to do it literally by himself.",
+  Skinner: "Skinner saw the entire Green Bay receiving corps and thought, “Yes, I would like to guess wrong every Sunday.” Parker Washington currently looks like an essential starter, which is generally something you want to discover in Week 12—not before anyone has been eliminated.",
+  Matt: "Matt drafted Kyle Pitts, proving that no amount of historical evidence can defeat the human capacity for hope. He has three quarterbacks, six receivers and still somehow may spend every Sunday asking, “Do I actually have a second receiver?” Bijan is going to need a chiropractor from carrying both the Falcons and this roster.",
+  Shoes: "Shoes apparently spent twelve rounds assembling the Avengers and then remembered quarterbacks exist while the commissioner was stacking the chairs. Daniel Jones and Cam Ward aren’t a Superflex plan; they’re two men who happened to be standing near the quarterback shelf when the store closed.",
+  Millar: "Millar has constructed the official roster of finishing fourth. Every position is good. Every pick is sensible. Every player inspires the exact same reaction: “Yeah, that’s probably fine.” This team has the personality of a beige Toyota Camry—and will probably outlive half the league.",
+  Hamal: "Hamal collected Puka, Jefferson and Saquon like someone forgot to tell the rest of us the draft had started. Then he spent the back half hoarding running backs as though Yahoo had announced a worldwide RB shortage. Alvin Kamara is now sitting 13th on a fantasy roster wondering what sequence of life choices brought him here.",
+  Colin: "Colin drafted Lamar and then apparently decided he had completed the assignment. The rest of the roster feels like a group project where Lamar did the presentation, James Cook made the slides, and KC Concepcion showed up that morning asking what class this was.",
+  Bullock: "Bullock drafted five running backs in the hope that, through the power of friendship, one healthy workhorse might emerge. This isn’t a depth chart—it’s an RB support group. The quarterbacks are excellent, which is convenient because they may need to throw enough points onto the scoreboard to cover six unresolved committee situations.",
+  Pete: "Pete drafted like a man whose fantasy research consisted of searching “football players I have heard of.” Somehow, it worked. This is the Costco roster: nothing particularly imaginative, everything purchased in bulk, and Derrick Henry is still wandering around the store refusing to leave.",
+  TJ: "TJ drafted four magnificent pass-catchers and then entrusted their survival to Tyler Shough, Malik Willis and Bryce Young. It’s like buying a waterfront mansion and putting three raccoons in charge of the mortgage. If one quarterback loses his job, TJ may have to start Ja’Marr Chase at Superflex and politely ask Yahoo to appreciate the spirit of the thing.",
+  Goodie: "Goodie drafted three tight ends because apparently one of them might be called upon to repair the offensive line. This roster is 40% exciting young breakout, 40% Reddit sleeper thread and 20% George Kittle being asked why he’s backing up Trey McBride in a league where everyone dies.",
+  Jayel: "Jayel drafted both Jaxson and Jaxon, presumably because spelling one name correctly was already pushing his administrative limits. He has seven recognizable receivers, one dependable running back and a second RB assembled from preseason optimism. This is less a balanced roster than a very good fantasy team wearing one RB’s pants.",
+};
 
 // Roster shape, in display order. Each pick auto-slots into the first open
 // spot it's eligible for, scanning top to bottom (position -> FLEX -> SUPERFLEX -> bench).
@@ -906,6 +1111,35 @@ PICKS.forEach((name, i) => {
 const totalPicks = TEAMS.length * ROSTER_SIZE;
 const nextIndex = PICKS.length;
 const draftDone = nextIndex >= totalPicks;
+
+// ---- Render: Week 1 elimination watch ----
+const elimPanel = document.getElementById("elimPanel");
+function riskBand(chance) {
+  if (chance >= 12) return "critical";
+  if (chance >= 7) return "serious";
+  if (chance >= 4) return "warning";
+  return "good";
+}
+const maxChance = Math.max(...ELIMINATION_DATA.map(d => d.chance));
+elimPanel.innerHTML = ELIMINATION_DATA.map((d, i) => {
+  const band = riskBand(d.chance);
+  const width = (d.chance / (maxChance * 1.08)) * 100;
+  return '<div class="elim-row" title="Optimal projected points: ' + d.points.toFixed(1) + '">' +
+    '<span class="elim-rank">' + (i + 1) + '</span>' +
+    '<span class="elim-team">' + d.team + '</span>' +
+    '<span class="elim-track"><span class="elim-fill ' + band + '" style="width:' + width + '%"></span></span>' +
+    '<span class="elim-val">' + d.chance + '%</span>' +
+    '</div>';
+}).join("");
+
+// ---- Render: draft summaries ----
+const summariesGrid = document.getElementById("summariesGrid");
+summariesGrid.innerHTML = TEAMS.map(team =>
+  '<div class="summary-card">' +
+    '<div class="summary-head">' + team + '</div>' +
+    '<div class="summary-body">' + (DRAFT_SUMMARIES[team] || "") + '</div>' +
+  '</div>'
+).join("");
 
 // ---- Render: on the clock ----
 const clockBar = document.getElementById("clockBar");
