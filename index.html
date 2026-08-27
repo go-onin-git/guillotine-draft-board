@@ -682,7 +682,29 @@
   }
 
   /* ---------- Draft summaries (roasts) ---------- */
-  .summaries { margin: 30px 0 6px; }
+  .summaries { margin: 40px 0 6px; }
+  .summaries-hero {
+    margin: 0 0 4px;
+  }
+  .summaries-hero .headline {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: clamp(32px, 5.5vw, 52px);
+    line-height: 0.96;
+    letter-spacing: -0.01em;
+    text-transform: uppercase;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .summaries-hero .subhead {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-top: 8px;
+  }
   .summaries-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -713,6 +735,174 @@
   }
   @media (max-width: 700px) {
     .summaries-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- Championship odds ---------- */
+  .champodds { margin: 34px 0 6px; }
+  .champodds-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .champodds-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+  }
+  .champodds-sub {
+    font-size: 12px;
+    color: var(--ink-muted);
+    margin-top: 2px;
+  }
+  .champodds-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+  .champ-item {
+    padding: 10px 2px;
+    border-bottom: 1px solid var(--line);
+  }
+  .champ-item:last-child { border-bottom: none; }
+  .champ-top {
+    display: grid;
+    grid-template-columns: 24px 96px 1fr 52px;
+    gap: 10px;
+    align-items: center;
+  }
+  .champ-rank {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .champ-team {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 13px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .champ-track {
+    position: relative;
+    height: 14px;
+    background: var(--paper);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .champ-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    border-radius: 3px;
+    min-width: 4px;
+    background: var(--gold);
+  }
+  .champ-val {
+    font-family: var(--font-mono);
+    font-size: 12.5px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .champ-case {
+    margin: 6px 0 0;
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    line-height: 1.5;
+  }
+  .champ-item.champ-first .champ-team { color: var(--gold); }
+  @media (max-width: 640px) {
+    .champ-top { grid-template-columns: 20px 68px 1fr 46px; }
+  }
+
+  /* ---------- Predicted order of elimination ---------- */
+  .eorder { margin: 34px 0 6px; }
+  .eorder-head { margin-bottom: 14px; }
+  .eorder-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+  }
+  .eorder-sub {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    font-style: italic;
+    margin-top: 6px;
+    max-width: 62ch;
+  }
+  .eorder-item {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+  }
+  .eorder-item.champion {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold);
+    background: var(--gold-soft);
+  }
+  .eorder-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+  }
+  .eorder-item.champion .eorder-badge { color: var(--gold); }
+  .eorder-team {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 21px;
+    text-transform: uppercase;
+    margin: 3px 0 10px;
+  }
+  .eorder-cause {
+    font-size: 13px;
+    color: var(--ink-muted);
+    margin-bottom: 10px;
+  }
+  .eorder-cause .eorder-label {
+    font-weight: 700;
+    color: var(--ink);
+    font-style: normal;
+  }
+  .eorder-narrative {
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .eorder-quote {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--ink-muted);
+    border-left: 2px solid var(--line);
+    padding-left: 10px;
+  }
+  .eorder-item.champion .eorder-quote { border-left-color: var(--gold); }
+  .eorder-closing {
+    margin-top: 18px;
+    font-size: 13.5px;
+    font-style: italic;
+    color: var(--ink-muted);
+    text-align: center;
+    max-width: 68ch;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   @media (max-width: 900px) {
@@ -765,8 +955,29 @@
   </div>
 
   <div class="summaries">
-    <div class="section-label" style="margin:0;">Draft summaries</div>
+    <div class="summaries-hero">
+      <h2 class="headline">What did you do!?</h2>
+      <div class="subhead">Team by team draft summary</div>
+    </div>
     <div class="summaries-grid" id="summariesGrid"></div>
+  </div>
+
+  <div class="champodds">
+    <div class="champodds-head">
+      <div>
+        <div class="champodds-title">Championship odds</div>
+        <div class="champodds-sub">The numbers are legally binding until approximately the first touchdown of Week 1.</div>
+      </div>
+    </div>
+    <div class="champodds-panel" id="champPanel"></div>
+  </div>
+
+  <div class="eorder">
+    <div class="eorder-head">
+      <div class="eorder-title">Predicted order of elimination</div>
+      <div class="eorder-sub">This is the full preseason call, made before injuries, lineup catastrophes and catastrophic FAB decisions render it completely indefensible.</div>
+    </div>
+    <div id="eorderList"></div>
   </div>
 
   <div class="draftorder">
@@ -862,6 +1073,39 @@ const DRAFT_SUMMARIES = {
   Goodie: "Goodie drafted three tight ends because apparently one of them might be called upon to repair the offensive line. This roster is 40% exciting young breakout, 40% Reddit sleeper thread and 20% George Kittle being asked why he’s backing up Trey McBride in a league where everyone dies.",
   Jayel: "Jayel drafted both Jaxson and Jaxon, presumably because spelling one name correctly was already pushing his administrative limits. He has seven recognizable receivers, one dependable running back and a second RB assembled from preseason optimism. This is less a balanced roster than a very good fantasy team wearing one RB’s pants.",
 };
+
+// Championship odds, ranked best to worst.
+const CHAMPIONSHIP_ODDS = [
+  { team: "Shoes",   odds: 12, case: "Best overall skill-position roster; only the QBs stand between him and clear favourite status." },
+  { team: "Hamal",   odds: 11, case: "Elite stars, exceptional RB depth and two viable QBs. Built to absorb injuries and improve." },
+  { team: "Pete",    odds: 10, case: "Probably the safest roster today, with enough QB and RB stability to reach the waiver-rich middle game." },
+  { team: "Millar",  odds: 10, case: "No major structural weakness and enough depth to avoid forcing bad weekly decisions." },
+  { team: "Max",     odds: 9,  case: "Week 1 is dangerous, but Josh Allen gives him league-winning equity if Jeanty and the young players develop." },
+  { team: "Bullock", odds: 9,  case: "Excellent quarterback assets and considerable upside. Surviving the early uncertainty is the challenge." },
+  { team: "Colin",   odds: 8,  case: "Lamar provides an enormous weekly advantage, but the WR depth may become limiting." },
+  { team: "Matt",    odds: 7,  case: "Bijan, Breece and three QBs provide a real foundation; the receivers need to sort themselves out." },
+  { team: "Jayel",   odds: 7,  case: "Strong QB/WR core, but he may need an early waiver solution at RB." },
+  { team: "Goodie",  odds: 6,  case: "Excellent quarterbacks and TE, but too many important roles depend upon emerging players." },
+  { team: "Skinner", odds: 6,  case: "Gibbs and the QBs keep him dangerous; the receiving corps introduces too much weekly volatility." },
+  { team: "TJ",      odds: 5,  case: "Championship-calibre receivers, but the weakest QB structure and shaky RB ceiling make survival difficult." },
+];
+
+// Predicted order of elimination, Week 1 through the final.
+const ELIMINATION_ORDER = [
+  { week: "Week 1", team: "Bullock", cause: "Multiple promising running backs combine to produce the statistical equivalent of one average running back.", narrative: "Bullock enters Week 1 with Yahoo’s lowest optimal projection. The roster has long-term upside, but Daniels against Philadelphia, Maye against Seattle and several uncertain RB workloads make this an uncomfortable opening slate.", quote: "At least I’m set at quarterback." },
+  { week: "Week 2", team: "Max", cause: "Josh Allen discovers that even he cannot occupy eight starting positions simultaneously.", narrative: "Max has two strong QBs and several excellent players, but Jeanty’s health and the thin RB room create too many ways for a quiet week to happen.", quote: "Chris Rodriguez is actually a really interesting play." },
+  { week: "Week 3", team: "Matt", cause: "Six wide receivers hold a committee meeting and unanimously decide not to become a WR1.", narrative: "Bijan and Breece keep Matt competitive, but the weekly receiving floor looks precarious. Pitts contributes just enough points to inspire another year of belief.", quote: "This is finally the Pitts breakout." },
+  { week: "Week 4", team: "Goodie", cause: "The league confirms that starting three tight ends is not permitted.", narrative: "Hurts and Caleb produce, but an inexperienced RB group and volatile receivers finally create one bad week. George Kittle scores 19 points from the bench as a final act of spite.", quote: "I drafted him for depth." },
+  { week: "Week 5", team: "Skinner", cause: "Starts Christian Watson. Jayden Reed scores twice. The following week, Skinner reverses them and Watson scores twice.", narrative: "Gibbs and the quarterbacks delay the inevitable, but the uncertain WR room eventually generates one lineup dud too many.", quote: "All the experts had Watson higher." },
+  { week: "Week 6", team: "TJ", cause: "A quarterback room built entirely from waiver-wire search results finally collapses.", narrative: "The receivers carry TJ through several close calls. Eventually, one QB gets benched, another throws for 164 yards, and Ja’Marr Chase is forced to watch helplessly.", quote: "I knew I should have taken a quarterback." },
+  { week: "Week 7", team: "Jayel", cause: "The league refuses his petition to start a fourth wide receiver at RB.", narrative: "Dart, Purdy and the receivers keep him alive, but the RB2 problem persists. By Week 7, the roster is extremely talented at every position where it already has enough players.", quote: "Can Deebo still get RB eligibility?" },
+  { week: "Week 8", team: "Colin", cause: "Lamar has one merely excellent game instead of personally generating an entire fantasy lineup.", narrative: "Colin’s starting core is strong, but thinner WR depth becomes harder to hide as the league consolidates talent through waivers.", quote: "Twenty-one points from Lamar is basically nothing." },
+  { week: "Week 9", team: "Millar", cause: "The Camry runs perfectly for eight weeks before being crushed by someone else’s newly acquired Ferrari.", narrative: "Millar’s balance makes him difficult to eliminate early. The problem is that balanced eventually becomes ordinary once every surviving roster contains stars from several dead teams.", quote: "I thought 118 would be safe." },
+  { week: "Week 10", team: "Pete", cause: "Father Time finally notices that Derrick Henry, Keenan Allen and Pete have been hiding together.", narrative: "Pete’s QB and RB stability should make him one of the safest early teams. He reaches the late game, but the roster’s reliable veterans eventually face younger, waiver-enhanced superteams.", quote: "Henry always gets better in December." },
+  { week: "Week 11", team: "Hamal", cause: "Leaves the wrong famous running back on the bench during the semifinal.", narrative: "Hamal’s stars and depth carry him to the final two. Then he chooses between Saquon, Judkins, Pollard, Harvey, Jones and Kamara—and naturally starts the two who don’t score.", quote: "There was literally no way to predict that." },
+];
+const ELIMINATION_CHAMPION = { team: "Shoes", cause: "Apparently quarterbacks were optional after all.", narrative: "Shoes has the league’s strongest collection of weekly skill-position starters. If Jones and Ward remain playable—or if Shoes survives long enough to acquire a dead manager’s quarterback—the roster has the clearest path to becoming overwhelming.", quote: "I was always comfortable with the quarterbacks." };
+const ELIMINATION_CLOSING = "The prediction, then, is that Shoes defeats Hamal in the final after spending the entire season pretending Daniel Jones was part of the plan.";
 
 // Roster shape, in display order. Each pick auto-slots into the first open
 // spot it's eligible for, scanning top to bottom (position -> FLEX -> SUPERFLEX -> bench).
@@ -1140,6 +1384,43 @@ summariesGrid.innerHTML = TEAMS.map(team =>
     '<div class="summary-body">' + (DRAFT_SUMMARIES[team] || "") + '</div>' +
   '</div>'
 ).join("");
+
+// ---- Render: championship odds ----
+const champPanel = document.getElementById("champPanel");
+const maxOdds = Math.max(...CHAMPIONSHIP_ODDS.map(d => d.odds));
+champPanel.innerHTML = CHAMPIONSHIP_ODDS.map((d, i) => {
+  const width = (d.odds / (maxOdds * 1.08)) * 100;
+  return '<div class="champ-item' + (i === 0 ? " champ-first" : "") + '">' +
+    '<div class="champ-top">' +
+      '<span class="champ-rank">' + (i + 1) + '</span>' +
+      '<span class="champ-team">' + d.team + '</span>' +
+      '<span class="champ-track"><span class="champ-fill" style="width:' + width + '%"></span></span>' +
+      '<span class="champ-val">' + d.odds + '%</span>' +
+    '</div>' +
+    '<div class="champ-case">' + d.case + '</div>' +
+  '</div>';
+}).join("");
+
+// ---- Render: predicted order of elimination ----
+const eorderList = document.getElementById("eorderList");
+const eliminationRows = ELIMINATION_ORDER.map(e =>
+  '<div class="eorder-item">' +
+    '<div class="eorder-badge">' + e.week + ' &middot; Eliminated</div>' +
+    '<div class="eorder-team">' + e.team + '</div>' +
+    '<div class="eorder-cause"><span class="eorder-label">Cause of death:</span> ' + e.cause + '</div>' +
+    '<div class="eorder-narrative">' + e.narrative + '</div>' +
+    '<div class="eorder-quote">&ldquo;' + e.quote + '&rdquo;</div>' +
+  '</div>'
+).join("");
+const championRow =
+  '<div class="eorder-item champion">' +
+    '<div class="eorder-badge">Champion</div>' +
+    '<div class="eorder-team">' + ELIMINATION_CHAMPION.team + '</div>' +
+    '<div class="eorder-cause"><span class="eorder-label">Cause of victory:</span> ' + ELIMINATION_CHAMPION.cause + '</div>' +
+    '<div class="eorder-narrative">' + ELIMINATION_CHAMPION.narrative + '</div>' +
+    '<div class="eorder-quote">&ldquo;' + ELIMINATION_CHAMPION.quote + '&rdquo;</div>' +
+  '</div>';
+eorderList.innerHTML = eliminationRows + championRow + '<div class="eorder-closing">' + ELIMINATION_CLOSING + '</div>';
 
 // ---- Render: on the clock ----
 const clockBar = document.getElementById("clockBar");
