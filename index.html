@@ -705,6 +705,12 @@
     font-weight: 700;
     margin-top: 8px;
   }
+  .summaries-hero .lede {
+    font-size: 13.5px;
+    color: var(--ink-muted);
+    margin-top: 10px;
+    max-width: 62ch;
+  }
   .summaries-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -721,11 +727,24 @@
     padding: 9px 14px;
     background: var(--surface-2);
     border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .summary-head .summary-team {
     font-family: var(--font-display);
     font-weight: 900;
     text-transform: uppercase;
     font-size: 13px;
     letter-spacing: 0.01em;
+  }
+  .summary-head .summary-meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--ink-muted);
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
   }
   .summary-body {
     padding: 12px 14px;
@@ -733,6 +752,46 @@
     line-height: 1.6;
     color: var(--ink);
   }
+  .summary-body p { margin: 0 0 10px; }
+  .summary-body p:last-child { margin-bottom: 0; }
+  .summary-outlook {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--line);
+  }
+  .summary-outlook .summary-label {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: block;
+    margin-bottom: 4px;
+  }
+  .summary-stats {
+    display: flex;
+    gap: 16px;
+    padding: 9px 14px;
+    background: var(--surface-2);
+    border-top: 1px solid var(--line);
+    font-family: var(--font-mono);
+    font-size: 11px;
+  }
+  .summary-stats .stat-label {
+    color: var(--ink-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  .summary-stats .stat-val {
+    font-weight: 700;
+    font-variant-numeric: tabular-nums;
+  }
+  .summary-stats .stat-val.critical { color: var(--risk-critical); }
+  .summary-stats .stat-val.serious  { color: var(--risk-serious); }
+  .summary-stats .stat-val.warning  { color: var(--risk-warning); }
+  .summary-stats .stat-val.good     { color: var(--risk-good); }
+  .summary-stats .stat-val.champ    { color: var(--gold); }
   @media (max-width: 700px) {
     .summaries-grid { grid-template-columns: 1fr; }
   }
@@ -823,6 +882,76 @@
   .champ-item.champ-first .champ-team { color: var(--gold); }
   @media (max-width: 640px) {
     .champ-top { grid-template-columns: 20px 68px 1fr 46px; }
+  }
+
+  /* ---------- Graveyard (eliminated teams) ---------- */
+  .graveyard { margin: 34px 0 6px; }
+  .graveyard-head { margin-bottom: 14px; }
+  .graveyard-title {
+    font-family: var(--font-display);
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 20px;
+    letter-spacing: 0.01em;
+  }
+  .graveyard-sub {
+    font-size: 12.5px;
+    color: var(--ink-muted);
+    margin-top: 6px;
+  }
+  .graveyard-panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 24px 16px;
+    text-align: center;
+  }
+  .graveyard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  .tombstone-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 3px solid var(--risk-critical);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .tombstone-head {
+    padding: 9px 14px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--line);
+  }
+  .tombstone-badge {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--risk-critical);
+  }
+  .tombstone-team {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 16px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .tombstone-body {
+    padding: 12px 14px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .tombstone-body p { margin: 0 0 10px; }
+  .tombstone-body p:last-child { margin-bottom: 0; }
+  .tombstone-body .tombstone-byline {
+    color: var(--ink-muted);
+    font-size: 12px;
+  }
+  @media (max-width: 700px) {
+    .graveyard-grid { grid-template-columns: 1fr; }
   }
 
   /* ---------- Predicted order of elimination ---------- */
@@ -941,8 +1070,8 @@
   <div class="elimwatch">
     <div class="elimwatch-head">
       <div>
-        <div class="elimwatch-title">Week 1 elimination watch</div>
-        <div class="elimwatch-sub">Modeled chance of posting the league&rsquo;s lowest score in Week 1, based on optimal starting lineup projections</div>
+        <div class="elimwatch-title">Week 2 elimination watch</div>
+        <div class="elimwatch-sub">Pre-waiver odds of posting the league&rsquo;s lowest score in Week 2, based on current rosters &mdash; tomorrow&rsquo;s FAAB moves could change this substantially</div>
       </div>
       <div class="elimwatch-legend">
         <span><span class="risk-dot critical"></span>Critical</span>
@@ -956,8 +1085,9 @@
 
   <div class="summaries">
     <div class="summaries-hero">
-      <h2 class="headline">What did you do!?</h2>
-      <div class="subhead">Team by team draft summary</div>
+      <h2 class="headline">Last boyo standing</h2>
+      <div class="subhead">Week 1 survivor report</div>
+      <div class="lede">Eleven teams remain. Some announced themselves as contenders. Others established that technically being alive is a perfectly acceptable result.</div>
     </div>
     <div class="summaries-grid" id="summariesGrid"></div>
   </div>
@@ -966,16 +1096,24 @@
     <div class="champodds-head">
       <div>
         <div class="champodds-title">Championship odds</div>
-        <div class="champodds-sub">The numbers are legally binding until approximately the first touchdown of Week 1.</div>
+        <div class="champodds-sub">These are pre-waiver odds based on current rosters, with sensible lineup adjustments assumed. Tomorrow&rsquo;s purchases&mdash;and what everyone pays for them&mdash;could change both columns substantially.</div>
       </div>
     </div>
     <div class="champodds-panel" id="champPanel"></div>
   </div>
 
+  <div class="graveyard">
+    <div class="graveyard-head">
+      <div class="graveyard-title">Graveyard</div>
+      <div class="graveyard-sub">Obituaries for the eliminated. Rest in peace.</div>
+    </div>
+    <div id="graveyardBody"></div>
+  </div>
+
   <div class="eorder">
     <div class="eorder-head">
       <div class="eorder-title">Predicted order of elimination</div>
-      <div class="eorder-sub">This is the full preseason call, made before injuries, lineup catastrophes and catastrophic FAB decisions render it completely indefensible.</div>
+      <div class="eorder-sub">Revised after Week 1, before waivers &mdash; injuries, lineup catastrophes and catastrophic FAAB decisions may still render it completely indefensible.</div>
     </div>
     <div id="eorderList"></div>
   </div>
@@ -1042,70 +1180,153 @@ const TEAMS = ["Max","Skinner","Matt","Shoes","Millar","Hamal","Colin","Bullock"
 // Who's paid their league dues so far — edit this list as payments come in.
 const PAID_TEAMS = new Set(["TJ", "Pete", "Goodie", "Hamal", "Colin", "Shoes", "Max"]);
 
-// Week 1 elimination-risk model, ranked worst to best.
+// Week 2 elimination-risk model, ranked worst to best. Pre-waiver, based on
+// current rosters. "points" is each team's actual Week 1 score (for context).
 const ELIMINATION_DATA = [
-  { team: "Bullock", points: 98.5,  chance: 15 },
-  { team: "Max",     points: 99.0,  chance: 14 },
-  { team: "Matt",    points: 99.2,  chance: 13 },
-  { team: "Jayel",   points: 99.8,  chance: 12 },
-  { team: "Skinner", points: 100.8, chance: 11 },
-  { team: "Goodie",  points: 102.2, chance: 9 },
-  { team: "Colin",   points: 102.0, chance: 7 },
-  { team: "Hamal",   points: 104.4, chance: 5.5 },
-  { team: "Millar",  points: 104.1, chance: 4.5 },
-  { team: "Pete",    points: 105.2, chance: 3.5 },
-  { team: "TJ",      points: 108.7, chance: 3 },
-  { team: "Shoes",   points: 108.0, chance: 2.5 },
+  { team: "Max",     points: 120.90, chance: 12 },
+  { team: "TJ",      points: 145.10, chance: 11 },
+  { team: "Skinner", points: 140.56, chance: 11 },
+  { team: "Goodie",  points: 128.88, chance: 11 },
+  { team: "Millar",  points: 96.24,  chance: 10 },
+  { team: "Pete",    points: 89.70,  chance: 10 },
+  { team: "Shoes",   points: 93.84,  chance: 8 },
+  { team: "Colin",   points: 87.04,  chance: 8 },
+  { team: "Matt",    points: 123.36, chance: 7 },
+  { team: "Jayel",   points: 146.10, chance: 6 },
+  { team: "Bullock", points: 137.48, chance: 6 },
 ];
 
-// Commissioner's draft-day summaries, one per team.
-const DRAFT_SUMMARIES = {
-  Max: "Max took Josh Allen first overall and has been trying to coast downhill ever since. His RB room is Jeanty’s medical chart, TreVeyon Henderson’s projected workload and two men named Brian and Chris hoping nobody important notices them. Josh Allen may survive Week 1, but he might have to do it literally by himself.",
-  Skinner: "Skinner saw the entire Green Bay receiving corps and thought, “Yes, I would like to guess wrong every Sunday.” Parker Washington currently looks like an essential starter, which is generally something you want to discover in Week 12—not before anyone has been eliminated.",
-  Matt: "Matt drafted Kyle Pitts, proving that no amount of historical evidence can defeat the human capacity for hope. He has three quarterbacks, six receivers and still somehow may spend every Sunday asking, “Do I actually have a second receiver?” Bijan is going to need a chiropractor from carrying both the Falcons and this roster.",
-  Shoes: "Shoes apparently spent twelve rounds assembling the Avengers and then remembered quarterbacks exist while the commissioner was stacking the chairs. Daniel Jones and Cam Ward aren’t a Superflex plan; they’re two men who happened to be standing near the quarterback shelf when the store closed.",
-  Millar: "Millar has constructed the official roster of finishing fourth. Every position is good. Every pick is sensible. Every player inspires the exact same reaction: “Yeah, that’s probably fine.” This team has the personality of a beige Toyota Camry—and will probably outlive half the league.",
-  Hamal: "Hamal collected Puka, Jefferson and Saquon like someone forgot to tell the rest of us the draft had started. Then he spent the back half hoarding running backs as though Yahoo had announced a worldwide RB shortage. Alvin Kamara is now sitting 13th on a fantasy roster wondering what sequence of life choices brought him here.",
-  Colin: "Colin drafted Lamar and then apparently decided he had completed the assignment. The rest of the roster feels like a group project where Lamar did the presentation, James Cook made the slides, and KC Concepcion showed up that morning asking what class this was.",
-  Bullock: "Bullock drafted five running backs in the hope that, through the power of friendship, one healthy workhorse might emerge. This isn’t a depth chart—it’s an RB support group. The quarterbacks are excellent, which is convenient because they may need to throw enough points onto the scoreboard to cover six unresolved committee situations.",
-  Pete: "Pete drafted like a man whose fantasy research consisted of searching “football players I have heard of.” Somehow, it worked. This is the Costco roster: nothing particularly imaginative, everything purchased in bulk, and Derrick Henry is still wandering around the store refusing to leave.",
-  TJ: "TJ drafted four magnificent pass-catchers and then entrusted their survival to Tyler Shough, Malik Willis and Bryce Young. It’s like buying a waterfront mansion and putting three raccoons in charge of the mortgage. If one quarterback loses his job, TJ may have to start Ja’Marr Chase at Superflex and politely ask Yahoo to appreciate the spirit of the thing.",
-  Goodie: "Goodie drafted three tight ends because apparently one of them might be called upon to repair the offensive line. This roster is 40% exciting young breakout, 40% Reddit sleeper thread and 20% George Kittle being asked why he’s backing up Trey McBride in a league where everyone dies.",
-  Jayel: "Jayel drafted both Jaxson and Jaxon, presumably because spelling one name correctly was already pushing his administrative limits. He has seven recognizable receivers, one dependable running back and a second RB assembled from preseason optimism. This is less a balanced roster than a very good fantasy team wearing one RB’s pants.",
-};
+// Week 1 survivor report, ranked best week to worst (Hamal excluded — see Graveyard).
+const WEEK1_RECAP = [
+  { team: "Jayel", rank: "1st", points: 146.10,
+    paragraphs: [
+      "Seven starters in double figures. Dart and Likely combined for 50.40, Smith-Njigba and Purdy both cleared 22, and almost everyone contributed. This was the league’s most complete opening performance. Jayel managed to win the week without needing one player to drag seven unconscious bodies across the finish line.",
+      "Price’s 6.80 was the lone modest contribution, which makes him less a disaster and more the guy who brought napkins to the potluck.",
+    ],
+    outlook: "A strong contender with useful bench options. McConkey’s chest injury needs monitoring, and the Seattle offense’s quarterback situation affects both Smith-Njigba and Price. Neither concern erases a very encouraging start.",
+    elim2: 6, champ: 11 },
+  { team: "TJ", rank: "2nd", points: 145.10,
+    paragraphs: [
+      "TJ drafted a receiving corps fit for a royal wedding, then watched Swift and Montgomery pay for the entire reception. The two backs combined for 59.30 points and six touchdowns, while Chase and A.J. Brown supplied 6.30. Exactly how this roster was designed to function.",
+      "Shough delivered, Amon-Ra was excellent, and Juwan Johnson provided a useful emergency repair at tight end. Young’s 32.44 and Monangai’s 19.40 on the bench suggest there was more here than eight names and a prayer.",
+    ],
+    outlook: "Second in scoring doesn’t mean second-safest next week. Brown and Bowers are unavailable in the current snapshot, six RB touchdowns won’t be a weekly subscription, and Chase/Amon-Ra/Willis share a Week 6 bye. There’s enough talent and money to navigate it, but the calendar has already started talking shit.",
+    elim2: 11, champ: 8 },
+  { team: "Skinner", rank: "3rd", points: 140.56,
+    paragraphs: [
+      "Gibbs delivered 31.10, Watson 29.70, Lawrence 26.10, and Kincaid 15.50. Parker Washington added 16.80. Skinner had so many things go right that Dobbins’ Monday contribution of 3.60 barely interrupted the celebrations.",
+      "The Packers receiver selection was particularly entertaining: Watson erupted while Reed supplied 3.50. Skinner ordered the sampler platter and discovered one of the dishes was an empty bowl.",
+    ],
+    outlook: "Gibbs is a tremendous foundation. The concern is the second running-back slot with Jacobs unavailable, plus how much of the opening receiver explosion repeats. This is a strong scoring week attached to a roster that still has a repair job.",
+    elim2: 11, champ: 8 },
+  { team: "Bullock", rank: "4th", points: 137.48,
+    paragraphs: [
+      "The preseason forecast had Bullock dying first. Bullock responded by finishing fourth, which means the first thing this league should release onto waivers is its analyst.",
+      "Kenneth Walker’s 32.60-point Monday supplied the finishing blow to that prediction. Goedert had already contributed 21.70, Collins 17.70 and Irving 16.80. There were several sources of production here, and Maye and Daniels didn’t even need to dominate.",
+    ],
+    outlook: "One of the better-balanced surviving rosters. Walker’s workload and Irving’s seven catches are encouraging beyond the touchdowns. Darnold’s injury hurts depth more than the starting lineup. The later Week 5 Walker/Rice bye pairing requires planning, but Bullock has the budget to do it.",
+    elim2: 6, champ: 13 },
+  { team: "Goodie", rank: "5th", points: 128.88,
+    paragraphs: [
+      "Hurts and Caleb Williams combined for 61.98 points. McBride added 20.00. Goodie understood the superflex assignment and outsourced most of the actual work to three people.",
+      "His three starting receivers combined for 20.80, making them roughly one McBride in a trench coat. Skattebo supplied a useful 14.10, while Golden’s 12-target bench performance offered something worth watching.",
+    ],
+    outlook: "Excellent cornerstone players, but the supporting lineup needs more dependable production. Love’s backfield competition matters, and the receivers need to contribute when Caleb isn’t participating in a 96-point game. Full FAAB leaves Goodie well positioned to improve.",
+    elim2: 11, champ: 9 },
+  { team: "Matt", rank: "6th", points: 123.36,
+    paragraphs: [
+      "Stafford scored 5.10. Pitts scored zero. Matt still finished sixth because Bijan, Breece, Chuba and DJ Moore combined for 87.60, before Mahomes added 22.66 on Monday.",
+      "Pitts received one target. At that point you’re less a starting tight end and more a person with excellent access to the stadium.",
+    ],
+    outlook: "The running-back group is a genuine strength, and Bijan’s 21 carries and ten targets are especially encouraging. Mahomes’ productive return helps. Tight end remains the obvious improvement opportunity, but Matt has a substantial foundation and all his money.",
+    elim2: 7, champ: 12 },
+  { team: "Max", rank: "7th", points: 120.90,
+    paragraphs: [
+      "Allen, Jeanty and Olave supplied 88.56 points. The other five starters apparently understood this to be a group project.",
+      "Jeanty’s 29 touches were a particularly welcome development. Meanwhile, free pickup Jalen Coker scored 29.80 on the bench, where Max could admire him without risking any of those points entering the lineup.",
+    ],
+    outlook: "The stars are real. So is the RB2 problem. Rodriguez scored 2.30, Henderson remains unavailable in the current snapshot, and Sampson is out. Coker offers another receiver option, but unfortunately Yahoo continues to discriminate against wide receivers trying to play running back.",
+    elim2: 12, champ: 8 },
+  { team: "Millar", rank: "8th", points: 96.24,
+    paragraphs: [
+      "Millar spent $505 on Lloyd and received 3.70 points in the opener. That’s approximately $136 per point, a pricing model usually reserved for airport sandwiches.",
+      "Taylor and Flowers combined for 47.10 and did most of the rescuing. Then Flowers left with a hamstring injury. Bo Nix arrived Monday with 6.44 points, presumably because Millar’s weekend hadn’t contained enough administrative disappointment.",
+    ],
+    outlook: "The roster is more competitive than the jokes suggest: Taylor, Etienne, Pickens and Kraft remain useful pieces, with Stevenson available too. But Flowers’ health matters, and having $495 while everyone else has $1,000 limits future flexibility. Lloyd can still justify part of the purchase; one poor game doesn’t settle it.",
+    elim2: 10, champ: 5 },
+  { team: "Shoes", rank: "9th", points: 93.84,
+    paragraphs: [
+      "The preseason championship pick opened ninth. Another excellent instalment in this publication’s ongoing commitment to accountability.",
+      "Javonte Williams supplied 21.70 and Chase Brown 16.30. Daniel Jones and Cam Ward combined for 21.74, essentially filling two quarterback slots with one moderately successful quarterback. Neither tight-end choice offered much relief.",
+    ],
+    outlook: "I’m not abandoning McCaffrey, Chase Brown, Javonte, Lamb and DeVonta after one week. That core still gives Shoes a credible path. Quarterback and tight end need attention, but the growing waiver pool should provide choices. The roster deserves more confidence than the opening score.",
+    elim2: 8, champ: 10 },
+  { team: "Pete", rank: "10th", points: 89.70,
+    paragraphs: [
+      "Derrick Henry scored 34.80. The other seven starters combined for 54.90. Henry wasn’t carrying the team; he was transporting it across provincial borders.",
+      "Loveland scored zero while Chicago scored 59 actual points. That takes a remarkable commitment to staying out of the way. Waddle then added 0.70 on Monday, ensuring nobody confused survival with momentum.",
+    ],
+    outlook: "Achane/Henry and Burrow/Goff remain a strong base. The weakness is production around them, particularly receiver and flex. There’s considerable rebound potential, but Henry cannot be required to score three touchdowns every time Pete would like to continue participating.",
+    elim2: 10, champ: 7 },
+  { team: "Colin", rank: "11th", points: 87.04,
+    paragraphs: [
+      "Every non-quarterback starter scored fewer than nine points. Lamar and Love supplied 45.44; everyone else combined for 41.60. Six professional football players collectively lost to two guys and their passing statistics.",
+      "McLaurin’s 2.40 was the low point, but this was a team effort. Colin survived with the energy of someone making a flight because the plane itself was delayed.",
+    ],
+    outlook: "The performance was awful. The roster isn’t. Lamar, Love, Cook, Hampton, Higgins and McLaurin still form a credible starting group. A rebound is more plausible than treating 87 points as its permanent level. Receiver depth and the concentration of Week 7 byes deserve attention, but Colin doesn’t need to dismantle the team because it spent Sunday doing an impression of furniture.",
+    elim2: 8, champ: 9 },
+];
 
 // Championship odds, ranked best to worst.
 const CHAMPIONSHIP_ODDS = [
-  { team: "Shoes",   odds: 12, case: "Best overall skill-position roster; only the QBs stand between him and clear favourite status." },
-  { team: "Hamal",   odds: 11, case: "Elite stars, exceptional RB depth and two viable QBs. Built to absorb injuries and improve." },
-  { team: "Pete",    odds: 10, case: "Probably the safest roster today, with enough QB and RB stability to reach the waiver-rich middle game." },
-  { team: "Millar",  odds: 10, case: "No major structural weakness and enough depth to avoid forcing bad weekly decisions." },
-  { team: "Max",     odds: 9,  case: "Week 1 is dangerous, but Josh Allen gives him league-winning equity if Jeanty and the young players develop." },
-  { team: "Bullock", odds: 9,  case: "Excellent quarterback assets and considerable upside. Surviving the early uncertainty is the challenge." },
-  { team: "Colin",   odds: 8,  case: "Lamar provides an enormous weekly advantage, but the WR depth may become limiting." },
-  { team: "Matt",    odds: 7,  case: "Bijan, Breece and three QBs provide a real foundation; the receivers need to sort themselves out." },
-  { team: "Jayel",   odds: 7,  case: "Strong QB/WR core, but he may need an early waiver solution at RB." },
-  { team: "Goodie",  odds: 6,  case: "Excellent quarterbacks and TE, but too many important roles depend upon emerging players." },
-  { team: "Skinner", odds: 6,  case: "Gibbs and the QBs keep him dangerous; the receiving corps introduces too much weekly volatility." },
-  { team: "TJ",      odds: 5,  case: "Championship-calibre receivers, but the weakest QB structure and shaky RB ceiling make survival difficult." },
+  { team: "Bullock", odds: 13 },
+  { team: "Matt",    odds: 12 },
+  { team: "Jayel",   odds: 11 },
+  { team: "Shoes",   odds: 10 },
+  { team: "Goodie",  odds: 9 },
+  { team: "Colin",   odds: 9 },
+  { team: "Max",     odds: 8 },
+  { team: "TJ",      odds: 8 },
+  { team: "Skinner", odds: 8 },
+  { team: "Pete",    odds: 7 },
+  { team: "Millar",  odds: 5 },
 ];
 
-// Predicted order of elimination, Week 1 through the final.
+// Predicted order of elimination — revised after Week 1, before waivers.
 const ELIMINATION_ORDER = [
-  { week: "Week 1", team: "Bullock", cause: "Multiple promising running backs combine to produce the statistical equivalent of one average running back.", narrative: "Bullock enters Week 1 with Yahoo’s lowest optimal projection. The roster has long-term upside, but Daniels against Philadelphia, Maye against Seattle and several uncertain RB workloads make this an uncomfortable opening slate.", quote: "At least I’m set at quarterback." },
-  { week: "Week 2", team: "Max", cause: "Josh Allen discovers that even he cannot occupy eight starting positions simultaneously.", narrative: "Max has two strong QBs and several excellent players, but Jeanty’s health and the thin RB room create too many ways for a quiet week to happen.", quote: "Chris Rodriguez is actually a really interesting play." },
-  { week: "Week 3", team: "Matt", cause: "Six wide receivers hold a committee meeting and unanimously decide not to become a WR1.", narrative: "Bijan and Breece keep Matt competitive, but the weekly receiving floor looks precarious. Pitts contributes just enough points to inspire another year of belief.", quote: "This is finally the Pitts breakout." },
-  { week: "Week 4", team: "Goodie", cause: "The league confirms that starting three tight ends is not permitted.", narrative: "Hurts and Caleb produce, but an inexperienced RB group and volatile receivers finally create one bad week. George Kittle scores 19 points from the bench as a final act of spite.", quote: "I drafted him for depth." },
-  { week: "Week 5", team: "Skinner", cause: "Starts Christian Watson. Jayden Reed scores twice. The following week, Skinner reverses them and Watson scores twice.", narrative: "Gibbs and the quarterbacks delay the inevitable, but the uncertain WR room eventually generates one lineup dud too many.", quote: "All the experts had Watson higher." },
-  { week: "Week 6", team: "TJ", cause: "A quarterback room built entirely from waiver-wire search results finally collapses.", narrative: "The receivers carry TJ through several close calls. Eventually, one QB gets benched, another throws for 164 yards, and Ja’Marr Chase is forced to watch helplessly.", quote: "I knew I should have taken a quarterback." },
-  { week: "Week 7", team: "Jayel", cause: "The league refuses his petition to start a fourth wide receiver at RB.", narrative: "Dart, Purdy and the receivers keep him alive, but the RB2 problem persists. By Week 7, the roster is extremely talented at every position where it already has enough players.", quote: "Can Deebo still get RB eligibility?" },
-  { week: "Week 8", team: "Colin", cause: "Lamar has one merely excellent game instead of personally generating an entire fantasy lineup.", narrative: "Colin’s starting core is strong, but thinner WR depth becomes harder to hide as the league consolidates talent through waivers.", quote: "Twenty-one points from Lamar is basically nothing." },
-  { week: "Week 9", team: "Millar", cause: "The Camry runs perfectly for eight weeks before being crushed by someone else’s newly acquired Ferrari.", narrative: "Millar’s balance makes him difficult to eliminate early. The problem is that balanced eventually becomes ordinary once every surviving roster contains stars from several dead teams.", quote: "I thought 118 would be safe." },
-  { week: "Week 10", team: "Pete", cause: "Father Time finally notices that Derrick Henry, Keenan Allen and Pete have been hiding together.", narrative: "Pete’s QB and RB stability should make him one of the safest early teams. He reaches the late game, but the roster’s reliable veterans eventually face younger, waiver-enhanced superteams.", quote: "Henry always gets better in December." },
-  { week: "Week 11", team: "Hamal", cause: "Leaves the wrong famous running back on the bench during the semifinal.", narrative: "Hamal’s stars and depth carry him to the final two. Then he chooses between Saquon, Judkins, Pollard, Harvey, Jones and Kamara—and naturally starts the two who don’t score.", quote: "There was literally no way to predict that." },
+  { week: "Week 2", team: "Max", cause: "Josh Allen discovers that carrying an entire franchise is easier than fixing Max’s RB2 slot." },
+  { week: "Week 3", team: "Millar", cause: "The $505 Lloyd purchase leaves the emergency fund looking suspiciously like a gift card." },
+  { week: "Week 4", team: "Pete", cause: "Derrick Henry finally takes a Sunday off from being seven people." },
+  { week: "Week 5", team: "Goodie", cause: "The supporting cast learns that “Hurts, Caleb and McBride will handle it” isn’t a legally binding agreement." },
+  { week: "Week 6", team: "TJ", cause: "Chase, Amon-Ra and Willis take the same vacation. TJ spends Sunday explaining how much value he preserved." },
+  { week: "Week 7", team: "Colin", cause: "Cook, Hampton and McLaurin share a bye. The replacement lineup looks like it was assembled at a gas station." },
+  { week: "Week 8", team: "Skinner", cause: "Gibbs keeps the lights on until the rest of the roster forgets to pay the bill." },
+  { week: "Week 9", team: "Shoes", cause: "A strong roster survives deep into the season, then one weak position picks the worst possible Sunday to become everyone’s problem." },
+  { week: "Week 10", team: "Jayel", cause: "The opening-week winner reaches the final three, then learns that September points don’t earn interest." },
+  { week: "Week 11", team: "Matt", cause: "An excellent running-back foundation gets him to the final. One last receiving or tight-end disappointment supplies the obituary." },
 ];
-const ELIMINATION_CHAMPION = { team: "Shoes", cause: "Apparently quarterbacks were optional after all.", narrative: "Shoes has the league’s strongest collection of weekly skill-position starters. If Jones and Ward remain playable—or if Shoes survives long enough to acquire a dead manager’s quarterback—the roster has the clearest path to becoming overwhelming.", quote: "I was always comfortable with the quarterbacks." };
-const ELIMINATION_CLOSING = "The prediction, then, is that Shoes defeats Hamal in the final after spending the entire season pretending Daniel Jones was part of the plan.";
+const ELIMINATION_CHAMPION = { team: "Bullock", cause: "Predicted to die first in the preseason. Wins the league out of spite. The analyst requests that all previous publications be destroyed." };
+const ELIMINATION_CLOSING = "Predictions assume one elimination per week and a Week 11 final. Future waiver acquisitions will change the outlook.";
+
+// Graveyard: real eliminated teams, in order of elimination.
+const GRAVEYARD = [
+  { week: "Week 1", team: "Hamal", obituary:
+    '<p class="tombstone-byline"><em>2026&ndash;2026 &middot; Gone before the first waiver claim</em></p>' +
+    '<p>It is with profound relief from Colin that we announce the passing of Hamal’s fantasy football season, which ended Sunday at the tender age of one fucking week.</p>' +
+    '<p>Hamal entered the season with Puka Nacua, Justin Jefferson and Saquon Barkley. He leaves with 81.38 points and a valuable lesson about buying the extended warranty on Kyler Murray.</p>' +
+    '<p>The end came quickly. Murray departed with a concussion after contributing 0.62 points, leaving Hamal’s season in the hands of a supporting cast that apparently believed this was still the preseason. Barkley, Tony Pollard and Quinshon Judkins combined for 18.40&mdash;a respectable afternoon for one running back, or a deeply embarrassing group project for three.</p>' +
+    '<p>Jefferson fought valiantly, delivering 27.20 points while the rest of the roster gathered around to discuss whether Hamal would have wanted extraordinary measures.</p>' +
+    '<p>Sadly, extraordinary measures were unnecessary. <strong>Starting Aaron Jones would have done it.</strong></p>' +
+    '<p>Jones sat on the bench with 10 points while Pollard contributed 3.90. Make that swap and Hamal finishes at 87.48, beating Colin by 0.44. The life jacket was right there. Hamal drowned wearing a fucking backpack.</p>' +
+    '<p>Colin, whose six non-quarterback starters all failed to reach nine points, survives to disappoint everyone another week. He asks for privacy during this difficult time of pretending he earned it.</p>' +
+    '<p>Hamal’s passing also represents a devastating loss for the preseason analyst who picked him to finish runner-up. That same analyst picked Bullock to die first. The model has since been moved into concussion protocol.</p>' +
+    '<p><strong>Hamal is survived by his beloved Justin Jefferson, Puka Nacua and Saquon Barkley</strong>, who will shortly be placed in the care of eleven men currently Googling how quickly you can contest a will. He also leaves behind C.J. Stroud, Tyler Warren and several dependants whose adoption fees will be considerably more negotiable.</p>' +
+    '<p>His entire $1,000 FAAB balance remains untouched. A disciplined saver to the very end, Hamal successfully preserved his purchasing power for a future in which he no longer exists.</p>' +
+    '<p>There will be no visitation. Everyone has already been through his roster.</p>' +
+    '<p>In lieu of flowers, please submit bids.</p>' +
+    '<p><strong>Rest in peace, Hamal. Your players deserved better, and are about to get it.</strong></p>'
+  },
+];
 
 // Roster shape, in display order. Each pick auto-slots into the first open
 // spot it's eligible for, scanning top to bottom (position -> FLEX -> SUPERFLEX -> bench).
@@ -1368,7 +1589,7 @@ const maxChance = Math.max(...ELIMINATION_DATA.map(d => d.chance));
 elimPanel.innerHTML = ELIMINATION_DATA.map((d, i) => {
   const band = riskBand(d.chance);
   const width = (d.chance / (maxChance * 1.08)) * 100;
-  return '<div class="elim-row" title="Optimal projected points: ' + d.points.toFixed(1) + '">' +
+  return '<div class="elim-row" title="Week 1 score: ' + d.points.toFixed(2) + '">' +
     '<span class="elim-rank">' + (i + 1) + '</span>' +
     '<span class="elim-team">' + d.team + '</span>' +
     '<span class="elim-track"><span class="elim-fill ' + band + '" style="width:' + width + '%"></span></span>' +
@@ -1376,20 +1597,32 @@ elimPanel.innerHTML = ELIMINATION_DATA.map((d, i) => {
     '</div>';
 }).join("");
 
-// ---- Render: draft summaries ----
+// ---- Render: Week 1 recap ----
 const summariesGrid = document.getElementById("summariesGrid");
-summariesGrid.innerHTML = TEAMS.map(team =>
-  '<div class="summary-card">' +
-    '<div class="summary-head">' + team + '</div>' +
-    '<div class="summary-body">' + (DRAFT_SUMMARIES[team] || "") + '</div>' +
-  '</div>'
-).join("");
+summariesGrid.innerHTML = WEEK1_RECAP.map(r => {
+  const body = r.paragraphs.map(p => '<p>' + p + '</p>').join("");
+  const elimClass = riskBand(r.elim2);
+  return '<div class="summary-card">' +
+    '<div class="summary-head">' +
+      '<span class="summary-team">' + r.team + '</span>' +
+      '<span class="summary-meta">' + r.rank + ' &middot; ' + r.points.toFixed(2) + ' pts</span>' +
+    '</div>' +
+    '<div class="summary-body">' + body +
+      '<div class="summary-outlook"><span class="summary-label">Outlook</span>' + r.outlook + '</div>' +
+    '</div>' +
+    '<div class="summary-stats">' +
+      '<span><span class="stat-label">Wk 2 elim </span><span class="stat-val ' + elimClass + '">' + r.elim2 + '%</span></span>' +
+      '<span><span class="stat-label">Champ </span><span class="stat-val champ">' + r.champ + '%</span></span>' +
+    '</div>' +
+  '</div>';
+}).join("");
 
 // ---- Render: championship odds ----
 const champPanel = document.getElementById("champPanel");
 const maxOdds = Math.max(...CHAMPIONSHIP_ODDS.map(d => d.odds));
 champPanel.innerHTML = CHAMPIONSHIP_ODDS.map((d, i) => {
   const width = (d.odds / (maxOdds * 1.08)) * 100;
+  const caseLine = d.case ? '<div class="champ-case">' + d.case + '</div>' : "";
   return '<div class="champ-item' + (i === 0 ? " champ-first" : "") + '">' +
     '<div class="champ-top">' +
       '<span class="champ-rank">' + (i + 1) + '</span>' +
@@ -1397,30 +1630,42 @@ champPanel.innerHTML = CHAMPIONSHIP_ODDS.map((d, i) => {
       '<span class="champ-track"><span class="champ-fill" style="width:' + width + '%"></span></span>' +
       '<span class="champ-val">' + d.odds + '%</span>' +
     '</div>' +
-    '<div class="champ-case">' + d.case + '</div>' +
+    caseLine +
   '</div>';
 }).join("");
 
+// ---- Render: graveyard ----
+const graveyardBody = document.getElementById("graveyardBody");
+if (GRAVEYARD.length === 0) {
+  graveyardBody.innerHTML = '<div class="graveyard-panel"><span class="empty-note">No one&rsquo;s been eliminated yet &mdash; obituaries will appear here once someone is.</span></div>';
+} else {
+  graveyardBody.innerHTML = '<div class="graveyard-grid">' + GRAVEYARD.map(g =>
+    '<div class="tombstone-card">' +
+      '<div class="tombstone-head"><div class="tombstone-badge">' + g.week + ' &middot; Eliminated</div>' +
+      '<div class="tombstone-team">' + g.team + '</div></div>' +
+      '<div class="tombstone-body">' + g.obituary + '</div>' +
+    '</div>'
+  ).join("") + '</div>';
+}
+
 // ---- Render: predicted order of elimination ----
 const eorderList = document.getElementById("eorderList");
-const eliminationRows = ELIMINATION_ORDER.map(e =>
-  '<div class="eorder-item">' +
-    '<div class="eorder-badge">' + e.week + ' &middot; Eliminated</div>' +
-    '<div class="eorder-team">' + e.team + '</div>' +
-    '<div class="eorder-cause"><span class="eorder-label">Cause of death:</span> ' + e.cause + '</div>' +
-    '<div class="eorder-narrative">' + e.narrative + '</div>' +
-    '<div class="eorder-quote">&ldquo;' + e.quote + '&rdquo;</div>' +
-  '</div>'
-).join("");
-const championRow =
-  '<div class="eorder-item champion">' +
-    '<div class="eorder-badge">Champion</div>' +
-    '<div class="eorder-team">' + ELIMINATION_CHAMPION.team + '</div>' +
-    '<div class="eorder-cause"><span class="eorder-label">Cause of victory:</span> ' + ELIMINATION_CHAMPION.cause + '</div>' +
-    '<div class="eorder-narrative">' + ELIMINATION_CHAMPION.narrative + '</div>' +
-    '<div class="eorder-quote">&ldquo;' + ELIMINATION_CHAMPION.quote + '&rdquo;</div>' +
+function eorderCard(badgeText, team, labelText, cause, narrative, quote, champion) {
+  const narrativeLine = narrative ? '<div class="eorder-narrative">' + narrative + '</div>' : "";
+  const quoteLine = quote ? '<div class="eorder-quote">&ldquo;' + quote + '&rdquo;</div>' : "";
+  return '<div class="eorder-item' + (champion ? " champion" : "") + '">' +
+    '<div class="eorder-badge">' + badgeText + '</div>' +
+    '<div class="eorder-team">' + team + '</div>' +
+    '<div class="eorder-cause"><span class="eorder-label">' + labelText + '</span> ' + cause + '</div>' +
+    narrativeLine + quoteLine +
   '</div>';
-eorderList.innerHTML = eliminationRows + championRow + '<div class="eorder-closing">' + ELIMINATION_CLOSING + '</div>';
+}
+const eliminationRows = ELIMINATION_ORDER.map(e =>
+  eorderCard(e.week + ' &middot; Eliminated', e.team, "Cause of death:", e.cause, e.narrative, e.quote, false)
+).join("");
+const championRow = eorderCard("Champion", ELIMINATION_CHAMPION.team, "Cause of victory:", ELIMINATION_CHAMPION.cause, ELIMINATION_CHAMPION.narrative, ELIMINATION_CHAMPION.quote, true);
+const closingLine = ELIMINATION_CLOSING ? '<div class="eorder-closing">' + ELIMINATION_CLOSING + '</div>' : "";
+eorderList.innerHTML = eliminationRows + championRow + closingLine;
 
 // ---- Render: on the clock ----
 const clockBar = document.getElementById("clockBar");
