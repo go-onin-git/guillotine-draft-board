@@ -10,7 +10,6 @@
       --line: #2B342A;
       --gold: #D9A23F;
       --gold-soft: #3A2E17;
-      --brick: #D97268;
       --pos-qb: #8393D0;
       --pos-rb: #5FBE8E;
       --pos-wr: #E08A56;
@@ -34,7 +33,6 @@
     --line: #2B342A;
     --gold: #D9A23F;
     --gold-soft: #3A2E17;
-    --brick: #D97268;
     --pos-qb: #8393D0;
     --pos-rb: #5FBE8E;
     --pos-wr: #E08A56;
@@ -57,7 +55,6 @@
     --line: #DCE2D8;
     --gold: #B8801F;
     --gold-soft: #EADFC5;
-    --brick: #A63B32;
     --pos-qb: #4C5FA0;
     --pos-rb: #2E7A54;
     --pos-wr: #B0592E;
@@ -119,57 +116,6 @@
     color: var(--ink-muted);
     text-align: right;
   }
-
-  /* ---------- On the clock banner ---------- */
-  .clock {
-    position: sticky;
-    top: 0;
-    z-index: 10;
-    background: var(--surface);
-    border-top: 1px solid var(--line);
-    border-bottom: 1px solid var(--line);
-    box-shadow: var(--shadow);
-  }
-  .clock-inner {
-    max-width: 1180px;
-    margin: 0 auto;
-    padding: 14px 20px;
-    display: flex;
-    align-items: center;
-    gap: 22px;
-    flex-wrap: wrap;
-  }
-  .clock-label {
-    font-family: var(--font-mono);
-    font-size: 11px;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 700;
-  }
-  .clock-team {
-    font-family: var(--font-display);
-    font-weight: 900;
-    font-size: 30px;
-    letter-spacing: -0.01em;
-    text-transform: uppercase;
-    line-height: 1;
-  }
-  .clock-sub {
-    font-family: var(--font-mono);
-    font-size: 13px;
-    color: var(--ink-muted);
-    font-variant-numeric: tabular-nums;
-  }
-  .clock-deck {
-    margin-left: auto;
-    text-align: right;
-    font-family: var(--font-mono);
-    font-size: 12px;
-    color: var(--ink-muted);
-  }
-  .clock-deck b { color: var(--ink); font-weight: 700; }
-  .clock.done .clock-team { color: var(--brick); }
 
   /* ---------- Full draft order rail ---------- */
   .draftorder {
@@ -589,8 +535,9 @@
     font-family: var(--font-display);
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 0.02em;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
   .elimwatch-sub {
     font-size: 12px;
@@ -696,19 +643,10 @@
     margin: 0;
     text-wrap: balance;
   }
-  .summaries-hero .subhead {
-    font-family: var(--font-mono);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold);
-    font-weight: 700;
-    margin-top: 8px;
-  }
   .summaries-hero .lede {
     font-size: 13.5px;
     color: var(--ink-muted);
-    margin-top: 10px;
+    margin-top: 14px;
     max-width: 62ch;
   }
   .summaries-grid {
@@ -810,8 +748,9 @@
     font-family: var(--font-display);
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 16px;
-    letter-spacing: 0.02em;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
   .champodds-sub {
     font-size: 12px;
@@ -891,8 +830,9 @@
     font-family: var(--font-display);
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 20px;
-    letter-spacing: 0.01em;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
   .graveyard-sub {
     font-size: 12.5px;
@@ -961,8 +901,9 @@
     font-family: var(--font-display);
     font-weight: 900;
     text-transform: uppercase;
-    font-size: 20px;
-    letter-spacing: 0.01em;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+    line-height: 1;
   }
   .eorder-sub {
     font-size: 12.5px;
@@ -1050,19 +991,8 @@
 </style>
 
 <div class="masthead">
-  <h1>Guillotine League &middot; 2026 Slow Draft</h1>
-  <div class="meta">12 teams &middot; snake &middot; 13 rounds &middot; 156 picks</div>
-</div>
-
-<div class="clock" id="clockBar">
-  <div class="clock-inner">
-    <div>
-      <div class="clock-label" id="clockLabel">On the clock</div>
-      <div class="clock-team" id="clockTeam">&mdash;</div>
-      <div class="clock-sub" id="clockSub">&mdash;</div>
-    </div>
-    <div class="clock-deck" id="clockDeck"></div>
-  </div>
+  <h1>Guillotine League &middot; Last Boyo Standing 2026</h1>
+  <div class="meta">Fantasy football. Weekly executions. No mercy.</div>
 </div>
 
 <div class="wrap">
@@ -1085,8 +1015,7 @@
 
   <div class="summaries">
     <div class="summaries-hero">
-      <h2 class="headline">Last boyo standing</h2>
-      <div class="subhead">Week 1 survivor report</div>
+      <h2 class="headline">Week 1 Survivor Stories</h2>
       <div class="lede">Eleven teams remain. Some announced themselves as contenders. Others established that technically being alive is a perfectly acceptable result.</div>
     </div>
     <div class="summaries-grid" id="summariesGrid"></div>
@@ -1666,33 +1595,6 @@ const eliminationRows = ELIMINATION_ORDER.map(e =>
 const championRow = eorderCard("Champion", ELIMINATION_CHAMPION.team, "Cause of victory:", ELIMINATION_CHAMPION.cause, ELIMINATION_CHAMPION.narrative, ELIMINATION_CHAMPION.quote, true);
 const closingLine = ELIMINATION_CLOSING ? '<div class="eorder-closing">' + ELIMINATION_CLOSING + '</div>' : "";
 eorderList.innerHTML = eliminationRows + championRow + closingLine;
-
-// ---- Render: on the clock ----
-const clockBar = document.getElementById("clockBar");
-const clockTeam = document.getElementById("clockTeam");
-const clockSub = document.getElementById("clockSub");
-const clockLabel = document.getElementById("clockLabel");
-const clockDeck = document.getElementById("clockDeck");
-
-if (draftDone) {
-  clockBar.classList.add("done");
-  clockLabel.textContent = "Draft complete";
-  clockTeam.textContent = "That's a wrap";
-  clockSub.textContent = totalPicks + " picks in the books";
-  clockDeck.textContent = "";
-} else {
-  const round = Math.floor(nextIndex / TEAMS.length) + 1;
-  const pickInRound = (nextIndex % TEAMS.length) + 1;
-  const team = teamForPick(nextIndex);
-  clockLabel.textContent = "On the clock";
-  clockTeam.textContent = team;
-  clockSub.textContent = "Round " + round + " · Pick " + pickInRound + " · Overall " + (nextIndex + 1) + " of " + totalPicks;
-  const upcoming = [];
-  for (let k = 1; k <= 3 && nextIndex + k < totalPicks; k++) {
-    upcoming.push(teamForPick(nextIndex + k));
-  }
-  clockDeck.innerHTML = upcoming.length ? "On deck: <b>" + upcoming.join("</b> &middot; <b>") + "</b>" : "";
-}
 
 // ---- Render: full draft order rail ----
 const orderRow = document.getElementById("orderRow");
