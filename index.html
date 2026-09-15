@@ -101,7 +101,7 @@
   .banner {
     background: #0a0a09;
     border-bottom: 3px solid #3a0f0f;
-    padding: 52px 20px 46px;
+    padding: 52px 20px 64px;
   }
   .banner-inner {
     max-width: 1180px;
@@ -541,7 +541,7 @@
   .rosters-section { margin-top: 28px; }
 
   /* ---------- Week 1 elimination watch ---------- */
-  .elimwatch { margin: 4px 0 6px; }
+  .elimwatch { margin: 28px 0 6px; }
   .elimwatch-head {
     display: flex;
     align-items: baseline;
@@ -1641,10 +1641,15 @@ orderRow.innerHTML = orderSeq.map(pk => {
     '<div class="do-team">' + payDot + pk.team + '</div>' + playerLine + '</div>';
 }).join("");
 
-const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-const currentChip = orderRow.querySelector(".do-chip.current") || orderRow.querySelector(".do-chip.past:last-child");
-if (currentChip) {
-  currentChip.scrollIntoView({ inline: "center", block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+// Auto-scroll the horizontal rail to the current pick — only meaningful
+// mid-draft. Once the draft is complete there's no "current" chip, and the
+// old fallback (last past pick) would drag the whole page down on load.
+if (!draftDone) {
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const currentChip = orderRow.querySelector(".do-chip.current");
+  if (currentChip) {
+    currentChip.scrollIntoView({ inline: "center", block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+  }
 }
 
 // ---- Render: draft grid (central "who picked whom" board) ----
