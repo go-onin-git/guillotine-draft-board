@@ -1041,8 +1041,8 @@
   <div class="elimwatch">
     <div class="elimwatch-head">
       <div>
-        <div class="elimwatch-title">Week 3 elimination watch</div>
-        <div class="elimwatch-sub">Post-waiver odds of posting the league&rsquo;s lowest score in Week 3, based on current rosters and matchups</div>
+        <div class="elimwatch-title">Week 4 elimination watch</div>
+        <div class="elimwatch-sub">Pre-waiver odds of posting the league&rsquo;s lowest score in Week 4, based on current rosters and matchups</div>
       </div>
       <div class="elimwatch-legend">
         <span><span class="risk-dot critical"></span>Critical</span>
@@ -1056,10 +1056,10 @@
 
   <div class="summaries">
     <div class="summaries-hero">
-      <h2 class="headline">Week 3 Previews</h2>
-      <div class="lede-bold">Goodie finally improved several fantasy teams. Unfortunately, none of them were his.</div>
-      <div class="lede">His estate has been distributed. Matt bought four players for $700. Bullock bought a quarterback with functioning limbs. TJ went shopping in the damaged-goods section. Shoes waited until the refreshments were cleared, then picked up Sam Darnold for free. Jayel found Geno Smith without spending another dollar. Apparently the gift shop also sells quarterbacks. Ten managers remain. The rosters are getting better. The margin for being shit is getting smaller.</div>
-      <div class="disclaimer">Updated September 24, 2026, before Thursday kickoff. Scores, rosters and bids were checked against <a href="https://football.fantasysports.yahoo.com/f1/1315793" target="_blank" rel="noopener">Yahoo</a> and its <a href="https://football.fantasysports.yahoo.com/f1/1315793/transactions" target="_blank" rel="noopener">transaction log</a>. These are editorial probability estimates, not Yahoo odds or a calibrated simulation. Every team is evaluated with a sensible legal lineup drawn from its entire current roster, including new pickups; bench placement and unfinished lineup settings carry no penalty. Injury uncertainty, depth and remaining FAAB still matter; competent management cannot make an injured player healthy. Both probability columns total 100%. Injury assumptions remain subject to later practice reports.</div>
+      <h2 class="headline">Week 4 Previews</h2>
+      <div class="lede-bold">Millar had one foot in the grave. Bullock arrived with a shovel and fell in.</div>
+      <div class="lede">The third execution came down to Monday night, two players and 3.90 points. Death Squad is gone. Jalen Hurts is back on waivers before Bullock has finished reading the receipt. Nine managers remain, and several of them survived Sunday only to discover that their Week 4 roster now requires structural repairs. Jayel won the week. TJ finished second for the third straight time. Colin proved that a team can function without its most expensive purchase. And Millar has survived another week by making absolutely certain someone else had a worse one.</div>
+      <div class="disclaimer">September 29, 2026, before Week 4 waivers. The recaps cover Week 3, which ended September 28, using scores, rosters and the <a href="https://football.fantasysports.yahoo.com/f1/1315793/transactions" target="_blank" rel="noopener">transaction log</a> checked directly on <a href="https://football.fantasysports.yahoo.com/f1/1315793" target="_blank" rel="noopener">Yahoo</a>. Odds are editorial estimates, not Yahoo probabilities or a calibrated simulation. They assume sensible legal lineups using each team&rsquo;s whole current roster. No team is charged an inactive zero when it has a healthy replacement. Future purchases are not counted as completed transactions.</div>
     </div>
     <div class="summaries-grid" id="summariesGrid"></div>
   </div>
@@ -1068,13 +1068,13 @@
     <div class="champodds-head">
       <div>
         <div class="champodds-title">Championship odds</div>
-        <div class="champodds-sub">Ranked highest to lowest championship odds. These describe winning the entire competition, not surviving Week 3.</div>
+        <div class="champodds-sub">Ranked highest to lowest championship odds. These describe winning the entire competition, not surviving Week 4.</div>
       </div>
     </div>
     <div class="champodds-panel" id="champPanel"></div>
     <div class="champodds-notes">
-      <p>Jayel makes the largest immediate gain by adding Geno. Shoes gains more in championship probability than in immediate safety because Darnold&rsquo;s availability is unresolved. Skinner&rsquo;s new depth is offset by the RB2 uncertainty. Millar&rsquo;s injury questions and the disappearance of Jayel&rsquo;s quarterback hole move him to the top of the watch list.</p>
-      <p>Matt&rsquo;s one-point risk increase reflects the stronger field, not a reversal of the positive assessment of his purchases. TJ and Max remain in the lower-risk group. These small differences should not be mistaken for precise measurements. <strong>Even the leading elimination candidate has an 84% estimated chance of surviving.</strong> A single touchdown or unexpected absence can change the picture substantially.</p>
+      <p>Shoes versus TJ is now close. Shoes retains the edge in running-back options and purchasing power. TJ has the stronger immediate Week 4 outlook, Bowers back, useful quarterback choices and three consistently strong results. Neither lead is decisive.</p>
+      <p>Matt&rsquo;s depth is doing the job it was bought to do. Skinner rises on healthier options and substantial remaining funds. Max and Pete fall despite a smaller field because their injuries create real repair bills. Colin&rsquo;s excellent Week 3 earns respect, but one good result does not replenish his budget or resolve Puka&rsquo;s status. Jayel&rsquo;s free-agent work improves the title case without making the $100 constraint disappear. <strong>Even Max, the leading elimination candidate, has an estimated 81% chance of surviving.</strong></p>
     </div>
   </div>
 
@@ -1089,7 +1089,7 @@
   <div class="eorder">
     <div class="eorder-head">
       <div class="eorder-title">Predicted order of elimination</div>
-      <div class="eorder-sub">One possible storyline, not a claim that this exact sequence is likely. It assumes active roster management and a Week 11 final. Championship probabilities cover many paths; this table selects one.</div>
+      <div class="eorder-sub">One selected storyline, not the most likely exact sequence. Continues the existing assumption of a Week 11 final; the league&rsquo;s final-week setting was not newly verified for this update. Future waivers, injuries and lineup decisions will change the route.</div>
     </div>
     <div id="eorderList"></div>
   </div>
@@ -1156,113 +1156,104 @@ const TEAMS = ["Max","Skinner","Matt","Shoes","Millar","Hamal","Colin","Bullock"
 // Who's paid their league dues so far — edit this list as payments come in.
 const PAID_TEAMS = new Set(["TJ", "Pete", "Goodie", "Hamal", "Colin", "Shoes", "Max"]);
 
-// Week 3 elimination-risk model, ranked worst to best. Updated September 24
-// with Wednesday injury news and two more waiver moves (Darnold, Geno).
+// Week 4 elimination-risk model, ranked worst to best. Pre-waiver, based on
+// current rosters. Bullock eliminated Week 3 — see Graveyard.
 const ELIMINATION_DATA = [
-  { team: "Millar",  faab: 495,  chance: 16 },
-  { team: "Bullock", faab: 675,  chance: 13 },
-  { team: "Jayel",   faab: 100,  chance: 12 },
+  { team: "Max",     faab: 888,  chance: 19 },
+  { team: "Pete",    faab: 979,  chance: 17 },
+  { team: "Jayel",   faab: 100,  chance: 15 },
+  { team: "Millar",  faab: 495,  chance: 14 },
   { team: "Colin",   faab: 250,  chance: 11 },
-  { team: "Skinner", faab: 871,  chance: 11 },
-  { team: "Matt",    faab: 300,  chance: 10 },
-  { team: "TJ",      faab: 894,  chance: 7 },
-  { team: "Max",     faab: 888,  chance: 7 },
-  { team: "Pete",    faab: 979,  chance: 7 },
-  { team: "Shoes",   faab: 1000, chance: 6 },
+  { team: "Shoes",   faab: 1000, chance: 8 },
+  { team: "Matt",    faab: 300,  chance: 6 },
+  { team: "Skinner", faab: 870,  chance: 6 },
+  { team: "TJ",      faab: 894,  chance: 4 },
 ];
 
 // Week 3 previews, ranked by Week 2 finish (Hamal and Goodie eliminated — see Graveyard).
-const WEEK3_PREVIEW = [
-  { team: "Shoes", subtitle: "Found a quarterback in the clearance aisle", rank: "1st", points: 131.12,
+const WEEK4_PREVIEW = [
+  { team: "Jayel", subtitle: "The high-scoring team files supporting evidence", rank: "1st", points: 130.08,
     paragraphs: [
-      "Shoes followed his league-leading Week 2 by adding Darnold for free. The manager with all $1,000 remaining has begun addressing his weakest position without opening his wallet. Frugal behaviour is especially irritating when the person doing it is already winning. Darnold returned to practice Wednesday, but Seattle has not committed to his Week 3 availability. If cleared and ready for a normal workload, he becomes a credible option at Washington alongside Jones against Houston and Ward at the Giants. If he sits, Shoes still has two healthy starters. This forecast gives him credit for making the sensible choice in either scenario.",
-      "McCaffrey hosts Arizona, Lamb faces Baltimore and DeVonta visits Chicago. Adams at Denver supplies another flex option alongside Javonte. The skill-position depth remains the foundation; Darnold adds a third quarterback and future flexibility. The immediate improvement is modest because Darnold might not play. The championship improvement is clearer: Shoes has started repairing the quarterback position while retaining the league&rsquo;s largest budget. He remains my title favourite, now with slightly more substance behind the pick.",
+      "For once, the team name reads like a description instead of a hostage demand. Purdy scored 31.28, JSN added 30.36 and Geno supplied 26.04. That&rsquo;s 87.68 from three players, including a quarterback acquired for the princely sum of nothing. Kyren added 18.80, and Jayel won despite Jefferson&rsquo;s early exit and Likely&rsquo;s 2.30. The celebration comes with an injury report. Jefferson&rsquo;s ankle and Evans&rsquo; ribs leave his receiving options uncertain. McConkey and Deebo provide real cover, while the free Kamara pickup has become more interesting with Etienne hurt. This is a better roster than the one that lost Dart; Geno has fixed a genuine hole.",
+      "Week 4 brings Purdy against Denver, Geno at Chicago and the Kyren&ndash;Barkley pairing on opposite sides of Rams&ndash;Eagles. There is enough talent to survive another imperfect week. The concern is flexibility: $100 buys fewer mistakes than everyone else&rsquo;s budget. Winning Sunday did not refill the account.",
     ],
-    elim3: 6, champ: 19 },
-  { team: "TJ", subtitle: "Goodie&rsquo;s estate, sensible financing", rank: "2nd", points: 119.10,
+    elim4: 15, champ: 5 },
+  { team: "TJ", subtitle: "Silver medals, gold-standard budgeting", rank: "2nd", points: 126.34,
     paragraphs: [
-      "Two straight second-place finishes, $894 still available, and now Caleb Williams and Matthew Golden for a combined $89. TJ has acquired a quarterback with a hamstring problem, which is an unusual way to reduce anxiety but a perfectly reasonable way to buy upside cheaply. Caleb is a future option, not someone this forecast needs to start against Philadelphia. Stroud visits Indianapolis, Young visits Cleveland and Shough hosts Las Vegas. There are already enough alternatives to let Caleb recover. Bowers logged a limited practice Wednesday. A return against New Orleans remains plausible, with Johnson available if he cannot go.",
-      "Golden gets Atlanta on Thursday and gives the flex spot another option after Johnston&rsquo;s 1.90. Chase at Pittsburgh and Amon-Ra against the Jets remain the main attractions. Swift&rsquo;s Monday matchup with Philadelphia and Montgomery&rsquo;s trip to Indianapolis leave the running backs with something to prove after last week&rsquo;s comedown. Golden also plays in Week 6, when Chase and Amon-Ra both disappear. That helps; it does not finish the job. TJ&rsquo;s own position remains strong; a small relative title-odds decline reflects the improvements elsewhere, especially Shoes&rsquo; quarterback addition. His roster now contains both a plan and the funds to change it.",
+      "Three weeks, three second-place finishes. In a league where the only position that matters is last, TJ has developed an unnecessarily tidy filing system. Bowers returned with 22.60, Shough delivered 24.80 and Chase added 20.30. Golden&rsquo;s first week after the $42 purchase produced 18.50. Even the quarterback selection worked: Young outscored Stroud. Swift and Montgomery combined for a less inspiring 15.60, but the rest of the lineup could afford to carry the running-back department.",
+      "Week 4 offers Stroud against Dallas, Shough against Atlanta and Young against Detroit. Chase gets Jacksonville, Amon-Ra visits Carolina and Bowers hosts Kansas City. Caleb can continue recovering without being forced into the plan. TJ moves close to Shoes in the championship race because the roster is producing and the money is still available. The Week 6 receiver bye remains a job to finish, not a reason to pretend the current team is fragile. A running-back upgrade would also make a strong roster less dependent on its passing-game stars.",
     ],
-    elim3: 7, champ: 15 },
-  { team: "Max", subtitle: "Josh Allen gets a coworker", rank: "3rd", points: 114.00,
+    elim4: 4, champ: 22 },
+  { team: "Colin", subtitle: "Puka&rsquo;s paid sabbatical continues", rank: "3rd", points: 124.62,
     paragraphs: [
-      "Allen scored 40.82 last week. Max has now spent $112 on Judkins, presumably after HR warned that one employee cannot continue doing everybody&rsquo;s job. Judkins against Carolina gives Max another usable running back alongside Jeanty and Henderson, and another flex option beyond Burden. The working lineup includes Judkins, so his value is fully counted regardless of where he appears on the roster page. Coker is another candidate after his productive Week 2.",
-      "Allen hosts the Chargers, Olave hosts Las Vegas and Jeanty visits New Orleans. London plays Thursday at Green Bay, while Mayfield gets Minnesota. There are several routes to a competitive score that do not require Allen to produce forty again. This was a useful addition for a team whose supporting cast had looked fragile. Keeping $888 means Max can address the next weakness too. He moves away from the front of the elimination queue and slightly closer to being an actual team with Josh Allen on it.",
+      "Colin spent $750 on Puka and has since been demonstrating how well the team can play without him. It&rsquo;s an unconventional consumer review. Six starters reached 16.70 or better: Lamar, Love, Cook, Higgins, McLaurin and Jaylen Warren. Warren&rsquo;s 19.10 was particularly helpful, while Cook supplied 19.40. The lineup absorbed modest returns from Hampton and LaPorta without coming close to elimination. This was a proper team performance, not one absurd score hiding seven passengers.",
+      "Lamar against Tennessee and Cook against New England provide a reassuring Week 4 foundation. Love visits Tampa Bay; Warren opens Thursday at Cleveland. Puka remains upside if cleared, with McLaurin and the existing flex choices covering another absence. The low title estimate reflects the longer route: limited spending power, unresolved Puka availability and a major Week 7 bye cluster. It is not a prediction that Colin suddenly forgets how to score. He just needs the players he already paid for to keep pace with opponents who can afford to buy new ones.",
     ],
-    elim3: 7, champ: 11 },
-  { team: "Pete", subtitle: "Bargain hunter, tight-end denier", rank: "4th", points: 112.76,
+    elim4: 11, champ: 3 },
+  { team: "Matt", subtitle: "The expensive depth is becoming useful", rank: "4th", points: 124.54,
     paragraphs: [
-      "Jameson Williams for $21 is an appealing addition to a roster that already has Henry, Achane, Wilson, Waddle, Burrow and Goff. Pete also added Michael Wilson and Drew Lock for free. Useful shopping, with $979 still waiting for the next funeral. The strongest Week 3 pieces are Henry against Dallas, Achane against Kansas City and the two quarterbacks: Goff against the Jets and Burrow at Pittsburgh. Jameson is the working flex choice, with Pollard, Boston and Michael Wilson providing alternatives. Pollard now carries a questionable tag. The roster has more room to absorb a mediocre performance than it did at the start of the season.",
-      "Loveland remains the uncomfortable exception. After 0.80 across two weeks, he gets Philadelphia with uncertainty at quarterback. McBride and Kittle have both gone elsewhere. Pete&rsquo;s faith in the position is now eligible for charitable status. Jameson adds to the Week 6 congestion: Goff, Burrow, Achane and Jameson share that bye. Lock is only conditional quarterback cover while Darnold recovers, and Shoes now owns Darnold. Pete cannot count on holding Seattle&rsquo;s starter indefinitely. Pete has plenty of money to solve this; the forecast simply declines to count the problem as solved already.",
+      "Bijan&rsquo;s 34.30 made Thursday a pleasant experience. Stafford added 22.90, and Matt finished fourth while leaving Kittle&rsquo;s 23.20 and Jeremiyah Love&rsquo;s 19.40 on the bench. After the $700 shopping spree, Matt now has the sort of bench that can make a perfectly good result feel irritating. McBride supplied 12.00 in his debut. The more consequential development was Hall&rsquo;s quad injury. Fortunately, buying several running backs means Matt actually has several running backs: Hubbard, Love and Skattebo can cover the opening without a desperate new purchase.",
+      "For Week 4, Bijan visits New Orleans, Mahomes goes to Las Vegas and the replacement backs offer multiple legal lineup combinations. Egbuka does take on uncertainty with Mayfield out. That is a real downgrade to his environment, but it does not erase the rest of the roster. The spending reduced future buying power. It also purchased exactly the depth that an injury-heavy week demands. Matt remains a serious contender, just one who has already eaten most of the emergency fund.",
     ],
-    elim3: 7, champ: 8 },
-  { team: "Colin", subtitle: "Waiting for the expensive parcel", rank: "5th", points: 107.40,
+    elim4: 6, champ: 17 },
+  { team: "Skinner", subtitle: "Gibbs handles the complaint department", rank: "5th", points: 120.22,
     paragraphs: [
-      "No new arrivals. Colin&rsquo;s big purchase remains Puka, who cost $750 and has so far contributed mostly opportunities to refresh an injury report. Puka was estimated as a non-participant Wednesday and remains uncertain. The forecast uses Warren as the main alternative, with his own questionable status monitored, and Kelce as additional flex cover. Sunday-night kickoff makes the timing important: Warren plays earlier. A projected number beside Puka&rsquo;s name is not medical clearance.",
-      "There is still a credible foundation. Lamar visits Dallas, Love hosts Atlanta on Thursday, and Cook and Hampton meet in Buffalo. Higgins goes to Pittsburgh; LaPorta gets the Jets. Kelce remains an alternative at tight end, while McLaurin faces Seattle with Washington changing quarterbacks. Colin&rsquo;s risk rises a little as others improve and Puka remains unresolved. His title estimate holds at 5%; the limiting factor remains buying power: $250 leaves less room to join future auctions, and the costly addition remains uncertain. This is not a hopeless roster. It is a roster that needs its existing talent to work while other managers can keep ordering more.",
+      "Gibbs scored 37.90, which was useful because McMillan and Kincaid combined for 5.50. Some teams distribute responsibility. Skinner apparently assigns it all to one Detroit running back and hopes payroll never finds out. There was support: Lawrence added 20.78, Watson 19.10 and Jones 11.70. Jones and Nabers both played, easing two of the previous week&rsquo;s availability concerns. The $1 Croskey-Merritt pickup also gives Skinner another running-back option after moving on from Coleman.",
+      "Week 4 looks friendlier than last week&rsquo;s nervous build-up. Gibbs visits Carolina, Jones gets Miami and Watson travels to Tampa Bay. Lawrence and Herbert remain the quarterback pair, with Washington, McMillan and Nabers offering receiver/flex choices. The title case improves because Skinner has a useful current lineup and $870 to spend into an increasingly strong player pool. Week 7 still demands advance work: both quarterbacks, Washington and Kincaid share the bye. Schultz helps at tight end. He cannot throw passes for two NFL teams.",
     ],
-    elim3: 11, champ: 5 },
-  { team: "Matt", subtitle: "Bought the entire tight-end department", rank: "6th", points: 102.36,
+    elim4: 6, champ: 13 },
+  { team: "Shoes", subtitle: "The billionaire leaves his quarterback in storage", rank: "6th", points: 110.84,
     paragraphs: [
-      "Pitts supplied two points in two weeks. Matt responded by purchasing McBride and Kittle, which is the fantasy equivalent of replacing a broken toaster with a commercial bakery. McBride immediately fixes the most obvious starting-lineup problem. Kittle offers another playable option, including at flex, while Skattebo and Jeremiyah Love deepen the running backs. Those three cost $200 combined; the other $500 bought McBride. This is a substantially more resilient roster than the one that needed Stafford and Mahomes to supply over half its Week 2 score.",
-      "Bijan opens Thursday at Green Bay. Mahomes visits Miami; Stafford goes to Denver. McBride and Love travel to San Francisco, while Kittle plays the opposite side of that game. Matt has choices now, rather than eight assignments and a prayer. The catch is the $300 balance and a receiver group still dependent on Egbuka, Moore&rsquo;s health and Diggs. Four purchases did not address every weakness. Relative to the pre-shopping roster, the immediate lineup is substantially better. His slight odds decline since yesterday reflects improvements elsewhere, not a loss of confidence in those purchases. Matt has made himself considerably harder to kill, at a price that makes future mistakes more expensive.",
+      "Darnold returned, scored 29.66 and watched from Shoes&rsquo; bench while Jones and Ward combined for 19.34. Free delivery, excellent reviews, product still in the box. Shoes survived comfortably enough because Fannin supplied 20.60, McCaffrey 19.60, Adams 17.20 and Lamb 16.70. Javonte&rsquo;s 17.30 was also available in reserve. Sixth place is a comedown after winning Week 2, but the useful development is that the quarterback addition is healthy and productive.",
+      "The Week 4 assessment gives Shoes credit for using Darnold and Jones, with Javonte another strong flex option. McCaffrey faces Denver and Lamb visits Houston; the roster has enough alternatives to avoid depending on Ward at Baltimore. Shoes remains the narrow championship favourite. Strong skill players, improving quarterback options and all $1,000 make a persuasive combination. That budget has to become actual players eventually, especially with Darnold and Adams sharing the assumed Week 11 final bye. For now, the richest man in the room still has a good team.",
     ],
-    elim3: 10, champ: 15 },
-  { team: "Jayel", subtitle: "The emergency now has a quarterback", rank: "7th", points: 101.78,
+    elim4: 8, champ: 23 },
+  { team: "Pete", subtitle: "Survived the score, lost the cornerstone", rank: "7th", points: 100.44,
     paragraphs: [
-      "Geno Smith for free is the most consequential addition since the first version of this preview. Yesterday&rsquo;s missing-quarterback story is obsolete. Jayel has addressed it, and the forecast needs to give him the credit. Dart is now out for the season. Geno at Detroit gives Jayel a working partner for Purdy against Arizona, rather than forcing another receiver into superflex. Geno does not need to become a superstar for this to be a meaningful improvement. He needs to provide competent quarterback production without charging Jayel&rsquo;s last $100.",
-      "JSN at Washington and Jefferson at Tampa Bay offer substantial upside. Kyren visits Denver, Likely faces Tennessee and Evans, McConkey, Deebo and Price provide flex choices as availability becomes clearer. Price returned to practice Wednesday; Barkley&rsquo;s Monday status still needs watching. Wilson remains cover for the Seattle backfield. The revised assessment uses Geno and the best healthy combination of those skill players. Jayel remains vulnerable because of the injury cluster and limited spending power, but he is no longer my leading elimination candidate. His risk falls from 20% to 12%. The ambulance is still outside; at least someone has found the keys.",
+      "Burrow, Henry, Garrett Wilson and Goff combined for 85.04. The other four starters supplied 15.40. This was less an eight-man lineup than four men carrying a sofa upstairs. Achane&rsquo;s season-ending ACL injury is the real damage. Ferguson&rsquo;s one-week rental also failed to solve tight end: 1.40 points, another injury concern and a Tuesday release. Loveland remains available, while Pollard can replace Achane. There is a working lineup here; it is simply less formidable than the one Pete expected to have.",
+      "Henry gets Tennessee in Week 4, Burrow hosts Jacksonville and Goff visits Carolina. Pollard at Baltimore and Waddle at San Francisco make the supporting cast less comfortable. The $979 balance gives Pete plenty of ability to respond, and Bullock has conveniently released running backs and a useful tight end. One future problem needs particular attention: Willis, Burrow and Goff all have the Week 6 bye. Adding a third quarterback created depth without creating coverage for the week Pete most needs it.",
     ],
-    elim3: 12, champ: 4 },
-  { team: "Bullock", subtitle: "Quarterback collection reaches emergency-services scale", rank: "8th", points: 95.66,
+    elim4: 17, champ: 7 },
+  { team: "Max", subtitle: "A quarterback vacancy at an inconvenient time", rank: "8th", points: 97.34,
     paragraphs: [
-      "With Daniels hurt, Bullock added Hurts for $253. He now has Hurts, Maye and the returning Kyler available to cover two starting positions. The quarterback room has more redundancy than an airport control tower. Hurts visits Chicago on Monday, Maye goes to Jacksonville and Kyler travels to Tampa Bay. That gives Bullock a genuine choice rather than another injury-driven compromise. Walker and Rice at Miami remain important anchors, with Irving and Tuten providing support.",
-      "The receiver problem is less comfortable. Collins missed Wednesday practice, so the forecast still allows for another absence. Odunze arrived for nothing and supplies cover, but Chicago&rsquo;s quarterback injuries make him a volatile solution against Philadelphia. Warren already covers Goedert at tight end. The working lineup uses Hurts and Maye, with Kyler a viable alternative, and Odunze or Tate covering WR2 if Collins sits. Hurts strengthens the long-term case, but the team cannot start all its quarterbacks to compensate for a thin receiving week. He has purchased excellent insurance. Unfortunately, the house has several rooms.",
+      "London&rsquo;s 23.90 and Olave&rsquo;s 15.20 helped Max survive a week in which Henderson and Andrews combined for 7.30. Allen supplied 18.96, and the final margin over Bullock was just 6.46. It was enough. Nobody awards style points at the guillotine. Mayfield&rsquo;s thumb injury now leaves Max without a healthy second quarterback on the current roster. Burden is a legitimate superflex replacement, not an inactive zero, but that substitution still reduces the scoring expectation. Coker&rsquo;s quad adds another uncertainty. Allen finished Sunday&rsquo;s game; his knee bears watching without assuming he will miss Week 4.",
+      "Allen hosts New England, while London and Olave share Monday&rsquo;s Atlanta&ndash;New Orleans game. Those players can keep Max competitive. The immediate forecast nevertheless places him first on the watch list because the quarterback hole is real until filled. His $888 and Bullock&rsquo;s four newly available quarterbacks offer a clear repair route. That is why Max&rsquo;s title odds remain much healthier than his short-term elimination ranking. A sensible acquisition could make this forecast look outdated very quickly.",
     ],
-    elim3: 13, champ: 14 },
-  { team: "Skinner", subtitle: "Added depth, inherited another injury report", rank: "9th", points: 92.84,
+    elim4: 19, champ: 9 },
+  { team: "Millar", subtitle: "Renewed on a week-to-week contract", rank: "9th", points: 94.78,
     paragraphs: [
-      "McMillan for $129 was a useful first move. Schultz and Coleman for free add more choices. Unfortunately, Coleman arrived with an ankle issue, so the welcome package now includes a physiotherapy referral. McMillan at Cleveland and Watson against Atlanta give Skinner receiver options while Nabers&rsquo; shoulder is monitored. Lawrence and Washington face New England; Herbert and Kincaid meet in Buffalo. Schultz at Indianapolis can compete at tight end or flex and supplies future cover for Kincaid&rsquo;s Week 7 bye. He does not have to displace Kincaid this week for the pickup to help.",
-      "The concern has shifted toward RB2. Aaron Jones missed Wednesday practice with a knee issue, Coleman was officially a non-participant, and Jacobs remains unavailable in the roster snapshot. Dropping Dobbins leaves fewer alternatives if Jones cannot play. The forecast assumes Skinner starts healthy players; it cannot invent a healthy second running back who is not currently on his team. Gibbs against the Jets remains the anchor. Jones playing would make this a more reassuring lineup; Jones and Coleman both missing would materially increase the danger. The additions are useful, but the new running-back uncertainty more than offsets their immediate benefit. His $871 still provides room to respond.",
+      "Millar has now finished one place above the axe in consecutive weeks. At this point, the league should issue him a high-vis vest and let him direct traffic around the blade. Nix&rsquo;s 25.14 was the difference between another escape and an obituary. Dak supplied 18.94; Taylor, Kraft and Stevenson combined for only 18.10. By Monday, the score was finished and the only remaining tactic was hoping Bullock underperformed. An ugly plan, executed perfectly.",
+      "Etienne&rsquo;s hamstring aggravation makes the next assignment harder. This forecast moves Stevenson to RB2 and uses Metcalf at flex, with Lloyd another option. It does not leave an injured Etienne collecting a zero. Taylor visits Washington in London, Dak faces Houston and Nix travels to San Francisco. Millar is still vulnerable, but Max&rsquo;s quarterback problem and Pete&rsquo;s loss of Achane mean he is not automatically the likeliest victim. The $495 balance can still buy help. Another week of relying on someone else&rsquo;s collapse would be a brave interpretation of roster management.",
     ],
-    elim3: 11, champ: 8 },
-  { team: "Millar", subtitle: "The same team, with a pulse check", rank: "10th", points: 90.78,
-    paragraphs: [
-      "Millar survived by 12.30 last week and made no new additions. Apparently the experience was so enjoyable he would like to preserve as much of it as possible. Flowers missed Wednesday practice despite the earlier optimism, and Etienne was limited with a hamstring issue. The working lineup substitutes Metcalf if Flowers sits and uses Stevenson/Lloyd to cover the running backs if necessary. There is no assumed inactive zero here; the concern is the quality and depth of the available replacements.",
-      "Dak and Pickens face Baltimore; Flowers would be on the other side. Taylor hosts Houston, Nix gets the Rams and Kraft opens Thursday against Atlanta. There is enough talent for a rebound, but the supporting positions need to contribute instead of admiring Dak and Taylor&rsquo;s work. The issue is relative strength. Several opponents added useful starters while Millar retained the group that finished tenth of eleven. His $495 still gives him options, but another narrow escape would not fix the underlying problem. He moves to the top of the watch list as Jayel repairs his quarterback hole. That is a narrow lead in risk, not a prediction that another poor score is inevitable.",
-    ],
-    elim3: 16, champ: 1 },
+    elim4: 14, champ: 1 },
 ];
 
 // Championship odds, ranked best to worst.
 const CHAMPIONSHIP_ODDS = [
-  { team: "Shoes",   odds: 19 },
-  { team: "TJ",      odds: 15 },
-  { team: "Matt",    odds: 15 },
-  { team: "Bullock", odds: 14 },
-  { team: "Max",     odds: 11 },
-  { team: "Skinner", odds: 8 },
-  { team: "Pete",    odds: 8 },
-  { team: "Colin",   odds: 5 },
-  { team: "Jayel",   odds: 4 },
+  { team: "Shoes",   odds: 23 },
+  { team: "TJ",      odds: 22 },
+  { team: "Matt",    odds: 17 },
+  { team: "Skinner", odds: 13 },
+  { team: "Max",     odds: 9 },
+  { team: "Pete",    odds: 7 },
+  { team: "Jayel",   odds: 5 },
+  { team: "Colin",   odds: 3 },
   { team: "Millar",  odds: 1 },
 ];
 
-// Predicted order of elimination — revised September 24 after Darnold/Geno pickups.
+// Predicted order of elimination — revised September 29 after Bullock's elimination.
 const ELIMINATION_ORDER = [
-  { week: "Week 3", team: "Millar", cause: "Jayel found a quarterback. Millar found another injury designation. The escape hatch is getting crowded." },
-  { week: "Week 4", team: "Jayel", cause: "Geno buys another week. The injury list and the $100 repair fund eventually disagree about the scope of work." },
-  { week: "Week 5", team: "Colin", cause: "The original talent keeps fighting, but the survivors keep improving faster than the remaining budget allows." },
-  { week: "Week 6", team: "Pete", cause: "Burrow, Goff, Achane and Jameson take the same week off. Seattle&rsquo;s temporary quarterback rental does not cover the whole invoice." },
-  { week: "Week 7", team: "Skinner", cause: "Schultz covers one bye. Herbert, Lawrence and Parker Washington still require a much larger repair job." },
-  { week: "Week 8", team: "TJ", cause: "Gets past the receiver bye, then Stroud, Shough, Montgomery and Johnson take their turn. The maintenance schedule never ends." },
-  { week: "Week 9", team: "Max", cause: "Allen gets a proper supporting cast. The final survivors have assembled their own all-star productions." },
-  { week: "Week 10", team: "Matt", cause: "The early shopping spree carries him deep. The remaining budget struggles to fund the last upgrade." },
-  { week: "Week 11", team: "Bullock", cause: "The quarterbacks get him to the final. Shoes&rsquo; skill players settle the last argument." },
+  { week: "Week 4", team: "Max", cause: "The quarterback vacancy arrives before the next roster repair. Allen cannot file everybody&rsquo;s timesheet." },
+  { week: "Week 5", team: "Millar", cause: "Another week of almost-last eventually becomes a week of actually-last. The replacements stop being enough." },
+  { week: "Week 6", team: "Pete", cause: "Burrow, Goff and Willis all take the same week off. The quarterback collection turns out to be a group vacation." },
+  { week: "Week 7", team: "Colin", cause: "Cook, Hampton, McLaurin and Rachaad White are all on bye. A $250 repair budget faces several simultaneous invoices." },
+  { week: "Week 8", team: "Jayel", cause: "Purdy, Likely, Deebo, Evans and Kamara share the bye. Geno solved one problem; he cannot play every position." },
+  { week: "Week 9", team: "Skinner", cause: "Gets through the quarterback bye, then meets a field whose remaining rosters have become substantially stronger." },
+  { week: "Week 10", team: "Matt", cause: "The early depth buys a deep run. The last round of upgrades favours the managers who kept more cash." },
+  { week: "Week 11", team: "TJ", cause: "Makes the final, then Shoes&rsquo; reconstructed lineup wins the last coin flip." },
 ];
-const ELIMINATION_CHAMPION = { team: "Shoes", cause: "Adds a useful quarterback option for free and retains the money to buy whatever the final roster still needs." };
-const ELIMINATION_CLOSING = '<p>Only Weeks 3 and 4 change order in this revision. The new pickups do not justify rewriting the entire season. TJ still gets past Week 6 in this storyline; Golden and the remaining $894 provide a credible route to replacing the absent receivers. Pete&rsquo;s Week 6 needs remain broader. All bye-week problems are repairable, not guaranteed future zeros.</p><p>Darnold shares Adams&rsquo; Week 11 bye, so his arrival does not solve Shoes&rsquo; final-week quarterback planning. Jones and Ward have other bye weeks. Shoes&rsquo; title case remains the combination of his roster, options and spending power, not an assumption that September&rsquo;s lineup can survive untouched.</p>';
+const ELIMINATION_CHAMPION = { team: "Shoes", cause: "Turns the largest remaining budget and deep skill group into the strongest final-week roster." };
+const ELIMINATION_CLOSING = '<p>Max&rsquo;s Week 4 slot is especially provisional: a quarterback addition could move him out of it immediately. Predicting him to go first is compatible with a 9% championship chance because surviving that near-term danger leaves substantial talent and money. A selected exit order is not a ranking of overall team quality.</p><p>TJ&rsquo;s Week 6 and Week 8 problems and Skinner&rsquo;s Week 7 quarterback bye remain real. This storyline assumes their larger budgets help them repair those weeks; it does not award them imaginary starters in the current Week 4 odds. Shoes must also plan around the Week 11 absences of Darnold and Adams. The champion pick is for a managed roster, not September&rsquo;s lineup frozen in place.</p>';
 
 // Graveyard: real eliminated teams, in order of elimination.
 const GRAVEYARD = [
@@ -1300,6 +1291,28 @@ const GRAVEYARD = [
     '<p>Visitation will take place on the waiver wire. In lieu of flowers, the family requests points. Zay Flowers has already sent neither.</p>' +
     '<p>Goodie will be remembered as a devoted saver, a generous donor, and a man whose best lineup arrived shortly after his obituary.</p>' +
     '<p><strong>May he rest in peace. His players are projected to do considerably better elsewhere.</strong></p>'
+  },
+  { week: "Week 3", team: "Bullock", obituary:
+    '<p class="tombstone-byline"><em>2026&ndash;2026 &middot; He bought Hurts. He received pain.</em></p>' +
+    '<p>It is with considerable interest in his available players that we announce the passing of Bullock&rsquo;s Death Squad, eliminated Monday night at the tender age of three weeks.</p>' +
+    '<p>He leaves behind 90.88 points, $675 in unspent FAAB, and a team name that turned out to be less of a threat than a forwarding address.</p>' +
+    '<p>For much of the weekend, the league had been measuring Millar for a coffin. Unfortunately, Millar scored 94.78, which in most leagues would prompt a difficult conversation but in this one was enough to qualify for another week of public assistance.</p>' +
+    '<p>Bullock entered Monday needing more than 23.42 points from Jalen Hurts and Rome Odunze. Two players. One game. A perfectly reasonable request.</p>' +
+    '<p>They delivered 19.52.</p>' +
+    '<p>The final margin was 3.90 points. Somewhere, Millar is still checking whether Yahoo allows refunds on a prematurely ordered headstone.</p>' +
+    '<p>The tragedy began at quarterback, where Drake Maye supplied 5.76 points, two interceptions and a lost fumble. Bullock had used the eighth overall pick on him. On Sunday, Maye briefly appeared to believe he had been selected eighth overall by Jacksonville.</p>' +
+    '<p>Recognizing the need for security, Bullock had spent $253 on Jalen Hurts at Goodie&rsquo;s estate sale. Six days later, Hurts was back on waivers with another owner dead behind him. At this point, the league should stop calling him a quarterback and start calling him a cursed object.</p>' +
+    '<p>Hurts managed 13.62 points against Chicago. The Bears were quarterbacked by Case Keenum, who apparently emerged from a drawer full of old charging cables to oversee the proceedings.</p>' +
+    '<p>Rome Odunze contributed 5.90. Chicago scored 27 actual points, but Rome preferred to keep his involvement discreet.</p>' +
+    '<p>There were attempts to save the deceased. Kenneth Walker scored 20.30. Bhayshul Tuten added 16.00. Rashee Rice and Tyler Warren combined for another 22.50. Several members of Death Squad did, in fact, report for duty. Unfortunately, the quarterback department had already approved the surrender.</p>' +
+    '<p>The cruelest detail was sitting on the bench. Kyler Murray&rsquo;s 11.42 would have put Bullock at 96.54 if started over Maye&mdash;enough to survive. This is hindsight, of course. But hindsight is also the only kind of sight Bullock will require to watch the rest of the season.</p>' +
+    '<p>Nico Collins and Jayden Daniels were unavailable, which deserves acknowledgment. Injury luck helped bring him here. But owning four quarterbacks and still being buried by the position is an achievement that transcends bad luck.</p>' +
+    '<p>Bullock is survived by <strong>Kenneth Walker, Rashee Rice, Bucky Irving, Tyler Warren, Bhayshul Tuten, Nico Collins, Rome Odunze and Carnell Tate; quarterbacks Drake Maye, Jalen Hurts, Kyler Murray and Jayden Daniels; and Dallas Goedert and Jordan Mason</strong>, whose participation in the estate is subject to medical clearance.</p>' +
+    '<p>They will be lovingly rehomed by nine men who have already stopped pretending this is sad.</p>' +
+    '<p>He was predeceased by Hamal and Goodie. Goodie, in particular, will be pleased to learn that his quarterback arrived safely.</p>' +
+    '<p>In lieu of flowers, please submit FAAB bids. The family requests privacy while everyone decides how much Kenneth Walker is worth.</p>' +
+    '<p><strong>Death Squad: three weeks, four quarterbacks, no fourth week.</strong></p>' +
+    '<p><em>Ask not for whom the bell tolls.</em></p>'
   },
 ];
 
@@ -1552,7 +1565,7 @@ const totalPicks = TEAMS.length * ROSTER_SIZE;
 const nextIndex = PICKS.length;
 const draftDone = nextIndex >= totalPicks;
 
-// ---- Render: Week 3 elimination watch ----
+// ---- Render: Week 4 elimination watch ----
 const elimPanel = document.getElementById("elimPanel");
 function riskBand(chance) {
   if (chance >= 12) return "critical";
@@ -1572,20 +1585,20 @@ elimPanel.innerHTML = ELIMINATION_DATA.map((d, i) => {
     '</div>';
 }).join("");
 
-// ---- Render: Week 3 previews ----
+// ---- Render: Week 4 previews ----
 const summariesGrid = document.getElementById("summariesGrid");
-summariesGrid.innerHTML = WEEK3_PREVIEW.map(r => {
+summariesGrid.innerHTML = WEEK4_PREVIEW.map(r => {
   const body = r.paragraphs.map(p => '<p>' + p + '</p>').join("");
-  const elimClass = riskBand(r.elim3);
+  const elimClass = riskBand(r.elim4);
   return '<div class="summary-card">' +
     '<div class="summary-head">' +
       '<span class="summary-team">' + r.team + '</span>' +
-      '<span class="summary-meta">Wk 2: ' + r.rank + ' &middot; ' + r.points.toFixed(2) + ' pts</span>' +
+      '<span class="summary-meta">Wk 3: ' + r.rank + ' &middot; ' + r.points.toFixed(2) + ' pts</span>' +
       '<span class="summary-subtitle">' + r.subtitle + '</span>' +
     '</div>' +
     '<div class="summary-body">' + body + '</div>' +
     '<div class="summary-stats">' +
-      '<span><span class="stat-label">Wk 3 elim </span><span class="stat-val ' + elimClass + '">' + r.elim3 + '%</span></span>' +
+      '<span><span class="stat-label">Wk 4 elim </span><span class="stat-val ' + elimClass + '">' + r.elim4 + '%</span></span>' +
       '<span><span class="stat-label">Champ </span><span class="stat-val champ">' + r.champ + '%</span></span>' +
     '</div>' +
   '</div>';
