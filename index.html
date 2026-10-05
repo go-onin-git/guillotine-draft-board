@@ -136,6 +136,67 @@
     margin-top: 18px;
   }
 
+  /* ---------- Monday Night Hype (Mondays only) ---------- */
+  /* Theme-independent, like the masthead. */
+  .mnh {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin: 28px 0 0;
+    padding: 22px 26px;
+    background: #0a0a09;
+    border: 1px solid #3a0f0f;
+    border-bottom-width: 3px;
+    border-radius: 6px;
+    color: #f3f0e8;
+    text-decoration: none;
+  }
+  .mnh[hidden] { display: none; }
+  .mnh-play {
+    flex: none;
+    display: grid;
+    place-items: center;
+    width: 76px;
+    height: 76px;
+    border-radius: 50%;
+    background: #f3f0e8;
+    color: #0a0a09;
+    transition: background 0.15s ease, transform 0.15s ease;
+  }
+  .mnh-play svg { width: 34px; height: 34px; margin-left: 4px; }
+  .mnh:hover .mnh-play, .mnh:focus-visible .mnh-play { background: #D9A23F; transform: scale(1.05); }
+  .mnh:focus-visible { outline: 2px solid #D9A23F; outline-offset: 3px; }
+  .mnh-text { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+  .mnh-eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: #8a8781;
+  }
+  .mnh-title {
+    font-family: "Cinzel", var(--font-display), serif;
+    font-weight: 700;
+    font-size: clamp(20px, 3.6vw, 32px);
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .mnh-cta {
+    font-family: "Cormorant Garamond", var(--font-display), serif;
+    font-style: italic;
+    font-weight: 600;
+    font-size: 19px;
+    color: #cfccc2;
+  }
+  @media (max-width: 560px) {
+    .mnh { gap: 16px; padding: 18px 16px; }
+    .mnh-eyebrow { font-size: 11px; letter-spacing: 0.2em; }
+    .mnh-play { width: 60px; height: 60px; }
+    .mnh-play svg { width: 26px; height: 26px; margin-left: 3px; }
+  }
+
   /* ---------- Full draft order rail ---------- */
   .draftorder {
     margin: 18px 0 6px;
@@ -1038,6 +1099,15 @@
 
 <div class="wrap">
 
+  <a class="mnh" id="mondayHype" target="_blank" rel="noopener" hidden>
+    <span class="mnh-play" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+    <span class="mnh-text">
+      <span class="mnh-eyebrow" id="mnhEyebrow"></span>
+      <span class="mnh-title" id="mnhTitle"></span>
+      <span class="mnh-cta">Play on Suno &rarr;</span>
+    </span>
+  </a>
+
   <div class="elimwatch">
     <div class="elimwatch-head">
       <div>
@@ -1155,6 +1225,14 @@ const TEAMS = ["Max","Skinner","Matt","Shoes","Millar","Hamal","Colin","Bullock"
 
 // Who's paid their league dues so far — edit this list as payments come in.
 const PAID_TEAMS = new Set(["TJ", "Pete", "Goodie", "Hamal", "Colin", "Shoes", "Max"]);
+
+// Monday Night Hype song, shown at the top of the page on Mondays. Update weekly.
+// Add ?monday to the page URL to preview it on any other day.
+const MONDAY_SONG = {
+  week: "Week 4",
+  title: "Ninety-One (The Ballad of Skinner)",
+  url: "https://suno.com/s/z88lcNzovaer2m3U",
+};
 
 // Week 4 elimination-risk model, ranked worst to best. Pre-waiver, based on
 // current rosters. Bullock eliminated Week 3 — see Graveyard.
@@ -1564,6 +1642,16 @@ PICKS.forEach((name, i) => {
 const totalPicks = TEAMS.length * ROSTER_SIZE;
 const nextIndex = PICKS.length;
 const draftDone = nextIndex >= totalPicks;
+
+// ---- Render: Monday Night Hype ----
+const mondayHype = document.getElementById("mondayHype");
+if (MONDAY_SONG && (new Date().getDay() === 1 || new URLSearchParams(location.search).has("monday"))) {
+  mondayHype.href = MONDAY_SONG.url;
+  mondayHype.setAttribute("aria-label", "Play Monday Night Hype, " + MONDAY_SONG.title + ", on Suno (opens in a new tab)");
+  document.getElementById("mnhEyebrow").textContent = "Monday Night Hype · " + MONDAY_SONG.week;
+  document.getElementById("mnhTitle").textContent = MONDAY_SONG.title;
+  mondayHype.hidden = false;
+}
 
 // ---- Render: Week 4 elimination watch ----
 const elimPanel = document.getElementById("elimPanel");
