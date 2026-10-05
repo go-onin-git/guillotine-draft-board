@@ -1,5 +1,6 @@
 <title>2026 Guillotine Draft Board</title>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Cormorant+Garamond:ital,wght@1,600&display=swap">
@@ -192,7 +193,7 @@
   }
   @media (max-width: 560px) {
     .mnh { gap: 16px; padding: 18px 16px; }
-    .mnh-eyebrow { font-size: 11px; letter-spacing: 0.2em; }
+    .mnh-eyebrow { font-size: 11px; letter-spacing: 0.14em; }
     .mnh-play { width: 60px; height: 60px; }
     .mnh-play svg { width: 26px; height: 26px; margin-left: 3px; }
   }
@@ -398,7 +399,7 @@
   /* ---------- Main layout ---------- */
   .main {
     display: grid;
-    grid-template-columns: 320px 1fr;
+    grid-template-columns: 320px minmax(0, 1fr);
     gap: 28px;
     margin-top: 22px;
     align-items: start;
@@ -1075,7 +1076,7 @@
   .eorder-closing p:last-child { margin-bottom: 0; }
 
   @media (max-width: 900px) {
-    .main { grid-template-columns: 1fr; }
+    .main { grid-template-columns: minmax(0, 1fr); }
     .board { position: static; }
     .tabs { display: flex; }
     .panel { display: none; }
