@@ -945,6 +945,19 @@
   .wreport ul { margin: 0 0 10px; padding-left: 20px; }
   .wreport li { margin-bottom: 4px; }
   .wreport > :last-child { margin-bottom: 0; }
+  .wtable-wrap { overflow-x: auto; margin: 0 0 12px; }
+  .wtable { border-collapse: collapse; font-size: 12.5px; width: 100%; max-width: 480px; }
+  .wtable th, .wtable td { text-align: left; padding: 6px 14px 6px 0; border-bottom: 1px solid var(--line); }
+  .wtable th {
+    font-family: var(--font-mono);
+    font-size: 10.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--ink-muted);
+  }
+  .wtable td { color: var(--ink); }
+  .wtable .num { text-align: right; font-variant-numeric: tabular-nums; }
 
   /* ---------- Graveyard (eliminated teams) ---------- */
   .graveyard { margin: 34px 0 6px; }
@@ -1152,20 +1165,39 @@
       <h2 class="headline">Week 5 Previews</h2>
       <div class="lede-bold">Eight left, and Wednesday already hurt.</div>
       <div class="lede">Skinner is gone. Eight teams remain. The first real bye week has arrived, the waiver market has redistributed another chunk of the dead, and several of the league&rsquo;s best players have made &ldquo;questionable&rdquo; the most important word on the board. Yahoo&rsquo;s Wednesday projections put Max and TJ at the top and Jayel and Colin at the bottom. Those numbers are useful, but not authoritative: Ja&rsquo;Marr Chase is in concussion protocol, Saquon Barkley is dealing with a hamstring injury, Justin Jefferson is attempting to return from an ankle injury, and Lamar Jackson&rsquo;s ankle is being monitored. This preview assumes every manager makes the best reasonable lineup changes before kickoff.</div>
-      <div class="disclaimer">Post-waiver edition: Wednesday, October 7, 2026. News checked that morning against <a href="https://football.fantasysports.yahoo.com/f1/1315793" target="_blank" rel="noopener">Yahoo</a> and its <a href="https://football.fantasysports.yahoo.com/f1/1315793/transactions" target="_blank" rel="noopener">transaction log</a>. Injury status and Yahoo projections will change during the week; these previews assume sensible final lineups. The elimination percentages are editorial estimates, not model outputs. They total 100% and reflect injury uncertainty, roster depth and likely lineup optimization&mdash;not just Yahoo&rsquo;s current starters.</div>
+      <div class="disclaimer">Post-waiver edition: updated Wednesday, October 7, 2026, against <a href="https://football.fantasysports.yahoo.com/f1/1315793" target="_blank" rel="noopener">Yahoo</a> and its <a href="https://football.fantasysports.yahoo.com/f1/1315793/transactions" target="_blank" rel="noopener">transaction log</a>. Injury designations and Yahoo projections may change before kickoff. All forecasts assume sensible final lineups using each manager&rsquo;s complete roster. The elimination percentages are editorial estimates, not model outputs. They total 100% and reflect injury uncertainty, roster depth and likely lineup optimization&mdash;not just Yahoo&rsquo;s current starters.</div>
     </div>
     <div class="wreport">
       <div class="wreport-title">The waiver report</div>
-      <p>The headline is TJ buying the two receivers Skinner had only just acquired. Nico Collins cost $211, beating Colin ($100), Pete ($79), Matt ($75) and Max ($63). Christian Watson cost another $120, beating Pete&rsquo;s $75. That is $331 spent, but it converts the league&rsquo;s largest cash pile into two playable receivers while leaving $563&mdash;the largest remaining budget.</p>
+      <div class="wtable-wrap">
+        <table class="wtable">
+          <thead><tr><th>Manager</th><th>Added</th><th class="num">Cost</th><th>Dropped</th></tr></thead>
+          <tbody>
+          <tr><td>Max</td><td>Jahmyr Gibbs</td><td class="num">$605</td><td>Jalen Coker</td></tr>
+          <tr><td>TJ</td><td>Nico Collins</td><td class="num">$211</td><td>&mdash;</td></tr>
+          <tr><td>Matt</td><td>Emanuel Wilson</td><td class="num">$165</td><td>Tony Pollard</td></tr>
+          <tr><td>TJ</td><td>Christian Watson</td><td class="num">$120</td><td>&mdash;</td></tr>
+          <tr><td>Jayel</td><td>Trevor Lawrence</td><td class="num">$89</td><td>Ladd McConkey</td></tr>
+          <tr><td>Pete</td><td>Malik Nabers</td><td class="num">$79</td><td>Josh Downs</td></tr>
+          <tr><td>Colin</td><td>Jayden Daniels</td><td class="num">$20</td><td>KC Concepcion</td></tr>
+          <tr><td>Colin</td><td>Ollie Gordon</td><td class="num">$10</td><td>Travis Kelce</td></tr>
+          <tr><td>Shoes</td><td>Deshaun Watson</td><td class="num">$0</td><td>Cam Ward</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The auction revolved around one number: <strong>$605 for Jahmyr Gibbs</strong>. Max entered Wednesday with $821&mdash;the largest bankroll in the league&mdash;and spent nearly three quarters of it on the best player released from Skinner&rsquo;s roster. Gibbs immediately raises Max&rsquo;s weekly ceiling and helps explain why Medium Salsa owns the highest Week 5 projection. The catch is the calendar: Detroit is off in Week 6, so this is an enormous Week 5 and rest-of-season upgrade that does nothing for next week&rsquo;s lineup. Max has $216 left.</p>
+      <p>TJ made the largest combined investment, buying the two receivers Skinner had only just acquired. Nico Collins cost $211, beating Colin ($100), Pete ($79), Matt ($75) and Max ($63). Christian Watson cost another $120, beating Pete&rsquo;s $75. That is $331 spent, but it converts the league&rsquo;s largest cash pile into two playable receivers while leaving $563&mdash;the largest remaining budget.</p>
       <p>Pete won Malik Nabers for only $79. Colin and Matt both bid $50, making this the cleanest value of the auction if Nabers is healthy enough to supply his usual volume. Pete later added Parker Washington and dropped Jordan Addison.</p>
       <p>Jayel paid $89 for Trevor Lawrence, beating Max&rsquo;s $65. It is an important stabilizer for a roster that had Brock Purdy and Geno Smith as its current quarterbacks, but Jayel is now completely out of FAB.</p>
       <p>Matt paid $165 for Emanuel Wilson. Skinner&rsquo;s posthumous $0 bid was the only other offer. Matt paid for a usable back and, more importantly, kept one away from seven shrinking rosters.</p>
+      <p>Colin made two smaller claims: $20 for Jayden Daniels, dropping KC Concepcion, and $10 for Ollie Gordon, dropping Travis Kelce. Daniels is still questionable, but he gives Colin a direct route to replacing Lamar Jackson if the Baltimore quarterback&rsquo;s ankle keeps him out. Gordon supplies another running-back option while Colin waits on several injuries.</p>
       <p>The morning free-agent round continued after waivers:</p>
       <ul>
         <li>TJ added Kyle Monangai for David Montgomery, then Aaron Jones for Rico Dowdle.</li>
         <li>Pete added Parker Washington for Jordan Addison.</li>
         <li>Max added Kyler Murray for Marcus Mariota.</li>
         <li>Shoes added Deshaun Watson for Cam Ward.</li>
+        <li>Jayel added Carnell Tate without dropping a player.</li>
       </ul>
       <p>Those $0 moves matter. At this stage, bench churn is not housekeeping; it is survival inventory.</p>
     </div>
@@ -1186,7 +1218,7 @@
     </div>
     <div class="champodds-panel" id="champPanel"></div>
     <div class="champodds-notes">
-      <p>TJ remains the narrow favourite because he combines a top Week 5 projection, elite season scoring and the league&rsquo;s largest remaining budget. Max is close behind with the best current projection. Matt and Shoes have the strongest balance after the top two. Pete&rsquo;s odds rise on the Nabers value and his remaining cash. Jayel&rsquo;s fall is not a verdict on his first four weeks; it is the price of having no FAB while Barkley and Jefferson are uncertain.</p>
+      <p>TJ becomes the narrow favourite because he combines a top Week 5 projection, elite season scoring, Nico and Watson, and the league&rsquo;s largest remaining budget. Shoes remains essentially co-favourite after entering Wednesday as the strongest overall roster and retaining $402. Max jumps from 16% before waivers to 22% after buying Gibbs, but the $605 price leaves only $216 and Gibbs disappears immediately in Week 6. Pete&rsquo;s odds hold on the Nabers value and his remaining cash. Jayel&rsquo;s fall is not a verdict on his first four weeks; it is the price of having no FAB while Barkley and Jefferson are uncertain.</p>
     </div>
   </div>
 
@@ -1295,28 +1327,29 @@ const WEEK5_PREVIEW = [
   { team: "TJ", subtitle: "Brock Badgers", season: 482.14, proj: 124.44, faab: 563,
     paragraphs: [
       "TJ has the strongest combination of Week 5 ceiling, season scoring and future buying power. The expected lineup is Jacoby Brissett and C.J. Stroud at quarterback, D&rsquo;Andre Swift and Aaron Jones at running back, Amon-Ra St. Brown and Nico Collins at receiver, Brock Bowers at tight end and Christian Watson in the flex. Yahoo currently gives that group 124.44.",
-      "The catch is Chase. He is in concussion protocol and should be treated as unavailable until he clears it. Fortunately, TJ no longer needs to force him into Week 5: Nico and Watson were bought specifically to turn an injury emergency into depth. Monangai is a worthwhile upside bench piece, but with a questionable tag and Swift already in the lineup, he is insurance rather than a required start.",
-      "The larger strategic problem has merely moved forward one week. Amon-Ra and Chase are both off in Week 6, while Watson and Matthew Golden share Green Bay&rsquo;s Week 11 bye later. TJ is safe this week, but the $563 cannot be admired indefinitely; it will have to buy a Week 6 plan.",
+      "The catch is Chase. He is in concussion protocol and should be treated as unavailable until he clears it. Fortunately, TJ no longer needs to force him into Week 5: Nico and Watson were bought to turn an injury emergency into depth and, more importantly, to solve next week&rsquo;s bye problem. Monangai is a worthwhile upside bench piece, but with a questionable tag and Swift already in the lineup, he is insurance rather than a required Week 5 start.",
+      "TJ has already purchased a coherent Week 6 lineup. With Amon-Ra and Chase off, Nico Collins and Christian Watson can take the two receiver spots and Matthew Golden can fill the flex. Aaron Jones is also off in Week 6, but Swift and Monangai are available at running back; Bowers remains at tight end, and Brissett, Stroud and Shough provide three quarterbacks for the two QB-eligible positions. That is not a patch waiting to happen&mdash;it is a complete legal lineup assembled in advance.",
+      "There is concentration risk: two Green Bay receivers and two Chicago running backs mean TJ will be unusually dependent on two offences. But Green Bay does not go on bye until Week 11, and the Week 6 structure is already in place. The $563 is optionality for the next estate sale, not money that must be spent to field next week&rsquo;s team.",
     ],
-    elim5: 4, champ: 24 },
+    elim5: 4, champ: 26 },
   { team: "Max", subtitle: "Medium Salsa", season: 435.00, proj: 125.65, faab: 216,
     paragraphs: [
-      "Max owns the week&rsquo;s highest raw projection and quietly repaired quarterback again by swapping an injured Marcus Mariota for Kyler Murray. That is exactly the kind of free-agent move a guillotine team should make: no loyalty, no sunk-cost ceremony, just a healthier path to points.",
-      "Max&rsquo;s 108.75 weekly average is less imposing than the projection, so this is not a coronation. Still, a 125-point median gives him room to absorb one miss, and that cushion is rare this week.",
+      "Max owns the week&rsquo;s highest raw projection because he made the auction&rsquo;s defining acquisition: Jahmyr Gibbs for $605. Gibbs draws Arizona in Week 5 and supplies precisely the kind of ceiling that can make an otherwise volatile guillotine lineup untouchable. Max then quietly repaired quarterback again by swapping an injured Marcus Mariota for Kyler Murray. That is exactly the kind of roster churn a guillotine team should make: no loyalty, no sunk-cost ceremony, just a healthier path to points.",
+      "Max&rsquo;s 108.75 weekly average is less imposing than the projection, so this is not a coronation. Still, a 125-point median gives him room to absorb one miss, and that cushion is rare this week. The risk arrives immediately afterward: Gibbs is on bye in Week 6, and Max now has only $216 to repair whatever hole that creates.",
     ],
-    elim5: 4, champ: 20 },
+    elim5: 4, champ: 22 },
   { team: "Matt", subtitle: "Flea Flicker", season: 452.34, proj: 118.40, faab: 135,
     paragraphs: [
       "Matt spent $165 on Emanuel Wilson and now has only $135 left, but he bought the position the room was chasing. The price is aggressive relative to the competition, yet a playable running back has more practical value in an eight-team guillotine than unused October cash.",
       "Matt enters Week 5 third in the Yahoo projection and third in season points among the survivors. The roster lacks TJ&rsquo;s remaining auction leverage, but it no longer needs a perfect week to stay clear of the cut.",
     ],
-    elim5: 8, champ: 16 },
+    elim5: 8, champ: 10 },
   { team: "Shoes", subtitle: "Dawg Pound Ryan", season: 465.74, proj: 117.53, faab: 402,
     paragraphs: [
       "Shoes did not win one of the featured Wednesday auctions, then used free agency to turn Cam Ward into Deshaun Watson. That is a depth bet, not the engine of the lineup. The real case for Shoes is that 116.44 points per week remains the second-best surviving average, and $402 still buys access to the next estate sale.",
       "He is not projected to dominate Week 5, but he is also not dependent on a single questionable star to keep the floor intact.",
     ],
-    elim5: 9, champ: 14 },
+    elim5: 9, champ: 25 },
   { team: "Millar", subtitle: "Play Action Ryan Millar", season: 410.36, proj: 113.26, faab: 495,
     paragraphs: [
       "Millar keeps surviving without spending. He has made only two moves and still holds $495, the second-largest budget. That patience will eventually become a weapon&mdash;or a line in his obituary.",
@@ -1331,29 +1364,29 @@ const WEEK5_PREVIEW = [
     elim5: 14, champ: 10 },
   { team: "Colin", subtitle: "Snap Count Colin", season: 428.32, proj: 105.94, faab: 120,
     paragraphs: [
-      "Colin bid on the right receivers and landed neither: $100 was not enough for Nico and $50 tied Matt&rsquo;s losing offer for Nabers. He is left with the week&rsquo;s second-lowest projection and only $120 for future auctions.",
-      "His 107.08 weekly average says Yahoo is not radically underrating him; this is simply a thin Week 5 profile. Colin can survive with ordinary variance, but he has less room than most teams for an early injury, a quarterback dud or a touchdown-free Sunday.",
+      "Colin bid on the right receivers and landed neither: $100 was not enough for Nico and $50 tied Matt&rsquo;s losing offer for Nabers. He did land Jayden Daniels for $20 and Ollie Gordon for $10. Daniels is the consequential move: if healthy, he gives Colin an elite replacement for Lamar Jackson instead of forcing the lineup to absorb the ankle uncertainty. Gordon adds depth, while dropping the bye-week Kelce allows LaPorta to take over at tight end.",
+      "His 107.08 weekly average says Yahoo is not radically underrating him; this is simply a thin Week 5 profile. Colin can survive with ordinary variance, but Daniels&rsquo;s status matters and $120 leaves little ability to repair another setback.",
     ],
-    elim5: 22, champ: 7 },
+    elim5: 22, champ: 2 },
   { team: "Jayel", subtitle: "Jayels high scoring team", season: 488.24, proj: 104.29, faab: 0,
     paragraphs: [
       "Jayel leads the league in total points and somehow enters Week 5 as the elimination favourite. That is guillotine football in one sentence.",
-      "Trevor Lawrence cost $89 and emptied the account. He should start over the weaker quarterback option if the matchup and Sunday news hold. The more serious issue is the injury cluster: Saquon Barkley is week-to-week with a hamstring injury, while Justin Jefferson is trying to return from an ankle injury. Jayel&rsquo;s current Yahoo lineup also leaves Jefferson on the bench; this preview assumes he moves into the lineup if cleared.",
+      "Trevor Lawrence cost $89 and emptied the account. He should start over the weaker quarterback option if the matchup and Sunday news hold. Jayel later added Carnell Tate for free, a useful upside receiver but not a solution to the more serious injury cluster: Saquon Barkley is week-to-week with a hamstring injury, while Justin Jefferson is trying to return from an ankle injury. Jayel&rsquo;s current Yahoo lineup also leaves Jefferson on the bench; this preview assumes he moves into the lineup if cleared.",
       "The team still has Kyren Williams and Jaxon Smith-Njigba, and the 122.06 season average is the best in the league. That ceiling is why Jayel&rsquo;s risk is 27%, not a coin flip. But with no FAB and two cornerstone players in medical limbo, the best team through four weeks is suddenly the most exposed team in Week 5.",
     ],
-    elim5: 27, champ: 5 },
+    elim5: 27, champ: 1 },
 ];
 
 // Championship odds, ranked best to worst.
 const CHAMPIONSHIP_ODDS = [
-  { team: "TJ",      odds: 24 },
-  { team: "Max",     odds: 20 },
-  { team: "Matt",    odds: 16 },
-  { team: "Shoes",   odds: 14 },
+  { team: "TJ",      odds: 26 },
+  { team: "Shoes",   odds: 25 },
+  { team: "Max",     odds: 22 },
+  { team: "Matt",    odds: 10 },
   { team: "Pete",    odds: 10 },
-  { team: "Colin",   odds: 7 },
-  { team: "Jayel",   odds: 5 },
   { team: "Millar",  odds: 4 },
+  { team: "Colin",   odds: 2 },
+  { team: "Jayel",   odds: 1 },
 ];
 
 // Predicted order of elimination — revised October 6 after Skinner's elimination.
