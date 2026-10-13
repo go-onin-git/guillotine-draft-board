@@ -958,11 +958,18 @@
   }
   .wtable td { color: var(--ink); }
   .wtable .num { text-align: right; font-variant-numeric: tabular-nums; }
+  .wtable.wide { max-width: none; }
+  .wtable td { vertical-align: top; }
+  @media (max-width: 560px) {
+    .wtable { font-size: 12px; }
+    .wtable th, .wtable td { padding-right: 8px; }
+    .wtable th { font-size: 9.5px; letter-spacing: 0.04em; }
+  }
 
   /* ---------- Graveyard (eliminated teams) ---------- */
-  .graveyard { margin: 34px 0 6px; }
-  .graveyard-head { margin-bottom: 14px; }
-  .graveyard-title {
+  .graveyard, .review { margin: 34px 0 6px; }
+  .graveyard-head, .review-head { margin-bottom: 14px; }
+  .graveyard-title, .review-title {
     font-family: var(--font-display);
     font-weight: 900;
     text-transform: uppercase;
@@ -970,7 +977,7 @@
     letter-spacing: -0.01em;
     line-height: 1;
   }
-  .graveyard-sub {
+  .graveyard-sub, .review-sub {
     font-size: 12.5px;
     color: var(--ink-muted);
     margin-top: 6px;
@@ -1147,8 +1154,8 @@
   <div class="elimwatch">
     <div class="elimwatch-head">
       <div>
-        <div class="elimwatch-title">Week 5 elimination watch</div>
-        <div class="elimwatch-sub">Post-waiver odds of posting the league&rsquo;s lowest score in Week 5, based on current rosters and matchups</div>
+        <div class="elimwatch-title">Week 6 elimination watch</div>
+        <div class="elimwatch-sub">Pre-waiver odds of posting the league&rsquo;s lowest score in Week 6, based on current rosters and matchups</div>
       </div>
       <div class="elimwatch-legend">
         <span><span class="risk-dot critical"></span>Critical</span>
@@ -1162,50 +1169,22 @@
 
   <div class="summaries">
     <div class="summaries-hero">
-      <h2 class="headline">Week 5 Previews</h2>
-      <div class="lede-bold">Eight left, and Wednesday already hurt.</div>
-      <div class="lede">Skinner is gone. Eight teams remain. The first real bye week has arrived, the waiver market has redistributed another chunk of the dead, and several of the league&rsquo;s best players have made &ldquo;questionable&rdquo; the most important word on the board. Yahoo&rsquo;s Wednesday projections put Max and TJ at the top and Jayel and Colin at the bottom. Those numbers are useful, but not authoritative: Ja&rsquo;Marr Chase is in concussion protocol, Saquon Barkley is dealing with a hamstring injury, Justin Jefferson is attempting to return from an ankle injury, and Lamar Jackson&rsquo;s ankle is being monitored. This preview assumes every manager makes the best reasonable lineup changes before kickoff.</div>
-      <div class="disclaimer">Post-waiver edition: updated Wednesday, October 7, 2026, against <a href="https://football.fantasysports.yahoo.com/f1/1315793" target="_blank" rel="noopener">Yahoo</a> and its <a href="https://football.fantasysports.yahoo.com/f1/1315793/transactions" target="_blank" rel="noopener">transaction log</a>. Injury designations and Yahoo projections may change before kickoff. All forecasts assume sensible final lineups using each manager&rsquo;s complete roster. The elimination percentages are editorial estimates, not model outputs. They total 100% and reflect injury uncertainty, roster depth and likely lineup optimization&mdash;not just Yahoo&rsquo;s current starters.</div>
-    </div>
-    <div class="wreport">
-      <div class="wreport-title">The waiver report</div>
-      <div class="wtable-wrap">
-        <table class="wtable">
-          <thead><tr><th>Manager</th><th>Added</th><th class="num">Cost</th><th>Dropped</th></tr></thead>
-          <tbody>
-          <tr><td>Max</td><td>Jahmyr Gibbs</td><td class="num">$605</td><td>Jalen Coker</td></tr>
-          <tr><td>TJ</td><td>Nico Collins</td><td class="num">$211</td><td>&mdash;</td></tr>
-          <tr><td>Matt</td><td>Emanuel Wilson</td><td class="num">$165</td><td>Tony Pollard</td></tr>
-          <tr><td>TJ</td><td>Christian Watson</td><td class="num">$120</td><td>&mdash;</td></tr>
-          <tr><td>Jayel</td><td>Trevor Lawrence</td><td class="num">$89</td><td>Ladd McConkey</td></tr>
-          <tr><td>Pete</td><td>Malik Nabers</td><td class="num">$79</td><td>Josh Downs</td></tr>
-          <tr><td>Colin</td><td>Jayden Daniels</td><td class="num">$20</td><td>KC Concepcion</td></tr>
-          <tr><td>Colin</td><td>Ollie Gordon</td><td class="num">$10</td><td>Travis Kelce</td></tr>
-          <tr><td>Shoes</td><td>Deshaun Watson</td><td class="num">$0</td><td>Cam Ward</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>The auction revolved around one number: <strong>$605 for Jahmyr Gibbs</strong>. Max entered Wednesday with $821&mdash;the largest bankroll in the league&mdash;and spent nearly three quarters of it on the best player released from Skinner&rsquo;s roster. Gibbs immediately raises Max&rsquo;s weekly ceiling and helps explain why Medium Salsa owns the highest Week 5 projection. The catch is the calendar: Detroit is off in Week 6, so this is an enormous Week 5 and rest-of-season upgrade that does nothing for next week&rsquo;s lineup. Max has $216 left.</p>
-      <p>TJ made the largest combined investment, buying the two receivers Skinner had only just acquired. Nico Collins cost $211, beating Colin ($100), Pete ($79), Matt ($75) and Max ($63). Christian Watson cost another $120, beating Pete&rsquo;s $75. That is $331 spent, but it converts the league&rsquo;s largest cash pile into two playable receivers while leaving $563&mdash;the largest remaining budget.</p>
-      <p>Pete won Malik Nabers for only $79. Colin and Matt both bid $50, making this the cleanest value of the auction if Nabers is healthy enough to supply his usual volume. Pete later added Parker Washington and dropped Jordan Addison.</p>
-      <p>Jayel paid $89 for Trevor Lawrence, beating Max&rsquo;s $65. It is an important stabilizer for a roster that had Brock Purdy and Geno Smith as its current quarterbacks, but Jayel is now completely out of FAB.</p>
-      <p>Matt paid $165 for Emanuel Wilson. Skinner&rsquo;s posthumous $0 bid was the only other offer. Matt paid for a usable back and, more importantly, kept one away from seven shrinking rosters.</p>
-      <p>Colin made two smaller claims: $20 for Jayden Daniels, dropping KC Concepcion, and $10 for Ollie Gordon, dropping Travis Kelce. Daniels is still questionable, but he gives Colin a direct route to replacing Lamar Jackson if the Baltimore quarterback&rsquo;s ankle keeps him out. Gordon supplies another running-back option while Colin waits on several injuries.</p>
-      <p>The morning free-agent round continued after waivers:</p>
-      <ul>
-        <li>TJ added Kyle Monangai for David Montgomery, then Aaron Jones for Rico Dowdle.</li>
-        <li>Pete added Parker Washington for Jordan Addison.</li>
-        <li>Max added Kyler Murray for Marcus Mariota.</li>
-        <li>Shoes added Deshaun Watson for Cam Ward.</li>
-        <li>Jayel added Carnell Tate without dropping a player.</li>
-      </ul>
-      <p>Those $0 moves matter. At this stage, bench churn is not housekeeping; it is survival inventory.</p>
+      <h2 class="headline">Week 6 Previews</h2>
+      <div class="lede-bold">Shoes bought Kenneth Walker for $598. Two weeks later, the rest of us are buying him again.</div>
+      <div class="lede">Davante Adams delivered two Monday touchdowns, but the miracle required considerably more than a decent evening. Shoes finished on 79.40, Matt escaped on 108.82, and Millar survived another week on a score that would barely cover parking at Colin&rsquo;s house. Colin led the league with 167.74. Pete put up 155.04. Max&rsquo;s $605 Gibbs purchase returned 35.20 immediately. TJ&rsquo;s new Christian Watson produced 29.30. Jayel found 26.90 from Isaiah Likely. The survivors are absorbing the dead, and the standard of living is becoming increasingly incompatible with staying alive. Now comes Week 6: Detroit, Cincinnati, Minnesota and Miami take the week off. Several of the league&rsquo;s best teams will spend Wednesday buying replacement organs.</div>
+      <div class="disclaimer">Tuesday, October 13, 2026. Seven remain. Shoes is eliminated. Pre-waiver edition: the Week 5 recap and Week 6 preview, before this week&rsquo;s waiver auction. Prepared from the live <a href="https://football.fantasysports.yahoo.com/f1/1315793" target="_blank" rel="noopener">Yahoo</a> standings, all seven surviving rosters, Shoes&rsquo; final roster and the <a href="https://football.fantasysports.yahoo.com/f1/1315793/transactions" target="_blank" rel="noopener">transaction log</a>. Scores remain subject to Yahoo corrections. Forecasts assume sensible legal lineup decisions, including using bench players. They do not assume unmade acquisitions. Odds are editorial estimates, not calibrated simulation results.</div>
     </div>
     <div class="summaries-grid" id="summariesGrid"></div>
     <div class="wreport">
-      <div class="wreport-title">The Week 5 read</div>
-      <p>This is the first week in which the bottom team on Wednesday is not obviously the worst team in the league. Jayel and Colin are the danger pair, with Pete and Millar close enough that one bad early window changes everything. TJ and Max have the clearest paths to safety, but Chase&rsquo;s concussion is a reminder that no projection survives contact with Sunday.</p>
-      <p>The best roster may die. The richest roster may wait too long. And somewhere, Skinner is watching Nico Collins start for the man who needed a miracle to kill him.</p>
+      <div class="wreport-title">Waiver priorities and bidding-room outlook</div>
+      <p><strong>TJ:</strong> An active RB is the first job. McCaffrey is the premium target; Walker and Javonte are strong practical alternatives. Preserve conditional bid ordering so winning one primary RB doesn&rsquo;t accidentally consume budget on redundant choices. Chase Brown doesn&rsquo;t solve Week 6 because he is on bye. Lamb or Adams may strengthen the long-term roster, but receiver is no longer the immediate hole.</p>
+      <p><strong>Matt:</strong> Secure a legal active WR2. Adams is desirable; Lamb and DeVonta depend on health. Doubs and the wider pool are useful lower-cost routes. Examine Germie Bernard and Harrison rather than treating the estate as the whole wire. Watch Diggs, but don&rsquo;t rely on a Monday return without a backup.</p>
+      <p><strong>Colin:</strong> Acquire a tight end. Fannin and Ferguson are obvious estate candidates. Do not spend as if Lamar is the only available QB; Daniels and Love already cover this week. Preserve room for Week 7 if possible.</p>
+      <p><strong>Max:</strong> Add Week 6 QB coverage, with Darnold and Jones among the newly released candidates. RB uncertainty requires a second look, but Gibbs&rsquo; bye is already coverable with existing players. The next week removes Allen, making a retained QB especially useful.</p>
+      <p><strong>Millar:</strong> Has the third-largest wallet and fewer immediate holes. Can pursue an RB upgrade without desperation, especially given Montgomery&rsquo;s injury. McCaffrey or Walker would raise the ceiling, while Javonte offers another route.</p>
+      <p><strong>Pete:</strong> Can compete for the premium estate assets without needing to buy a particular slot to field a full team. McCaffrey, Walker or Lamb could improve a good lineup. Maye and Hurts cover this week&rsquo;s QB byes.</p>
+      <p><strong>Jayel:</strong> Limited to $0 offers and free agents. Monitor JSN before Thursday and Barkley through the week. Has existing receiving alternatives, so an absent JSN need not become an empty slot.</p>
+      <p>TJ&rsquo;s $563 and Pete&rsquo;s $518 create the strongest auction leverage; Millar&rsquo;s $393 is meaningful. Max can bid $216; Matt $135; Colin $120; Jayel $0. These are spending ceilings, not predictions that anyone should bid the maximum. No unseen pending bids or competing offers are asserted.</p>
     </div>
   </div>
 
@@ -1213,12 +1192,13 @@
     <div class="champodds-head">
       <div>
         <div class="champodds-title">Championship odds</div>
-        <div class="champodds-sub">Ranked highest to lowest championship odds. These describe winning the entire competition, not surviving Week 5.</div>
+        <div class="champodds-sub">Ranked highest to lowest championship odds. These describe winning the entire competition, not surviving Week 6.</div>
       </div>
     </div>
     <div class="champodds-panel" id="champPanel"></div>
     <div class="champodds-notes">
-      <p>TJ becomes the narrow favourite because he combines a top Week 5 projection, elite season scoring, Nico and Watson, and the league&rsquo;s largest remaining budget. Shoes remains essentially co-favourite after entering Wednesday as the strongest overall roster and retaining $402. Max jumps from 16% before waivers to 22% after buying Gibbs, but the $605 price leaves only $216 and Gibbs disappears immediately in Week 6. Pete&rsquo;s odds hold on the Nabers value and his remaining cash. Jayel&rsquo;s fall is not a verdict on his first four weeks; it is the price of having no FAB while Barkley and Jefferson are uncertain.</p>
+      <p>TJ&rsquo;s receiving depth, Bowers and the largest remaining wallet keep him narrowly ahead despite immediate danger. Pete combines an increasingly strong active roster with the second-largest budget. Max&rsquo;s Gibbs upgrade is substantial. Jayel&rsquo;s healthy core is dangerous enough to outrank his wallet. Colin rises on proven starting talent, while Matt&rsquo;s receiver weakness and Millar&rsquo;s lower scoring ceiling constrain their routes. These are fresh assessments, not claimed numerical changes from an unverified intervening edition.</p>
+      <p>On the elimination chart, these are Tuesday risk estimates under good roster management with the players currently owned. TJ, Matt and Colin&rsquo;s shortages are described explicitly, rather than quietly assumed solved. A confirmed acquisition or recovery should reduce the relevant risk and redistribute the remaining probabilities. No one is assigned a certain elimination.</p>
     </div>
   </div>
 
@@ -1230,10 +1210,104 @@
     <div id="graveyardBody"></div>
   </div>
 
+  <div class="review">
+    <div class="review-head">
+      <div class="review-title">Week 5 recap</div>
+      <div class="review-sub">The final scoreboard, how it ended, and how each survivor got there.</div>
+    </div>
+    <div class="wreport">
+      <div class="wreport-title">Final Week 5 scoreboard</div>
+      <div class="wtable-wrap">
+        <table class="wtable wide">
+          <thead><tr><th>Finish</th><th>Manager</th><th>Team</th><th class="num">Points</th><th class="num">Above elimination score</th></tr></thead>
+          <tbody>
+            <tr><td>1</td><td>Colin</td><td>Snap Count Colin</td><td class="num">167.74</td><td class="num">88.34</td></tr>
+            <tr><td>2</td><td>Pete</td><td>Fist full of Hog</td><td class="num">155.04</td><td class="num">75.64</td></tr>
+            <tr><td>3</td><td>Max</td><td>Medium Salsa</td><td class="num">149.76</td><td class="num">70.36</td></tr>
+            <tr><td>4</td><td>TJ</td><td>Brock Badgers</td><td class="num">145.52</td><td class="num">66.12</td></tr>
+            <tr><td>5</td><td>Jayel</td><td>Jayels high scoring team</td><td class="num">139.18</td><td class="num">59.78</td></tr>
+            <tr><td>6</td><td>Matt</td><td>Flea Flicker</td><td class="num">108.82</td><td class="num">29.42</td></tr>
+            <tr><td>7</td><td>Millar</td><td>Play Action Ryan Millar</td><td class="num">95.26</td><td class="num">15.86</td></tr>
+            <tr><td>8 &mdash; eliminated</td><td>Shoes</td><td>Dawg Pound Ryan</td><td class="num">79.40</td><td class="num">&mdash;</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Scores sum the eight actual starters on each Week 5 roster, not bench totals or nominal Yahoo head-to-head results. Colin&rsquo;s margin over second was 12.70. Matt was 13.56 above Millar. Once final scores were known, Millar was the actual survival threshold.</p>
+    </div>
+    <div class="wreport">
+      <div class="wreport-title">The Monday arithmetic</div>
+      <p>Shoes had 59.80 before Adams; Matt had 81.50 before Stafford. That was a 21.70 gap, with both players active. Adams needed to outscore Stafford by more than 21.70 to pass Matt. A fixed Sunday target of roughly 36 points for Adams was only an estimate dependent on Stafford&rsquo;s eventual score, not a guaranteed escape number.</p>
+      <p>Stafford scored 27.32; Adams scored 19.60. The gap grew to 29.42. To clear Matt&rsquo;s final total, Adams would have needed more than 49.02. To clear Millar&rsquo;s final 95.26 instead, he needed more than 35.46. He achieved neither.</p>
+      <p>Shoes&rsquo; best hindsight lineup would have swapped Daniel Jones&rsquo; 11.08 for Darnold&rsquo;s 10.30, Ferguson&rsquo;s 3.40 for Fannin&rsquo;s 0.90, and Doubs&rsquo; 2.10 for Lamb&rsquo;s 1.90: <strong>82.88</strong>, still 12.38 below Millar. This was not a single bench mistake that changed the elimination.</p>
+    </div>
+    <div class="summaries-grid" id="recapGrid"></div>
+    <div class="wreport">
+      <div class="wreport-title">The transaction ledger</div>
+      <p>All balances below are the live Tuesday Yahoo balances, not estimates carried forward from an earlier report.</p>
+      <div class="wtable-wrap">
+        <table class="wtable wide">
+          <thead><tr><th>Manager</th><th>Paid additions since Skinner&rsquo;s elimination</th><th>Free additions / notable changes</th><th class="num">FAAB now</th></tr></thead>
+          <tbody>
+            <tr><td>TJ</td><td>Collins $211; Christian Watson $120</td><td>Aaron Jones, Monangai, McMillan; released Young, Johnson, Shough, Dowdle and Montgomery</td><td class="num">$563</td></tr>
+            <tr><td>Pete</td><td>Nabers $79</td><td>Parker Washington and Kincaid replaced Addison and Loveland</td><td class="num">$518</td></tr>
+            <tr><td>Millar</td><td>Montgomery $102</td><td>Dropped Tracy</td><td class="num">$393</td></tr>
+            <tr><td>Max</td><td>Gibbs $605</td><td>Kyler replaced Mariota</td><td class="num">$216</td></tr>
+            <tr><td>Matt</td><td>Emanuel Wilson $165</td><td>Dropped Pollard; briefly added then dropped Harrison; added Roman Wilson then dropped him Tuesday</td><td class="num">$135</td></tr>
+            <tr><td>Colin</td><td>Daniels $20; Ollie Gordon $10</td><td>Shipley replaced Allgeier; released Kelce and Concepcion</td><td class="num">$120</td></tr>
+            <tr><td>Jayel</td><td>Lawrence $89</td><td>Tate and Dobbins; released McConkey, Geno and Dart</td><td class="num">$0</td></tr>
+            <tr><td>Survivors total</td><td>$1,401 paid</td><td></td><td class="num">$1,945</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>Shoes added Deshaun Watson for $0, dropping Ward. His $402 dies with him. The log shows all 13 Shoes players released Tuesday, plus Matt&rsquo;s Roman Wilson drop.</p>
+    </div>
+    <div class="wreport">
+      <div class="wreport-title">Shoes&rsquo; estate sale</div>
+      <div class="wtable-wrap">
+        <table class="wtable wide">
+          <thead><tr><th>Position</th><th>Newly released players</th><th>Immediate relevance</th></tr></thead>
+          <tbody>
+            <tr><td>RB</td><td>McCaffrey, Walker, Javonte Williams, Chase Brown</td><td>McCaffrey, Walker and Javonte are Week 6 repair targets; Brown is on bye</td></tr>
+            <tr><td>WR</td><td>Lamb, Adams, DeVonta Smith, Romeo Doubs</td><td>Adams and Doubs offer active-week options; Lamb and DeVonta require health checks</td></tr>
+            <tr><td>QB</td><td>Darnold, Daniel Jones, Deshaun Watson</td><td>Max needs Week 6 QB coverage; other teams can evaluate upgrades</td></tr>
+            <tr><td>TE</td><td>Fannin, Ferguson</td><td>Colin requires LaPorta bye cover; other TE-needy teams can assess value</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>These are released players, not players already won by anyone. Harrison is also worth revisiting after Matt&rsquo;s drop and his move to Houston; a new-team role should be evaluated before assuming an immediate target share.</p>
+    </div>
+    <div class="wreport">
+      <div class="wreport-title">News and injury desk</div>
+      <p>Reporting checked Tuesday morning. Yahoo tags can carry over from the previous game. An O tag today is not automatically an official Week 6 ruling; positive return reporting is not clearance.</p>
+      <div class="wtable-wrap">
+        <table class="wtable wide">
+          <thead><tr><th>Player</th><th>Morning evidence</th><th>League consequence</th></tr></thead>
+          <tbody>
+            <tr><td>Caleb Williams</td><td>Hamstring return reporting is encouraging, but the Bears have not made a definitive starting announcement</td><td>TJ already has Stroud and Brissett; no need to forecast a QB zero</td></tr>
+            <tr><td>Kyle Monangai</td><td>Missed Week 5 with a toe issue; still O on Yahoo</td><td>TJ needs active RB2 cover with Aaron Jones on bye</td></tr>
+            <tr><td>Lamar Jackson</td><td>Possible ankle return; Yahoo still O</td><td>Colin can use Daniels and Love</td></tr>
+            <tr><td>Saquon Barkley / DeVonta Smith</td><td>Both have a chance to return from hamstring injuries, dependent on practice</td><td>Jayel gets potential RB relief; DeVonta is an uncertain waiver asset</td></tr>
+            <tr><td>CeeDee Lamb</td><td>Quad bruise reportedly not expected to be long term; Week 6 not guaranteed</td><td>Check practice before paying for immediate receiver rescue</td></tr>
+            <tr><td>David Montgomery</td><td>Groin injury described as week to week</td><td>Millar&rsquo;s recent purchase cannot be treated as dependable cover</td></tr>
+            <tr><td>TreVeyon Henderson</td><td>Ankle injury; questionable on Yahoo</td><td>Max has alternatives; Stevenson could benefit if Henderson misses</td></tr>
+            <tr><td>Quinshon Judkins</td><td>Ankle tweak, day to day; questionable</td><td>Max&rsquo;s Gibbs-bye replacement needs monitoring</td></tr>
+            <tr><td>JSN</td><td>Monday estimated limited participation for ankle; Thursday turnaround</td><td>Jayel needs a plan before Thursday&rsquo;s kickoff</td></tr>
+            <tr><td>Deebo Samuel</td><td>Hamstring absence expected to last multiple weeks</td><td>Jayel should use healthy Evans/Tate alternatives</td></tr>
+            <tr><td>Will Shipley</td><td>Partial plantar fascia tear, possible multiweek absence</td><td>Colin should not rely on him; investigate Philadelphia replacements</td></tr>
+            <tr><td>Stefon Diggs / Breece Hall</td><td>Still out tags; Week 5 absences documented</td><td>Matt needs receiver coverage; Hall is excluded from the working RB pair</td></tr>
+            <tr><td>A.J. Brown</td><td>Possible practice return from IR, no confirmed activation</td><td>TJ gets future upside, not guaranteed Week 6 production</td></tr>
+            <tr><td>Rashee Rice</td><td>Questionable on Yahoo</td><td>Colin must verify availability; Higgins is also on bye</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p>The potential returnees change planning, but do not erase the current repair needs. The first full practice cycle will clarify most Sunday situations. JSN is the earlier decision because Seattle plays Thursday.</p>
+    </div>
+  </div>
+
   <div class="eorder">
     <div class="eorder-head">
       <div class="eorder-title">Predicted order of elimination</div>
-      <div class="eorder-sub">One plausible storyline, not a prediction that these exact events are likely as a sequence. Continues the existing one-elimination-per-week assumption, giving a Week 11 final. Future roster management is expected; byes are pressure points rather than automatic zeros. The Week 5 pick can differ from the current-roster risk leader because this longer-range storyline allows acquisitions.</div>
+      <div class="eorder-sub">One plausible storyline, not the probability of this exact sequence. Seven survivors and one cut per week produce a Week 11 final under the existing league sequence. It assumes ongoing roster management, not frozen rosters.</div>
     </div>
     <div id="eorderList"></div>
   </div>
@@ -1308,99 +1382,133 @@ const MONDAY_SONG = {
   url: "https://suno.com/s/xST2sju6FG4ceydV",
 };
 
-// Week 5 elimination-risk model, ranked worst to best. Post-waiver (October 7), based on
-// current rosters. Skinner eliminated Week 4 — see Graveyard.
+// Week 6 elimination-risk model, ranked worst to best. Pre-waiver (October 13), based on
+// current rosters. Shoes eliminated Week 5 — see Graveyard.
 const ELIMINATION_DATA = [
-  { team: "Jayel",   faab: 0,   chance: 27 },
-  { team: "Colin",   faab: 120, chance: 22 },
-  { team: "Pete",    faab: 518, chance: 14 },
-  { team: "Millar",  faab: 495, chance: 12 },
-  { team: "Shoes",   faab: 402, chance: 9 },
-  { team: "Matt",    faab: 135, chance: 8 },
-  { team: "TJ",      faab: 563, chance: 4 },
-  { team: "Max",     faab: 216, chance: 4 },
+  { team: "TJ", faab: 563, chance: 23, note: "RB2 cover; multiple premium players on bye" },
+  { team: "Matt", faab: 135, chance: 20, note: "WR2 coverage required unless Diggs clears" },
+  { team: "Colin", faab: 120, chance: 16, note: "TE cover required; Rice availability" },
+  { team: "Max", faab: 216, chance: 15, note: "QB2 bye; replacement RB health" },
+  { team: "Millar", faab: 393, chance: 10, note: "Lower recent floor, but active lineup" },
+  { team: "Jayel", faab: 0, chance: 9, note: "JSN short-week health; no cash reserve" },
+  { team: "Pete", faab: 518, chance: 7, note: "Active coverage; ordinary weekly variance" },
 ];
 
-// Week 5 previews (post-waiver), ranked safest to most at risk (Hamal, Goodie, Bullock and Skinner eliminated — see Graveyard).
-// season = season points through Week 4; proj = Yahoo's Wednesday projection.
-const WEEK5_PREVIEW = [
-  { team: "TJ", subtitle: "Brock Badgers", season: 482.14, proj: 124.44, faab: 563,
+// Week 6 previews (pre-waiver), in the order of the source copy (Hamal, Goodie, Bullock, Skinner and Shoes eliminated — see Graveyard).
+// rank/points = Week 5 finish; faab = live Tuesday balance.
+const WEEK6_PREVIEW = [
+  { team: "TJ", subtitle: "The receiver problem is smaller; the running-back problem is real", rank: "4th", points: 145.52, faab: 563,
     paragraphs: [
-      "TJ has the strongest combination of Week 5 ceiling, season scoring and future buying power. The expected lineup is Jacoby Brissett and C.J. Stroud at quarterback, D&rsquo;Andre Swift and Aaron Jones at running back, Amon-Ra St. Brown and Nico Collins at receiver, Brock Bowers at tight end and Christian Watson in the flex. Yahoo currently gives that group 124.44.",
-      "The catch is Chase. He is in concussion protocol and should be treated as unavailable until he clears it. Fortunately, TJ no longer needs to force him into Week 5: Nico and Watson were bought to turn an injury emergency into depth and, more importantly, to solve next week&rsquo;s bye problem. Monangai is a worthwhile upside bench piece, but with a questionable tag and Swift already in the lineup, he is insurance rather than a required Week 5 start.",
-      "TJ has already purchased a coherent Week 6 lineup. With Amon-Ra and Chase off, Nico Collins and Christian Watson can take the two receiver spots and Matthew Golden can fill the flex. Aaron Jones is also off in Week 6, but Swift and Monangai are available at running back; Bowers remains at tight end, and Brissett, Stroud and Shough provide three quarterbacks for the two QB-eligible positions. That is not a patch waiting to happen&mdash;it is a complete legal lineup assembled in advance.",
-      "There is concentration risk: two Green Bay receivers and two Chicago running backs mean TJ will be unusually dependent on two offences. But Green Bay does not go on bye until Week 11, and the Week 6 structure is already in place. The $563 is optionality for the next estate sale, not money that must be spent to field next week&rsquo;s team.",
+      "Chase and Amon-Ra are off, but Collins at Jacksonville, Watson against Dallas and Golden against Dallas form a credible receiver/flex trio. McMillan at Philadelphia supplies another option. Last Wednesday&rsquo;s shopping directly addresses the long-feared receiver cliff.",
+      "Stroud and Brissett form the working QB pair while Caleb&rsquo;s return is assessed. Bowers gets Buffalo. Swift visits Atlanta. The unresolved slot is RB2: Jones is on bye and Monangai isn&rsquo;t cleared. This is an actual positional shortage, not a case of Yahoo leaving a useful player on the bench.",
+      "TJ has the biggest wallet and an obvious route to repair through Shoes&rsquo; three active-week running backs. The pre-waiver risk stays elevated until one is acquired or Monangai is cleared. Survive this week with a good RB addition and the full-strength receiver group returns to a substantially better roster. The championship favourite has a strong future and an immediate appointment with procurement.",
     ],
-    elim5: 4, champ: 26 },
-  { team: "Max", subtitle: "Medium Salsa", season: 435.00, proj: 125.65, faab: 216,
+    elim6: 23, champ: 30 },
+  { team: "Matt", subtitle: "Two good quarterbacks, one available receiver", rank: "6th", points: 108.82, faab: 135,
     paragraphs: [
-      "Max owns the week&rsquo;s highest raw projection because he made the auction&rsquo;s defining acquisition: Jahmyr Gibbs for $605. Gibbs draws Arizona in Week 5 and supplies precisely the kind of ceiling that can make an otherwise volatile guillotine lineup untouchable. Max then quietly repaired quarterback again by swapping an injured Marcus Mariota for Kyler Murray. That is exactly the kind of roster churn a guillotine team should make: no loyalty, no sunk-cost ceremony, just a healthier path to points.",
-      "Max&rsquo;s 108.75 weekly average is less imposing than the projection, so this is not a coronation. Still, a 125-point median gives him room to absorb one miss, and that cushion is rare this week. The risk arrives immediately afterward: Gibbs is on bye in Week 6, and Max now has only $216 to repair whatever hole that creates.",
+      "Stafford against Arizona and Mahomes against the Chargers restore the preferred quarterback arrangement, with Rodgers available. Bijan hosts Chicago; Hubbard visits Philadelphia; McBride and Kittle offer tight-end and flex strength. Skattebo and Love are legitimate alternatives.",
+      "At receiver, Egbuka faces Pittsburgh and the second slot requires a healthy Diggs return or an acquisition. A spare tight end cannot legally fill WR2. The evaluation gives full credit for Hubbard and Mahomes returning, but it cannot invent a receiver.",
+      "With only $135, Matt may have to shop below the headline names. Doubs and broader-wire receivers deserve attention. His Week 5 escape was comfortable on the final numbers; his Week 6 roster still needs a concrete repair.",
     ],
-    elim5: 4, champ: 22 },
-  { team: "Matt", subtitle: "Flea Flicker", season: 452.34, proj: 118.40, faab: 135,
+    elim6: 20, champ: 6 },
+  { team: "Colin", subtitle: "Please locate a tight end before celebrating", rank: "1st", points: 167.74, faab: 120,
     paragraphs: [
-      "Matt spent $165 on Emanuel Wilson and now has only $135 left, but he bought the position the room was chasing. The price is aggressive relative to the competition, yet a playable running back has more practical value in an eight-team guillotine than unused October cash.",
-      "Matt enters Week 5 third in the Yahoo projection and third in season points among the survivors. The roster lacks TJ&rsquo;s remaining auction leverage, but it no longer needs a perfect week to stay clear of the cut.",
+      "Daniels and Love mean Lamar&rsquo;s uncertainty is manageable. Cook visits Las Vegas; Warren visits Tampa Bay. Puka hosts Arizona. Rice returns from Kansas City&rsquo;s bye but carries a questionable tag, while McLaurin offers another receiving choice.",
+      "LaPorta is on bye and Kelce was released last week. There is no second tight end on the roster. Higgins and Gordon also sit. If Rice plays, the receivers and Hampton flex are workable; if he doesn&rsquo;t, McLaurin must move to WR and the flexibility shrinks.",
+      "Colin&rsquo;s best week of the season has earned respect. It has not earned an exemption from the TE slot. Fannin and Ferguson are newly released options; a cheaper wider-wire solution could preserve cash for the next challenge. Week 7 then removes Cook, Hampton, Daniels and McLaurin, making Lamar&rsquo;s recovery and more coverage especially useful.",
     ],
-    elim5: 8, champ: 10 },
-  { team: "Shoes", subtitle: "Dawg Pound Ryan", season: 465.74, proj: 117.53, faab: 402,
+    elim6: 16, champ: 10 },
+  { team: "Max", subtitle: "Gibbs&rsquo; first vacation, Allen&rsquo;s next assignment", rank: "3rd", points: 149.76, faab: 216,
     paragraphs: [
-      "Shoes did not win one of the featured Wednesday auctions, then used free agency to turn Cam Ward into Deshaun Watson. That is a depth bet, not the engine of the lineup. The real case for Shoes is that 116.44 points per week remains the second-best surviving average, and $402 still buys access to the next estate sale.",
-      "He is not projected to dominate Week 5, but he is also not dependent on a single questionable star to keep the floor intact.",
+      "Allen at Las Vegas, London against Chicago, Olave at the Giants and Warren against Tennessee provide a strong foundation. Jeanty can replace Gibbs at RB. Judkins, Braelon, Henderson and Harvey supply several ways to arrange RB2 and flex depending on health.",
+      "Kyler is on bye and Max has no second quarterback on the current roster. A legal non-QB superflex is available, so this isn&rsquo;t automatically a zero. It does mean giving up the usual quarterback floor. Judkins and Henderson&rsquo;s questionable tags also make the depth less comfortable than the number of names suggests.",
+      "Darnold or Jones would address this week and Allen&rsquo;s Week 7 bye; Kyler returns in Week 7 too. Max has enough money to participate, but less freedom after the Gibbs purchase. The team can survive with sensible current choices. One quarterback addition would make the route considerably cleaner.",
     ],
-    elim5: 9, champ: 25 },
-  { team: "Millar", subtitle: "Play Action Ryan Millar", season: 410.36, proj: 113.26, faab: 495,
+    elim6: 15, champ: 15 },
+  { team: "Jayel", subtitle: "Broke, bruised, still annoyingly talented", rank: "5th", points: 139.18, faab: 0,
     paragraphs: [
-      "Millar keeps surviving without spending. He has made only two moves and still holds $495, the second-largest budget. That patience will eventually become a weapon&mdash;or a line in his obituary.",
-      "At 102.59 points per week, Millar has lived closer to the blade than the contenders above him. A 113.26 projection is enough to avoid being the favourite for elimination, but not enough to relax. The upside is obvious: if he reaches another Wednesday, he can attack the next dead roster harder than almost anyone.",
+      "Purdy hosts Washington and Lawrence gets Houston in London. Kyren hosts Arizona. Dobbins plays Thursday in Denver, with Kamara an alternative if Barkley remains absent. JSN, Wilson and Evans provide the preferred receiving/flex structure; Tate supplies another option while Jefferson rests.",
+      "JSN&rsquo;s ankle is the key early watch. Deebo is unavailable in the working lineup; he doesn&rsquo;t need to be forced in with Evans present. Likely faces New Orleans after last week&rsquo;s 26.90, although repeating that outburst should not be the baseline assumption.",
+      "The zero-dollar budget increases future fragility rather than making every current starter worse. Jayel can field a competitive Week 6 lineup without winning an auction. He simply has less room if multiple health decisions go against him.",
     ],
-    elim5: 12, champ: 4 },
-  { team: "Pete", subtitle: "Fist Full of Hog", season: 398.10, proj: 111.15, faab: 518,
+    elim6: 9, champ: 12 },
+  { team: "Millar", subtitle: "A surprisingly normal week on the calendar", rank: "7th", points: 95.26, faab: 393,
     paragraphs: [
-      "Pete finally received the sort of statistical update he asked for: Malik Nabers at $79 was a very good purchase. Colin and Matt stopped at $50, and Pete added a potential volume receiver without compromising his $518 war chest. Parker Washington for Jordan Addison was another sensible attempt to turn a bench slot into immediate opportunity.",
-      "The problem is that the roster has averaged 99.53, lowest among the eight survivors. Nabers improves the shape of the team; he does not erase four weeks of fragility. Pete has both the money and the new talent to climb, but Week 5 still begins with one foot near the trapdoor.",
+      "Taylor hosts Tennessee, Stevenson hosts the Jets, Dak and Pickens visit Green Bay, Flowers visits Cleveland and Kraft plays Dallas. Nix goes Thursday against Seattle; Metcalf gets Tampa Bay. The current eight-man combination is active, and Lloyd offers another RB/flex branch.",
+      "Montgomery&rsquo;s injury hurts the depth rather than breaking the Week 6 lineup. Henderson&rsquo;s health could improve Stevenson&rsquo;s workload; Lamar&rsquo;s return would help the environment for Flowers. There is no reason to assign Millar another near-death week solely because that has become his brand.",
+      "The title ceiling still trails the strongest remaining teams. With $393, Millar can pursue an RB improvement or strengthen another position. He has been surviving by finding someone worse; now he has the resources to try finding someone better.",
     ],
-    elim5: 14, champ: 10 },
-  { team: "Colin", subtitle: "Snap Count Colin", season: 428.32, proj: 105.94, faab: 120,
+    elim6: 10, champ: 3 },
+  { team: "Pete", subtitle: "The bye-week insurance pays out", rank: "2nd", points: 155.04, faab: 518,
     paragraphs: [
-      "Colin bid on the right receivers and landed neither: $100 was not enough for Nico and $50 tied Matt&rsquo;s losing offer for Nabers. He did land Jayden Daniels for $20 and Ollie Gordon for $10. Daniels is the consequential move: if healthy, he gives Colin an elite replacement for Lamar Jackson instead of forcing the lineup to absorb the ankle uncertainty. Gordon adds depth, while dropping the bye-week Kelce allows LaPorta to take over at tight end.",
-      "His 107.08 weekly average says Yahoo is not radically underrating him; this is simply a thin Week 5 profile. Colin can survive with ordinary variance, but Daniels&rsquo;s status matters and $120 leaves little ability to repair another setback.",
+      "Burrow, Goff and Jameson are off. Maye against the Jets and Hurts against Carolina cover both QB slots. Henry visits Cleveland; Irving hosts Pittsburgh. Garrett Wilson, Nabers and Parker Washington provide the receiver/flex core, with Waddle and Tuten as alternatives. Kincaid gets Las Vegas.",
+      "Pete solved this specific quarterback problem before it arrived. Those purchases should count as successful roster management, not linger as an obsolete weakness in the forecast.",
+      "Receiver and flex decisions remain competitive rather than obvious. Hurts&rsquo; recent uneven production and Kincaid&rsquo;s modest Week 5 keep this from being a victory lap, but the active lineup and $518 buying power make Pete one of the strongest operations left. He has assembled a very serious threat to everyone&rsquo;s enjoyment.",
     ],
-    elim5: 22, champ: 2 },
-  { team: "Jayel", subtitle: "Jayels high scoring team", season: 488.24, proj: 104.29, faab: 0,
+    elim6: 7, champ: 24 },
+];
+
+// Week 5 recaps, in finish order (Shoes' obituary is in the Graveyard).
+const WEEK5_RECAP = [
+  { team: "Colin", subtitle: "The expensive receiver finally arrives", rank: "1st", points: 167.74,
     paragraphs: [
-      "Jayel leads the league in total points and somehow enters Week 5 as the elimination favourite. That is guillotine football in one sentence.",
-      "Trevor Lawrence cost $89 and emptied the account. He should start over the weaker quarterback option if the matchup and Sunday news hold. Jayel later added Carnell Tate for free, a useful upside receiver but not a solution to the more serious injury cluster: Saquon Barkley is week-to-week with a hamstring injury, while Justin Jefferson is trying to return from an ankle injury. Jayel&rsquo;s current Yahoo lineup also leaves Jefferson on the bench; this preview assumes he moves into the lineup if cleared.",
-      "The team still has Kyren Williams and Jaxon Smith-Njigba, and the 122.06 season average is the best in the league. That ceiling is why Jayel&rsquo;s risk is 27%, not a coin flip. But with no FAB and two cornerstone players in medical limbo, the best team through four weeks is suddenly the most exposed team in Week 5.",
-    ],
-    elim5: 27, champ: 1 },
+      "Puka supplied 29.20; Jaylen Warren delivered 33.80; Daniels scored 32.26 and Love 25.28. Cook added 22.30 and LaPorta 17.30. Higgins and Hampton combined for 7.60 and Colin still won the week. This was a functioning six-man demolition crew with two interns.",
+      "The $20 Daniels purchase deserves real credit: it covered Lamar&rsquo;s absence and produced the team&rsquo;s second-biggest score. Puka&rsquo;s earlier cost no longer looks quite so much like a ransom payment. Colin&rsquo;s modest wallet still limits future repairs, but the current starting talent has earned a better title assessment.",
+    ] },
+  { team: "Pete", subtitle: "A very serious amount of fun", rank: "2nd", points: 155.04,
+    paragraphs: [
+      "Irving scored 30.50, Goff 28.94, Burrow 24.60 and Nabers 23.60. Henry and Garrett Wilson added 40.40. Waddle and Kincaid supplied only seven between them; the rest of the team filed the necessary paperwork to win anyway.",
+      "The bench held Maye&rsquo;s 39.46 and Parker Washington&rsquo;s 27.40. That&rsquo;s upside and insurance, not proof that respectable starting choices were stupid. Pete has bought himself several useful branches of the lineup tree. The No Fun League is becoming uncomfortably good at football.",
+    ] },
+  { team: "Max", subtitle: "$605 worth of immediate gratification", rank: "3rd", points: 149.76,
+    paragraphs: [
+      "Gibbs returned 35.20 in his first week for Max. Allen delivered 31.50, Braelon 18.10 and Warren 17.90. Kyler&rsquo;s free acquisition contributed 18.26. The aggressive rebuild worked.",
+      "Buying Gibbs doesn&rsquo;t guarantee a championship, but it does materially improve the team&rsquo;s weekly ceiling. Unfortunately, Gibbs and Kyler are now both on bye. Max spent enough to purchase the luxury package and immediately discovered the blackout dates.",
+    ] },
+  { team: "TJ", subtitle: "Christian Watson, personal saviour", rank: "4th", points: 145.52,
+    paragraphs: [
+      "Watson&rsquo;s 29.30 justified getting him straight into the flex. Brissett scored 25.78, Stroud 20.94 and Bowers 19.00. Aaron Jones&rsquo; free pickup added 17.20, with Swift producing 15.30. Collins and Amon-Ra combined for only 18.00; the new support structure carried them.",
+      "This was a convincing recovery from the Skinner escape. Last week&rsquo;s Shough resurrection has already been followed by releasing Shough. Apparently salvation comes with a one-week contract. The team is deeper at receiver, but Week 6 remains a very real running-back problem.",
+    ] },
+  { team: "Jayel", subtitle: "Likely to outlive another rich person", rank: "5th", points: 139.18,
+    paragraphs: [
+      "Likely scored 26.90, Lawrence 22.74 and JSN 20.30. Kyren, Jefferson and Dobbins supplied another 46.80. Wilson&rsquo;s 5.28 was the lone clear weak starter. Evans&rsquo; 22.80 sat on the bench, providing another reassuring option.",
+      "Lawrence cost the final $89 and immediately did his job. Jayel is now broke, but dangerous. It&rsquo;s a perfectly legitimate way to play until the injuries start charging admission.",
+    ] },
+  { team: "Matt", subtitle: "Stafford keeps the lights on", rank: "6th", points: 108.82,
+    paragraphs: [
+      "Stafford&rsquo;s 27.32 and Rodgers&rsquo; 22.00 supplied 45% of the score. McBride delivered 17.10, Egbuka 14.20 and Bijan 13.80. Love managed 2.20. Roman Wilson scored zero. Emanuel Wilson&rsquo;s 12.20 prevented the running-back gamble from becoming completely miserable.",
+      "Mahomes returns from bye this week, and Hubbard is available again. Those are genuine improvements. The receiver shortage is not: Roman Wilson has been dropped, Diggs still carries an out tag, and the roster currently has only Egbuka as an unflagged receiver. Matt needs a receiving acquisition, not another luxury tight end.",
+    ] },
+  { team: "Millar", subtitle: "Another week at the minimum viable pulse", rank: "7th", points: 95.26,
+    paragraphs: [
+      "Pickens&rsquo; 23.50 and Stevenson&rsquo;s 16.00 led the operation. Dak produced 14.64, Flowers 10.60 and Taylor 9.70. Nix&rsquo;s 7.92 and Metcalf&rsquo;s 3.80 made it another uncomfortable Sunday.",
+      "Lloyd&rsquo;s 16.20 would have helped in hindsight, but it isn&rsquo;t necessary to manufacture a lineup scandal. Millar survived with his actual choices. The $102 Montgomery purchase returned 1.10 on the bench and now comes with an injury concern. Millar has $393 left and a workable Week 6 lineup. His long-term task is to raise the standard before the remaining teams raise it for him.",
+    ] },
 ];
 
 // Championship odds, ranked best to worst.
 const CHAMPIONSHIP_ODDS = [
-  { team: "TJ",      odds: 26 },
-  { team: "Shoes",   odds: 25 },
-  { team: "Max",     odds: 22 },
-  { team: "Matt",    odds: 10 },
-  { team: "Pete",    odds: 10 },
-  { team: "Millar",  odds: 4 },
-  { team: "Colin",   odds: 2 },
-  { team: "Jayel",   odds: 1 },
+  { team: "TJ", odds: 30 },
+  { team: "Pete", odds: 24 },
+  { team: "Max", odds: 15 },
+  { team: "Jayel", odds: 12 },
+  { team: "Colin", odds: 10 },
+  { team: "Matt", odds: 6 },
+  { team: "Millar", odds: 3 },
 ];
 
-// Predicted order of elimination — revised October 6 after Skinner's elimination.
+// Predicted order of elimination — revised October 13 after Shoes' elimination.
 const ELIMINATION_ORDER = [
-  { week: "Week 5", team: "Jayel", cause: "The injury pile finally exceeds the bench&rsquo;s capacity to absorb it, while wealthier rivals buy repairs." },
-  { week: "Week 6", team: "Colin", cause: "Today&rsquo;s injuries leave little financial room to improve before Higgins and LaPorta go on bye." },
-  { week: "Week 7", team: "Millar", cause: "The revival buys several weeks, but the field strengthens faster than the supporting cast." },
-  { week: "Week 8", team: "Matt", cause: "Kittle and Skattebo&rsquo;s bye reduces useful depth; the receiver problem becomes too expensive to carry." },
-  { week: "Week 9", team: "Pete", cause: "Quarterback insurance gets him through Week 6, but uneven skill-position output eventually meets a stronger field." },
-  { week: "Week 10", team: "Max", cause: "The $821 bankroll repairs the immediate QB problem and buys a long run, but the final roster falls one upgrade short." },
-  { week: "Week 11", team: "TJ", cause: "Reaches the final after spending effectively, then loses to Shoes&rsquo; deeper scoring options." },
+  { week: "Week 6", team: "Matt", cause: "Receiver repairs are harder with $135 while several larger wallets compete" },
+  { week: "Week 7", team: "Colin", cause: "Cook, Hampton, Daniels and McLaurin share a bye; a second consecutive coverage test" },
+  { week: "Week 8", team: "Millar", cause: "Houston/San Francisco/New Orleans byes reduce selected depth while the field strengthens" },
+  { week: "Week 9", team: "Jayel", cause: "A dangerous core runs out of affordable injury contingencies" },
+  { week: "Week 10", team: "Max", cause: "Gibbs and Allen keep him alive deep into the competition; one ordinary week ends it" },
+  { week: "Week 11", team: "Pete", cause: "Reaches the final; Maye&rsquo;s bye adds another late planning requirement" },
 ];
-const ELIMINATION_CHAMPION = { team: "Shoes", cause: "Walker, McCaffrey and Lamb form the foundation; existing depth and timely later purchases complete the job." };
-const ELIMINATION_CLOSING = '<p>Shoes&rsquo; Week 11 byes for Darnold, Adams, Fannin and Doubs are a real final-week planning requirement. This champion pick assumes he addresses them over the intervening auctions. TJ still needs Week 6 receivers and Week 8 running-back coverage; Max must solve QB2, including Allen&rsquo;s Week 7 bye. None can simply preserve today&rsquo;s lineup until the trophy arrives.</p>';
+const ELIMINATION_CHAMPION = { team: "TJ", cause: "Survives the current RB squeeze, converts the budget into depth, reunites the full receiver group" };
+const ELIMINATION_CLOSING = "<p>TJ is the single highest Week 6 risk estimate, but this storyline chooses Matt: each individual has a much greater chance to survive than die, and an exact season path need not repeat the top weekly risk every week. TJ&rsquo;s champion selection is explicitly conditional on solving immediate coverage. Pete is a close alternative. The Wednesday auction can materially change this order.</p>";
 
 // Graveyard: real eliminated teams, in order of elimination.
 const GRAVEYARD = [
@@ -1485,6 +1593,38 @@ const GRAVEYARD = [
     '<p>The service will feature an open casket and a closed starting lineup. McMillan and Nabers will deliver the eulogy from the bench, where Skinner apparently preferred their contributions.</p>' +
     '<p>Devaughn Vele has been asked to serve as pallbearer.</p>' +
     '<p>He has already demonstrated that he can let Skinner down while keeping both feet on the ground.</p>'
+  },
+  { week: "Week 5", team: "Shoes", obituary:
+    '<p class="tombstone-byline"><em>Weeks 1&ndash;5, 2026 &middot; The leftovers.</em></p>' +
+    "<p>It is with heavy hearts and suspiciously large Tupperware containers that we announce the passing of Shoes.</p>" +
+    "<p>On a weekend when Canadians gathered to give thanks for everything they had, Shoes lost everything he had, and seven of his closest friends immediately asked whether anybody was taking the McCaffrey.</p>" +
+    "<p>He leaves behind CeeDee Lamb, Christian McCaffrey, Davante Adams, Kenneth Walker and $402 in FAAB. A magnificent spread. Unfortunately, the man who prepared it will not be joining us for seconds.</p>" +
+    "<p>This one feels different.</p>" +
+    "<p>We&rsquo;ve had funerals. We&rsquo;ve had disasters. We&rsquo;ve had teams that appeared to be assembling their own coffins. But Shoes was a giant. You looked at that roster and thought: there&rsquo;s a team I don&rsquo;t want to see in the final.</p>" +
+    "<p>I looked at it and picked him to win the championship.</p>" +
+    "<p>In my defence, I had carefully considered the talent, the depth, the budget and the long-term outlook. I had neglected to consider that his entire team might spend Thanksgiving playing like they&rsquo;d eaten at three different houses.</p>" +
+    "<p>Shoes scored 79.40.</p>" +
+    "<p>CeeDee Lamb brought 1.90 to the potluck. Harold Fannin brought 0.90. Between them, they contributed less than three points and somehow still expected someone else to do the dishes.</p>" +
+    "<p>Chase Brown supplied 5.50. Darnold and Watson combined for 22.50. McCaffrey did enough to suggest he&rsquo;d received the invitation, but not enough to rescue a dinner where half the guests had brought napkins.</p>" +
+    "<p>Kenneth Walker, purchased for $598, was on bye.</p>" +
+    "<p>Nearly sixty per cent of the original budget, sitting there like the good china nobody&rsquo;s allowed to use.</p>" +
+    "<p>And that was enough. One bad week. A few injuries. A bye. Several excellent players becoming simultaneously ordinary, or worse.</p>" +
+    "<p>Even the best possible lineup from Shoes&rsquo; roster would have gone down. There is no comforting little correction here. No obvious bench swap we can point to while assuring ourselves we&rsquo;d have been smarter.</p>" +
+    "<p>That&rsquo;s the part the rest of us should find unsettling.</p>" +
+    "<p>TJ needed a last-minute end-zone intervention to survive last week. Millar has spent much of the season breathing through a straw. Matt just survived a zero at receiver. We are not standing around this grave because we&rsquo;re all brilliant. Some of us are standing here because somebody else&rsquo;s Sunday was worse.</p>" +
+    "<p>There but for the grace of God go I.</p>" +
+    "<p>And there, for a bid of several hundred dollars, goes Christian McCaffrey.</p>" +
+    "<p>Because the mourning period in this league lasts approximately as long as it takes Yahoo to release the players.</p>" +
+    "<p>&ldquo;Terrible shame,&rdquo; says a man calculating whether $394 wins Walker.</p>" +
+    "<p>&ldquo;Really thought he could go all the way,&rdquo; says another, checking Lamb&rsquo;s injury report.</p>" +
+    "<p>&ldquo;Let us know if there&rsquo;s anything we can do,&rdquo; says TJ, already holding a plate.</p>" +
+    "<p>Nobody wants to admit it, but Shoes has put on the best Thanksgiving dinner of the season. McCaffrey carved up for one household. Walker packed away for another. Lamb labelled and refrigerated. Even the people who weren&rsquo;t hungry have suddenly found room.</p>" +
+    "<p>As for me, I will be reviewing the championship prediction process. Apparently my advanced analytical model can identify a contender with remarkable accuracy right up until he finishes eighth out of eight.</p>" +
+    "<p>Shoes deserved a longer season. He had the team for it.</p>" +
+    "<p>Instead, he becomes the first giant to fall, and the rest of us get a reminder that the blade does not care how good the menu looks.</p>" +
+    "<p>Rest in peace, Shoes.</p>" +
+    "<p>We are thankful it wasn&rsquo;t us.</p>" +
+    "<p>We have also brought our own containers.</p>"
   },
 ];
 
@@ -1747,7 +1887,7 @@ if (MONDAY_SONG && (new Date().getDay() === 1 || new URLSearchParams(location.se
   mondayHype.hidden = false;
 }
 
-// ---- Render: Week 5 elimination watch ----
+// ---- Render: Week 6 elimination watch ----
 const elimPanel = document.getElementById("elimPanel");
 function riskBand(chance) {
   if (chance >= 12) return "critical";
@@ -1759,7 +1899,7 @@ const maxChance = Math.max(...ELIMINATION_DATA.map(d => d.chance));
 elimPanel.innerHTML = ELIMINATION_DATA.map((d, i) => {
   const band = riskBand(d.chance);
   const width = (d.chance / (maxChance * 1.08)) * 100;
-  return '<div class="elim-row" title="FAAB remaining: $' + d.faab + '">' +
+  return '<div class="elim-row" title="FAAB remaining: $' + d.faab + (d.note ? ' \u00b7 ' + d.note : '') + '">' +
     '<span class="elim-rank">' + (i + 1) + '</span>' +
     '<span class="elim-team">' + d.team + '</span>' +
     '<span class="elim-track"><span class="elim-fill ' + band + '" style="width:' + width + '%"></span></span>' +
@@ -1767,22 +1907,35 @@ elimPanel.innerHTML = ELIMINATION_DATA.map((d, i) => {
     '</div>';
 }).join("");
 
-// ---- Render: Week 5 previews ----
+// ---- Render: Week 6 previews ----
 const summariesGrid = document.getElementById("summariesGrid");
-summariesGrid.innerHTML = WEEK5_PREVIEW.map(r => {
+summariesGrid.innerHTML = WEEK6_PREVIEW.map(r => {
   const body = r.paragraphs.map(p => '<p>' + p + '</p>').join("");
-  const elimClass = riskBand(r.elim5);
+  const elimClass = riskBand(r.elim6);
   return '<div class="summary-card">' +
     '<div class="summary-head">' +
       '<span class="summary-team">' + r.team + '</span>' +
-      '<span class="summary-meta">Proj. ' + r.proj.toFixed(2) + ' &middot; Season ' + r.season.toFixed(2) + ' &middot; FAB $' + r.faab + '</span>' +
+      '<span class="summary-meta">Wk 5: ' + r.rank + ' &middot; ' + r.points.toFixed(2) + ' pts &middot; FAB $' + r.faab + '</span>' +
       '<span class="summary-subtitle">' + r.subtitle + '</span>' +
     '</div>' +
     '<div class="summary-body">' + body + '</div>' +
     '<div class="summary-stats">' +
-      '<span><span class="stat-label">Wk 5 elim </span><span class="stat-val ' + elimClass + '">' + r.elim5 + '%</span></span>' +
+      '<span><span class="stat-label">Wk 6 elim </span><span class="stat-val ' + elimClass + '">' + r.elim6 + '%</span></span>' +
       '<span><span class="stat-label">Champ </span><span class="stat-val champ">' + r.champ + '%</span></span>' +
     '</div>' +
+  '</div>';
+}).join("");
+
+// ---- Render: Week 5 recaps ----
+document.getElementById("recapGrid").innerHTML = WEEK5_RECAP.map(r => {
+  const body = r.paragraphs.map(p => '<p>' + p + '</p>').join("");
+  return '<div class="summary-card">' +
+    '<div class="summary-head">' +
+      '<span class="summary-team">' + r.team + '</span>' +
+      '<span class="summary-meta">Wk 5: ' + r.rank + ' &middot; ' + r.points.toFixed(2) + ' pts</span>' +
+      '<span class="summary-subtitle">' + r.subtitle + '</span>' +
+    '</div>' +
+    '<div class="summary-body">' + body + '</div>' +
   '</div>';
 }).join("");
 
